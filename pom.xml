@@ -8,7 +8,10 @@
   <packaging>pom</packaging>
   <name>JuheData</name>
   <url>http://maven.apache.org</url>
-
+ <modules>
+  	<module>Juhe_HttpClient</module>
+  	<module>Juhe_Common</module>
+  </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -21,7 +24,5 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <modules>
-  	<module>Juhe_HttpClient</module>
-  </modules>
+ 
 </project>
