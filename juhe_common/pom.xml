@@ -7,6 +7,10 @@
     <artifactId>JuheData</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
+   <modules>
+  	<module>juhu_common_httpclient</module>
+  	 <module>juhu_common_util</module>
+  </modules>
   <groupId>com.aido.common</groupId>
   <artifactId>juhe_common</artifactId>
   <name>juhe_common</name>
@@ -23,7 +27,4 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <modules>
-  	<module>juhu_common_httpclient</module>
-  </modules>
 </project>

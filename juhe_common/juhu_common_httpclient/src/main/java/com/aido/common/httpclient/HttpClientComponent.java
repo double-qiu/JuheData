@@ -31,6 +31,11 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
 import com.aido.common.httpclient.model.HttpResult;
+import com.aido.common.util.ResultJSON;
+import com.aido.common.util.ResultListJSON;
+import com.aido.manager.dto.historyToday.HistoryTodayEventDetailOutVO;
+import com.aido.manager.dto.historyToday.HistoryTodayEventListOutVO;
+import com.alibaba.fastjson.JSON;
 
 /**
  * HttpClient调用客户端
@@ -52,17 +57,98 @@ public class HttpClientComponent {
 		return SingletonHolder.INSTANCE;
 	}
 	
+	/**  
+	 *  getResultListByGet:get方法获取数据
+	 *  @return_type:void
+	 *  @author DOUBLE
+	 *  @param url
+	 *  @param params
+	 *  @param headers
+	 *  @param retryTime
+	 *  @throws ClientProtocolException
+	 *  @throws IOException
+	 *  @throws URISyntaxException  
+	 */
+	public static List<Object> getResultListByGet(String url, Map<String, String> params, Map<String, String> headers, int retryTime)
+			throws Exception {
+		HttpResult httpResult = HttpClientComponent.getInstance().doGet(url, params, headers, retryTime);
+		List<Object> result = null;
+		if(httpResult != null && httpResult.getStatus() == 200) {
+			String resultData = httpResult.getData();
+			ResultListJSON resultDataJson =  JSON.parseObject(resultData,ResultListJSON.class);  
+			 result = resultDataJson.getResult();
+		}
+		return result;
+	}
+	
 	public static void main(String[] args) {
-		String url = "http://op.juhe.cn/onebox/basketball/team";
+		//testHistoryDayEventList();
+		testHistoryDayEventDetail();
+	}
+
+	/**  
+	 *  testHistoryDayEventList:(这里用一句话描述这个方法的作用). 
+	 *  @return_type:void
+	 *  @author DOUBLE  
+	 */
+	private static void testHistoryDayEventDetail() {
+		String url = "http://api.juheapi.com/japi/tohdet";
 		Map<String, String> params = new HashMap<String, String>();
-		params.put("dtype", "json");
-		params.put("team","勇士");
-		params.put("key","c3a14839ddf63c0c9a069232d01ce26e");
+		params.put("v","1.0");
+		params.put("id","17221224");
+		params.put("key","5441f38932f99138892ff6dd4b76eb5d");
 		Map<String, String> headers = new HashMap<String, String>();
 		int retryTime = 0;
 		try {
 			HttpResult httpResult = HttpClientComponent.getInstance().doGet(url, params, headers, retryTime);
 			System.out.println(httpResult.getStatus());
+			if(httpResult != null && httpResult.getStatus() == 200) {
+				String resultData = httpResult.getData();
+				ResultListJSON resultDataJson =  JSON.parseObject(resultData,ResultListJSON.class);  
+				List< Object> result = resultDataJson.getResult();
+					String str = result.get(0).toString();
+					HistoryTodayEventDetailOutVO outVO = JSON.parseObject(str, HistoryTodayEventDetailOutVO.class);  
+					System.out.println(outVO);
+			}
+			
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (URISyntaxException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	/**  
+	 *  testHistoryDayEventList:(这里用一句话描述这个方法的作用). 
+	 *  @return_type:void
+	 *  @author DOUBLE  
+	 */
+	private static void testHistoryDayEventList() {
+		String url = "http://api.juheapi.com/japi/toh";
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("v","1.0");
+		params.put("month","12");
+		params.put("day","24");
+		params.put("key","5441f38932f99138892ff6dd4b76eb5d");
+		Map<String, String> headers = new HashMap<String, String>();
+		int retryTime = 0;
+		try {
+			HttpResult httpResult = HttpClientComponent.getInstance().doGet(url, params, headers, retryTime);
+			System.out.println(httpResult.getStatus());
+			if(httpResult != null && httpResult.getStatus() == 200) {
+				String resultData = httpResult.getData();
+				ResultListJSON resultDataJson =  JSON.parseObject(resultData,ResultListJSON.class);  
+				List< Object> result = resultDataJson.getResult();
+				for (Object object : result) {
+					String str = object.toString();
+					HistoryTodayEventListOutVO outVO = JSON.parseObject(str, HistoryTodayEventListOutVO.class);  
+					System.out.println(outVO);
+				}
+			}
+			
 		} catch (ClientProtocolException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

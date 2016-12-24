@@ -26,7 +26,7 @@ import com.aido.common.httpclient.model.HttpClientProperties;
 /**
  * ClassName: HttpClientManager  
  * (HttpClient管理类)
- * @author zhangtian  
+ * @author DOUBLE  
  * @version
  */
 public class HttpClientManager {
@@ -58,7 +58,7 @@ public class HttpClientManager {
 	/**
 	 *  getHttpClientBuilder:(HttpClientBuilder). 
 	 *  @return_type:HttpClientBuilder
-	 *  @author zhangtian 
+	 *  @author DOUBLE 
 	 *  @return
 	 */
 	private static final HttpClientBuilder getHttpClientBuilder(int retryTime) {
@@ -75,7 +75,7 @@ public class HttpClientManager {
 	 * 创建CloseableHttpClient
 	 *  createCloseableHttpClient:(这里用一句话描述这个方法的作用). 
 	 *  @return_type:CloseableHttpClient
-	 *  @author zhangtian 
+	 *  @author DOUBLE 
 	 *  @return
 	 */
 	public static final CloseableHttpClient createCloseableHttpClient(int retryTime) {
@@ -101,7 +101,7 @@ public class HttpClientManager {
 	/**
 	 *  getRequestConfig:(RequestConfig). 
 	 *  @return_type:RequestConfig
-	 *  @author zhangtian 
+	 *  @author DOUBLE 
 	 *  @return
 	 */
 	public static final RequestConfig getRequestConfig() {

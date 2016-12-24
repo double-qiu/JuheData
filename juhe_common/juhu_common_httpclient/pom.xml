@@ -32,6 +32,15 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.4</version>
         </dependency>
-	
+	<dependency>
+     	<groupId>com.aido.common.util</groupId>
+  		<artifactId>juhu_common_util</artifactId>
+      	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+     	<groupId>com.aido.manager.dto</groupId>
+  		<artifactId>juhe_manager_dto</artifactId>
+      	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 </project>
