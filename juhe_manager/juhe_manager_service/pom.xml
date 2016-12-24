@@ -9,7 +9,6 @@
   </parent>
   <groupId>com.aido.manager.service</groupId>
   <artifactId>juhe_manager_service</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <name>juhe_manager_service</name>
   <url>http://maven.apache.org</url>
   <properties>
@@ -21,6 +20,16 @@
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
+    </dependency>
+     <dependency>
+     	<groupId>com.aido.manager.dto</groupId>
+  		<artifactId>juhe_manager_dto</artifactId>
+      	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+     	<groupId>com.aido.common.util</groupId>
+  		<artifactId>juhu_common_util</artifactId>
+      	<version>0.0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
 </project>

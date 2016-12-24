@@ -9,7 +9,6 @@
   </parent>
   <groupId>com.aido.manager.pojo</groupId>
   <artifactId>juhe_manager_pojo</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <name>juhe_manager_pojo</name>
   <url>http://maven.apache.org</url>
   <properties>

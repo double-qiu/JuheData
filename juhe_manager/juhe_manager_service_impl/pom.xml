@@ -7,15 +7,29 @@
     <artifactId>juhe_manager</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>com.aido.manager</groupId>
+  <groupId>com.aido.manager.service.impl</groupId>
   <artifactId>juhe_manager_service_impl</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <name>juhe_manager_service_impl</name>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
+  	<dependency>
+     	<groupId>com.aido.manager.dto</groupId>
+  		<artifactId>juhe_manager_dto</artifactId>
+      	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+     	<groupId>com.aido.common.httpclient</groupId>
+  		<artifactId>juhu_common_httpclient</artifactId>
+      	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+     	<groupId>com.aido.manager.service</groupId>
+  		<artifactId>juhe_manager_service</artifactId>
+      	<version>0.0.1-SNAPSHOT</version>
+    </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
