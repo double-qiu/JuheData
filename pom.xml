@@ -9,9 +9,10 @@
   <name>JuheData</name>
   <url>http://maven.apache.org</url>
  <modules>
-  	<module>Juhe_HttpClient</module>
-  	<module>Juhe_Common</module>
-  </modules>
+  	<module>juhe_httpclient</module>
+  	<module>juhe_common</module>
+  	<module>juhe_manager</module>
+ </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
