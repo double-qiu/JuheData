@@ -15,7 +15,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
-  <dependency>
+  <!-- <dependency>
 	    <groupId>org.apache.httpcomponents</groupId>
 	    <artifactId>httpclient</artifactId>
 	    <version>4.5.1</version>
@@ -25,13 +25,12 @@
 	    <groupId>org.apache.httpcomponents</groupId>
 	    <artifactId>httpmime</artifactId>
 	    <version>4.5.2</version>
-	</dependency>
-	
+	</dependency> 
 	<dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.4</version>
-        </dependency>
+        </dependency>-->
 	<dependency>
      	<groupId>com.aido.common.util</groupId>
   		<artifactId>juhu_common_util</artifactId>

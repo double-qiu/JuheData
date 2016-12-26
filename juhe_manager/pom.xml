@@ -14,6 +14,7 @@
   	<module>juhe_manager_dao</module>
   	<module>juhe_manager_dao_impl</module>
   	<module>juhe_manager_dto</module>
+  	<module>juhe_manager_web</module>
   </modules>
   <groupId>com.aido.manager</groupId>
   <artifactId>juhe_manager</artifactId>
@@ -31,5 +32,4 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  
 </project>

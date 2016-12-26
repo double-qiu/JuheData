@@ -1,63 +1,78 @@
-<?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.aido.manager</groupId>
-    <artifactId>juhe_manager</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
-  <groupId>com.aido.manager.service.impl</groupId>
-  <artifactId>juhe_manager_service_impl</artifactId>
-  <name>juhe_manager_service_impl</name>
-  <url>http://maven.apache.org</url>
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-  <dependencies>
-  	<dependency>
-     	<groupId>com.aido.manager.dto</groupId>
-  		<artifactId>juhe_manager_dto</artifactId>
-      	<version>0.0.1-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-     	<groupId>com.aido.common.httpclient</groupId>
-  		<artifactId>juhu_common_httpclient</artifactId>
-      	<version>0.0.1-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-     	<groupId>com.aido.manager.service</groupId>
-  		<artifactId>juhe_manager_service</artifactId>
-      	<version>0.0.1-SNAPSHOT</version>
-    </dependency>
-    <dependency>
-          <groupId>com.alibaba</groupId>
-          <artifactId>dubbo</artifactId>
-          <version>2.5.3</version>
-          <exclusions>
-              <exclusion>
-                  <groupId>org.springframework</groupId>
-                  <artifactId>spring</artifactId>
-              </exclusion>
-          </exclusions>
-      </dependency>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+    	<groupId>com.aido.manager</groupId>
+    	<artifactId>juhe_manager</artifactId>
+    	<version>0.0.1-SNAPSHOT</version>
+  	</parent>
+    <modelVersion>4.0.0</modelVersion>
+	<groupId>com.aido.manager.service.impl</groupId>
+  	<artifactId>juhe_manager_service_impl</artifactId>
+  	<name>juhe_manager_service_impl</name>
+  	<url>http://maven.apache.org</url>
+  	<properties>
+    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    	 <springboot.version>1.3.6.RELEASE</springboot.version>
+  	</properties>
+    <dependencies>
+		<dependency>
+	     	<groupId>com.aido.manager.dto</groupId>
+	  		<artifactId>juhe_manager_dto</artifactId>
+	      	<version>0.0.1-SNAPSHOT</version>
+	    </dependency>
+	    <dependency>
+	     	<groupId>com.aido.common.httpclient</groupId>
+	  		<artifactId>juhu_common_httpclient</artifactId>
+	      	<version>0.0.1-SNAPSHOT</version>
+	    </dependency>
+	    <dependency>
+	     	<groupId>com.aido.manager.service</groupId>
+	  		<artifactId>juhe_manager_service</artifactId>
+	      	<version>0.0.1-SNAPSHOT</version>
+	    </dependency>
+       <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+			<version>${springboot.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<version>${springboot.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jersey</artifactId>
+			<version>${springboot.version}</version>
+		</dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>2.5.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
         	<dependency>
 			<groupId>org.apache.zookeeper</groupId>
 			<artifactId>zookeeper</artifactId>
 			<version>3.4.6</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.github.sgroschupf</groupId>
 			<artifactId>zkclient</artifactId>
 			<version>0.1</version>
 		</dependency>
-    
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+    </dependencies>
 </project>
