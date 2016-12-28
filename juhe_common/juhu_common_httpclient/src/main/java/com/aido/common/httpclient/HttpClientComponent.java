@@ -33,8 +33,8 @@ import org.apache.http.util.EntityUtils;
 import com.aido.common.httpclient.model.HttpResult;
 import com.aido.common.util.ResultJSON;
 import com.aido.common.util.ResultListJSON;
-import com.aido.manager.dto.historyToday.HistoryTodayEventDetailOutVO;
-import com.aido.manager.dto.historyToday.HistoryTodayEventListOutVO;
+import com.aido.manager.dto.historyToday.HistoryTodayEventDetailVO;
+import com.aido.manager.dto.historyToday.HistoryTodayEventListVO;
 import com.alibaba.fastjson.JSON;
 
 /**
@@ -107,7 +107,7 @@ public class HttpClientComponent {
 				ResultListJSON resultDataJson =  JSON.parseObject(resultData,ResultListJSON.class);  
 				List< Object> result = resultDataJson.getResult();
 					String str = result.get(0).toString();
-					HistoryTodayEventDetailOutVO outVO = JSON.parseObject(str, HistoryTodayEventDetailOutVO.class);  
+					HistoryTodayEventDetailVO outVO = JSON.parseObject(str, HistoryTodayEventDetailVO.class);  
 					System.out.println(outVO);
 			}
 			
@@ -144,7 +144,7 @@ public class HttpClientComponent {
 				List< Object> result = resultDataJson.getResult();
 				for (Object object : result) {
 					String str = object.toString();
-					HistoryTodayEventListOutVO outVO = JSON.parseObject(str, HistoryTodayEventListOutVO.class);  
+					HistoryTodayEventListVO outVO = JSON.parseObject(str, HistoryTodayEventListVO.class);  
 					System.out.println(outVO);
 				}
 			}

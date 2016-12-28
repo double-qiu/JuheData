@@ -24,6 +24,7 @@
 		<junit.version>4.12</junit.version>
 		<mysql.version>5.1.9</mysql.version>
 		<fastjson.version>1.2.7</fastjson.version>
+		 <jackson.version>2.5.4</jackson.version>
 	</properties>
 
   <dependencies>
@@ -81,15 +82,16 @@
 		</dependency>
 		<!-- srping end -->
 		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-mapper-asl</artifactId>
-			<version>1.9.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.codehaus.jackson</groupId>
-			<artifactId>jackson-core-asl</artifactId>
-			<version>1.9.2</version>
-		</dependency>
+	      <groupId>com.fasterxml.jackson.core</groupId>
+	      <artifactId>jackson-core</artifactId>
+	      <version>${jackson.version}</version>
+	    </dependency>
+	    <dependency>
+	      <groupId>com.fasterxml.jackson.core</groupId>
+	      <artifactId>jackson-databind</artifactId>
+	      <version>${jackson.version}</version>
+	    </dependency>
+		
 		<!-- 添加mybatis与Spring整合的核心包 -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
@@ -251,19 +253,6 @@
 			<optional>true</optional>
 		</dependency>
 		<!-- redis end-->
-		<!-- jackson -->
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>2.4.2</version>
-			<optional>true</optional>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.module</groupId>
-			<artifactId>jackson-module-jaxb-annotations</artifactId>
-			<version>2.4.2</version>
-			<optional>true</optional>
-		</dependency>
 		<!-- logging -->
 		<!-- <dependency>
 			<groupId>org.slf4j</groupId>

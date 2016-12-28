@@ -15,7 +15,7 @@ import java.io.Serializable;
  * @author DOUBLE
  * @version   
  */
-public class HistoryTodayEventListOutVO implements Serializable {
+public class HistoryTodayEventListVO implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 

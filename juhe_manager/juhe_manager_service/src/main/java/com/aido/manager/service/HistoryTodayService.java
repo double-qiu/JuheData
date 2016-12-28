@@ -9,8 +9,8 @@ package com.aido.manager.service;
 
 import java.util.List;
 
-import com.aido.manager.dto.historyToday.HistoryTodayEventDetailOutVO;
-import com.aido.manager.dto.historyToday.HistoryTodayEventListOutVO;
+import com.aido.manager.dto.historyToday.HistoryTodayEventDetailVO;
+import com.aido.manager.dto.historyToday.HistoryTodayEventListVO;
 
 /**  
  * ClassName: HistoryTodayService  
@@ -31,7 +31,7 @@ public interface HistoryTodayService {
 	 *  @param day 日
 	 *  @return
 	 */
-	List<HistoryTodayEventListOutVO> getHistoryTodayEventList(String url,String key,String v,String month,String day) throws Exception ;
+	List<HistoryTodayEventListVO> getHistoryTodayEventList(String url,String key,String v,String month,String day) throws Exception ;
 	
 	/**
 	 *  getHistoryTodayEventDetail:根据ID查询事件详情
@@ -43,7 +43,7 @@ public interface HistoryTodayService {
 	 *  @param id 事件id
 	 *  @return
 	 */
-	HistoryTodayEventDetailOutVO getHistoryTodayEventDetail(String url,String key,String v,String id) throws Exception ;
+	HistoryTodayEventDetailVO getHistoryTodayEventDetail(String url,String key,String v,String id) throws Exception ;
 	
 	/**
 	 *  getHistoryTodayEventList:事件列表 v2.0
@@ -54,7 +54,7 @@ public interface HistoryTodayService {
 	 *  @param date 日期,格式:月/日 如:1/1,/10/1,12/12 如月或者日小于10,前面无需加0
 	 *  @return
 	 */
-	List<HistoryTodayEventListOutVO> getHistoryTodayEventList(String url,String key,String date) throws Exception ;
+	List<HistoryTodayEventListVO> getHistoryTodayEventList(String url,String key,String date) throws Exception ;
 	
 	/**
 	 *  getHistoryTodayEventDetail:根据ID查询事件详情 v2.0
@@ -65,5 +65,5 @@ public interface HistoryTodayService {
 	 *  @param e_id 事件id
 	 *  @return
 	 */
-	HistoryTodayEventDetailOutVO getHistoryTodayEventDetail(String url,String key,String e_id) throws Exception ;
+	HistoryTodayEventDetailVO getHistoryTodayEventDetail(String url,String key,String e_id) throws Exception ;
 }

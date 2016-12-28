@@ -13,7 +13,7 @@ package com.aido.manager.dto.historyToday;
  * @author DOUBLE
  * @version   
  */
-public class HistoryTodayEventDetailOutVO {
+public class HistoryTodayEventDetailVO {
 	
 	private String title;//标题
 	

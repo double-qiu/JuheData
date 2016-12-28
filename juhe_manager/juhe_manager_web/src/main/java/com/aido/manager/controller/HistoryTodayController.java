@@ -7,15 +7,21 @@
  */
 package com.aido.manager.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.aido.manager.dto.historyToday.HistoryTodayEventListOutVO;
+import com.aido.common.util.InvokeResult;
+import com.aido.manager.dto.historyToday.HistoryTodayEventListVO;
+import com.aido.manager.dto.historyToday.HistoryTodayEventQueryVO;
+import com.aido.manager.dto.historyToday.SingleVO;
+import com.aido.manager.service.CommonService;
 import com.aido.manager.service.HistoryTodayService;
 
 /**  
@@ -25,21 +31,65 @@ import com.aido.manager.service.HistoryTodayService;
  * @version   
  */
 @Controller
+@RequestMapping("/historyToday")
 public class HistoryTodayController {
+	
+	private static Logger logger = LoggerFactory.getLogger(HistoryTodayController.class);
 	@Autowired
 	private HistoryTodayService historyTodayService;
-	@RequestMapping("/historyTodayEventList")
+	
+	@Autowired
+	private CommonService commonService;
+	
+	/**
+	 *  historyTodayEventList:历史的今天列表请求
+	 *  @return_type:InvokeResult
+	 *  @author DOUBLE
+	 *  @param query
+	 *  @return
+	 */
+	@RequestMapping("/eventList")
 	@ResponseBody
-	public String historyTodayEventList(Model model){
-		List<HistoryTodayEventListOutVO> historyTodayList;
+	public InvokeResult historyTodayEventList(HistoryTodayEventQueryVO query){
+		List<HistoryTodayEventListVO> historyTodayList = new ArrayList<HistoryTodayEventListVO>();
 		try {
-			historyTodayList =historyTodayService.getHistoryTodayEventList("http://api.juheapi.com/japi/toh", "5441f38932f99138892ff6dd4b76eb5d", "1.0", "12", "26");
-			System.out.println("SIZE=="+historyTodayList.size());
+			historyTodayList =historyTodayService.getHistoryTodayEventList(query.getUrl(), query.getKey(), query.getV(), query.getMonth(), query.getDay());
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("查询历史的今天数据失败：" + e.getMessage(),e);
+			InvokeResult.failure(e.getMessage());
 		}
-		return "index";
+		return InvokeResult.success(historyTodayList);
 	}
+	/**
+	 *  getMonths:获取月份 
+	 *  @return_type:InvokeResult
+	 *  @author DOUBLE
+	 *  @return
+	 */
+	@RequestMapping("/getMonths")
+	@ResponseBody
+	public InvokeResult getMonths(){
+		List<SingleVO> monthList = new ArrayList<SingleVO>();
+		try {
+			monthList = commonService.getMonthList();
+		} catch (Exception e) {
+			logger.error("查询历史的今天数据失败：" + e.getMessage(),e);
+		}
+		return InvokeResult.success(monthList);
+	}
+	@RequestMapping("/getDays")
+	@ResponseBody
+	public InvokeResult getDays(){
+		List<SingleVO> monthList = new ArrayList<SingleVO>();
+		try {
+			monthList = commonService.getDayList();
+		} catch (Exception e) {
+			logger.error("查询历史的今天数据失败：" + e.getMessage(),e);
+		}
+		return InvokeResult.success(monthList);
+	}
+	
+	
 	@RequestMapping("/index")
 	public String index(){
 		return "index";

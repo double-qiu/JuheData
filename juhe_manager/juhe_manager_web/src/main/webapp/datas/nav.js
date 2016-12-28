@@ -1,4 +1,25 @@
 var navs = [{
+	"title": "其他数据",
+	"icon": "fa-cubes",
+	"spread": true,
+	"children": [{
+		"title": "历史的今天",
+		"icon": "&#xe641;",
+		"href": "/juhe_manager_web/page/otherdata/historyToday.jsp"
+	}, {
+		"title": "图书电商数据",
+		"icon": "&#xe63c;",
+		"href": "form.html"
+	}, {
+		"title": "简/繁/火星字体转换",
+		"icon": "&#xe63c;",
+		"href": "/juhe_manager_web/page/table.jsp"
+	}, {
+		"title": "全国WIFI",
+		"icon": "&#xe609;",
+		"href": "nav.html"
+	}]
+}, {
 	"title": "基本元素",
 	"icon": "fa-cubes",
 	"spread": true,
