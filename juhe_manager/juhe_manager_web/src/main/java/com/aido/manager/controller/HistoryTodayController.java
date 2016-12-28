@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.aido.common.util.InvokeResult;
+import com.aido.manager.dto.historyToday.HistoryTodayEventDetailVO;
 import com.aido.manager.dto.historyToday.HistoryTodayEventListVO;
 import com.aido.manager.dto.historyToday.HistoryTodayEventQueryVO;
 import com.aido.manager.dto.historyToday.SingleVO;
@@ -53,13 +54,28 @@ public class HistoryTodayController {
 	public InvokeResult historyTodayEventList(HistoryTodayEventQueryVO query){
 		List<HistoryTodayEventListVO> historyTodayList = new ArrayList<HistoryTodayEventListVO>();
 		try {
-			historyTodayList =historyTodayService.getHistoryTodayEventList(query.getUrl(), query.getKey(), query.getV(), query.getMonth(), query.getDay());
+			historyTodayList =historyTodayService.getHistoryTodayEventList(query.getUrl("list"), query.getKey(), query.getV(), query.getMonth(), query.getDay());
 		} catch (Exception e) {
-			logger.error("查询历史的今天数据失败：" + e.getMessage(),e);
-			InvokeResult.failure(e.getMessage());
+			logger.error("查询历史的今天列表数据失败：" + e.getMessage(),e);
+			return InvokeResult.failure(e.getMessage());
 		}
 		return InvokeResult.success(historyTodayList);
 	}
+	
+	@RequestMapping("/eventDetail")
+	@ResponseBody
+	public InvokeResult historyTodayEventDetail(HistoryTodayEventQueryVO query){
+		HistoryTodayEventDetailVO historyTodayDetail = new HistoryTodayEventDetailVO();
+		try {
+			historyTodayDetail =historyTodayService.getHistoryTodayEventDetail(query.getUrl("detail"), query.getKey(), query.getV(),query.getId());
+		} catch (Exception e) {
+			logger.error("查询历史的今天详细数据失败：" + e.getMessage(),e);
+			return InvokeResult.failure(e.getMessage());
+		}
+		return InvokeResult.success(historyTodayDetail);
+	}
+	
+	
 	/**
 	 *  getMonths:获取月份 
 	 *  @return_type:InvokeResult

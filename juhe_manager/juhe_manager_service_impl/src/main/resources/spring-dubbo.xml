@@ -16,9 +16,15 @@
     <!-- 用dubbo协议在20880端口暴露服务 -->
     <dubbo:protocol name="dubbo" port="20880" />
 
+	<!-- 延迟到Spring初始化完成后，再暴露服务,服务调用超时设置为6秒,超时不重试-->    
+   <dubbo:provider delay="-1" timeout="6000" retries="0"/>  
+
     <!-- 声明需要暴露的服务接口 -->
     <!-- 历史的今天服务接口 -->
     <dubbo:service interface=" com.aido.manager.service.HistoryTodayService" ref="historyTodayService" />
+    
+    <!-- 微信精选服务接口 -->
+    <dubbo:service interface=" com.aido.manager.service.WeChatSelectedService" ref="weChatSelectedService" />
     
     <!-- 公共服务接口 -->
     <dubbo:service interface=" com.aido.manager.service.CommonService" ref="commonService" />

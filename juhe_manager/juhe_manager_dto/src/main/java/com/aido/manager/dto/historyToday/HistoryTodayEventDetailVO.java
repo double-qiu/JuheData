@@ -7,13 +7,21 @@
  */
 package com.aido.manager.dto.historyToday;
 
+import java.io.Serializable;
+
+import com.alibaba.fastjson.annotation.JSONField;
+
 /**  
  * ClassName: HistoryTodayOutVO  
  * 历史的今天获取数据输出VO
  * @author DOUBLE
  * @version   
  */
-public class HistoryTodayEventDetailVO {
+public class HistoryTodayEventDetailVO implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+
+	private String _id;//主键
 	
 	private String title;//标题
 	
@@ -30,6 +38,15 @@ public class HistoryTodayEventDetailVO {
 	private String content;//描述
 	
 	private String lunar;//阴历日期
+
+	@JSONField(name="_id")
+	public String get_id() {
+		return _id;
+	}
+	@JSONField(name="_id")
+	public void set_id(String _id) {
+		this._id = _id;
+	}
 
 	public String getTitle() {
 		return title;
@@ -78,7 +95,6 @@ public class HistoryTodayEventDetailVO {
 	public void setDes(String des) {
 		this.des = des;
 	}
-	
 	public String getContent() {
 		return content;
 	}

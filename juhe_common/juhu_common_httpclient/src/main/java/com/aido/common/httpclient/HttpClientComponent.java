@@ -81,6 +81,18 @@ public class HttpClientComponent {
 		return result;
 	}
 	
+	public static Map<String, Object> getResultMapByGet(String url, Map<String, String> params, Map<String, String> headers, int retryTime)
+			throws Exception {
+		HttpResult httpResult = HttpClientComponent.getInstance().doGet(url, params, headers, retryTime);
+		Map<String, Object>  result = null;
+		if(httpResult != null && httpResult.getStatus() == 200) {
+			String resultData = httpResult.getData();
+			ResultJSON resultDataJson =  JSON.parseObject(resultData,ResultJSON.class);  
+			 result = resultDataJson.getResult();
+		}
+		return result;
+	}
+	
 	public static void main(String[] args) {
 		//testHistoryDayEventList();
 		testHistoryDayEventDetail();

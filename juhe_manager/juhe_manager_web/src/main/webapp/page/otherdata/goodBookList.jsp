@@ -42,7 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<a href="#" class="layui-btn layui-btn-small">
 					<i class="fa fa-shopping-cart" aria-hidden="true"></i> 导出信息
 				</a> -->
-				<a v-on:click="search()" class="layui-btn layui-btn-small" id="search">
+				<a v-on:click="search()" class="layui-btn " id="search">
 					<i class="layui-icon">&#xe615;</i> 搜索
 				</a>
 			</blockquote>
@@ -53,7 +53,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<table class="site-table table-hover">
 						<thead>
 							<tr>
-								<th><input type="checkbox" id="selected-all"  v-on:click="selectAll()"></th>
 								<th>标题</th>
 								<th>年</th>
 								<th>月</th>
@@ -65,17 +64,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</thead>
 						<tbody>
 							<tr  v-for="events in historyTodayEventList">
-								<td><input type="checkbox"></td>
-								<td>
-									<a href="/manage/article_edit_1">{{events.title}}</a>
-								</td>
+								<td>{{events.title}}</td>
 								<td>{{events.year}}</td>
 								<td>{{events.month}}</td>
 								<td>{{events.day}}</td>
 								<td>{{events.des}}</td>
 								<td>{{events.lunar}}</td>
 								<td>
-									<a href="/detail-1" target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">预览</a>
+									<a href="javascript:;" class="layui-btn layui-btn-normal layui-btn-mini" v-on:click="detail(events._id)">详情</a>
+									<!-- <a href="/detail-1" target="_blank" class="layui-btn layui-btn-normal layui-btn-mini">预览</a> -->
 								</td>
 							</tr>
 						</tbody>
@@ -90,14 +87,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="<%=request.getContextPath()%>/plugins/layui/layui.js"></script>
 		<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-2.1.3.js"></script>
 		<script type="text/javascript" src="<%=request.getContextPath()%>/js/vue.min.js"></script>
+		
 		<script>
 		var vue = new Vue({
             el: '#historyToday',
             data: {
             	historyTodayEventList : '',
             	monthList : '',
-            	dayList : '',
-            	monchange :''
+            	dayList : ''
             },
             methods: {
                 search: function () {
@@ -123,10 +120,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         }
                     });
                 },
-                selectAll: function () {
-                	alert(333);
+                detail: function (id) {
+                	$.getJSON('<%=request.getContextPath()%>/historyToday/eventDetail',{"id":id},function(result){
+                		if(result.success) {
+                			var html =
+                				'<fieldset class="layui-elem-field layui-field-title">\
+                			  		<legend>'+result.data.title+'</legend>\
+                				</fieldset>\
+                				<blockquote class="layui-elem-quote">'+result.data.des+'</blockquote>\
+                				<div style="width:100%; ">\
+	                				<div class="layui-inline"  style="width:100%; text-align:center;vertical-align: middle;">\
+	                				  <img src="'+result.data.pic+'"  >\
+	                				</div>\
+                				</div>\
+                			 	<blockquote class="layui-elem-quote layui-quote-nm">'+result.data.content+'</blockquote>';
+                			layer.open({
+  	                		  type: 1
+  	                		  ,title: false //不显示标题栏
+  	                		  ,closeBtn: true
+  	                		  ,area: '1200px;'
+  	                		  ,shade: 0.8
+  	                		  ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
+  	                		  ,resize: false
+  	                		 // ,btn: ['火速围观', '残忍拒绝']
+  	                		  ,btnAlign: 'c'
+  	                		  ,moveType: 0 //拖拽模式，0或者1
+  	                		  ,content: html
+  	                		  ,success: function(layero){
+  	                		    var btn = layero.find('.layui-layer-btn');
+  	                		    btn.find('.layui-layer-btn0').attr({
+  	                		      href: 'http://www.layui.com/'
+  	                		      ,target: '_blank'
+  	                		    });
+  	                		  }
+  	                		});
+                		}
+                	});
+                	
                 }
             },
+            
             beforeMount: function() {
             	var _self = this;
             	var myDate = new Date();
@@ -177,13 +210,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				laypage = layui.laypage,
 				layer = parent.layer === undefined ? layui.layer : parent.layer;
 				
-			
-				
 				$('input').iCheck({
 					checkboxClass: 'icheckbox_flat-green'
 				});
+				
+				//绑定详情事件
+	            /* $('a[data-opt=detail]').each(function(){
+	                $(this).on('click',function(){
+	                    var $this =$(this);
+	                    var id = $this.data('id');
+	                    $.getJSON('/historyToday/eventDetail',{id:id},function(result){
+	                        var getTpl = $('#detail-temp').html();
+	                        laytpl(getTpl).render(result, function(html){
+	                            if(result.success){
+	                                layer.open({
+	                                    title:'事件详情',
+	                                    type: 1,
+	                                    skin: 'layui-layer-rim', //加上边框
+	                                    area: ['800px', '600px'], //宽高
+	                                    content: html
+	                                });
+	                            }
+	                        });
+	                    });
+	                });
+	            }); */
+				
 				//page
-				laypage({
+				/* laypage({
 					cont: 'page',
 					pages: 25, //总页数
 					groups: 5, //连续显示分页数
@@ -194,7 +248,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							//layer.msg('第 '+ obj.curr +' 页');
 						}
 					}
-				});
+				}); */
 				/* $('#search').on('click', function() {
 					parent.layer.alert('你点击了搜索按钮')
 				}); */

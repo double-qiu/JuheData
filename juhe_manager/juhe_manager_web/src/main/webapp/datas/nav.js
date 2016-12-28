@@ -1,11 +1,36 @@
 var navs = [{
-	"title": "其他数据",
+	"title": "生活常用",
 	"icon": "fa-cubes",
 	"spread": true,
 	"children": [{
+		"title": "微信精选",
+		"icon": "&#xe641;",
+		"href": "/juhe_manager_web/page/otherdata/weChatSelectedPage.jsp"
+	}, {
+		"title": "新闻头条",
+		"icon": "&#xe63c;",
+		"href": "form.html"
+	}, {
+		"title": "万年历",
+		"icon": "&#xe63c;",
+		"href": "/juhe_manager_web/page/table.jsp"
+	}, {
+		"title": "邮编查询",
+		"icon": "&#xe609;",
+		"href": "nav.html"
+	}, {
+		"title": "身份证查询",
+		"icon": "&#xe609;",
+		"href": "nav.html"
+	}]
+},{
+	"title": "其他数据",
+	"icon": "fa-cubes",
+	"spread": false,
+	"children": [{
 		"title": "历史的今天",
 		"icon": "&#xe641;",
-		"href": "/juhe_manager_web/page/otherdata/historyToday.jsp"
+		"href": "/juhe_manager_web/page/otherdata/historyTodayList.jsp"
 	}, {
 		"title": "图书电商数据",
 		"icon": "&#xe63c;",
@@ -22,7 +47,7 @@ var navs = [{
 }, {
 	"title": "基本元素",
 	"icon": "fa-cubes",
-	"spread": true,
+	"spread": false,
 	"children": [{
 		"title": "按钮",
 		"icon": "&#xe641;",

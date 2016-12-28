@@ -97,7 +97,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="layui-footer footer footer-demo" id="admin-footer">
 				<div class="layui-main">
 					<p>2016 &copy;
-						<a href="http://beginner.zhengjinfan.cn/demo/beginner_admin/">beginner.zhengjinfan.cn</a> LGPL license
+						<a href="http://beginner.zhengjinfan.cn/demo/beginner_admin/">ufdouble.com</a> LGPL license
 					</p>
 				</div>
 			</div>

@@ -24,9 +24,22 @@ public class HistoryTodayEventQueryVO implements Serializable {
 	private String month;//月
 	
 	private String day;//日
+	
+	private String id;//主键
+	
 
-	public String getUrl() {
-		return CommonsConstant.HISTORY_TODAY_URL;
+	public String getId() {
+		return id;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+
+	public String getUrl(String type) {
+		return type == "list"?CommonsConstant.HISTORY_TODAY_List_URL:CommonsConstant.HISTORY_TODAY_DETAIL_URL;
 	}
 
 
