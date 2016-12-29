@@ -57,6 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<th>标题</th>
 								<th>来源</th>
 								<th>地址</th>
+								<th>操作</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -65,6 +66,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<td>{{wechats.title}}</td>
 								<td>{{wechats.source}}</td>
 								<td>{{wechats.url}}</td>
+								<td>
+									<a v-bind:href="wechats.url" class="layui-btn layui-btn-normal layui-btn-mini" >详情</a>
+								</td>
 							</tr>
 						</tbody>
 					</table>
@@ -83,40 +87,52 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		var vue = new Vue({
             el: '#wechat',
             data: {
-            	weChatSelectedPage : '',
+            	weChatSelectedPage : ''
             }
-        })
+         })
 			
 			layui.config({
 				base: 'plugins/layui/modules/'
 			});
 			layui.use(['icheck', 'laypage','layer','form'], function() {
-				
+				  
 				var form = layui.form();
 				var $ = layui.jquery,
 				laypage = layui.laypage,
 				layer = parent.layer === undefined ? layui.layer : parent.layer;
-				
-				 laypage({
-						cont: 'page',
-						pages: 100, //总页数
-						groups: 5, //连续显示分页数
-						jump: function(obj, first) {
-							 var curr = obj.curr;
-							 $.ajax({
-			                        type: 'GET',
-			                        data: {"pno":curr,"ps":"20"},
-			                        url: '<%=request.getContextPath()%>/weChatSelected/page',
-			                        success:function(result) {
-			                        	if(result.success) {
-			                        		vue.weChatSelectedPage =result.data.list;
-			                        	} else {
-			                        		parent.layer.alert("数据加载失败");
-			                        	}
-			                        }
-			                 });
-						}
-					}); 
+				var totalPage = 100;
+				layer.ready(function(){
+					 $.ajax({
+	                        type: 'GET',
+	                        data: {"pno":1,"ps":"20"},
+	                        url: '<%=request.getContextPath()%>/weChatSelected/page',
+	                        success:function(result) {
+	                        	if(result.success) {
+	                        		totalPage = result.data.totalPage;
+	                        		 laypage({
+	             						cont: 'page',
+	             						pages:totalPage, //总页数
+	             						groups: 5, //连续显示分页数
+	             						jump: function(obj, first) {
+	             							 var curr = obj.curr;
+	             							 $.ajax({
+	             			                        type: 'GET',
+	             			                        data: {"pno":curr,"ps":"20"},
+	             			                        url: '<%=request.getContextPath()%>/weChatSelected/page',
+	             			                        success:function(result) {
+	             			                        	if(result.success) {
+	             			                        		vue.weChatSelectedPage = result.data.list;
+	             			                        	} else {
+	             			                        		parent.layer.alert("数据加载失败");
+	             			                        	}
+	             			                        }
+	             			                 });
+	             						}
+	             					}); 
+	                        	} 
+	                        }
+	                 });
+				});    
 			});
 		</script>
 	</body>
