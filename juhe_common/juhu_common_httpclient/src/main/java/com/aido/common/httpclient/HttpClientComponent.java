@@ -95,7 +95,18 @@ public class HttpClientComponent {
 	
 	public static void main(String[] args) {
 		//testHistoryDayEventList();
-		testHistoryDayEventDetail();
+//		testHistoryDayEventDetail();
+		
+		try {
+			int retryTime = 3;
+			Map<String, String> headers = new HashMap<String, String>();
+			HttpResult result = HttpClientComponent.getInstance().doGet("http://v.juhe.cn//weixin//redirect?wid=wechat_20161229032457", headers, retryTime);
+			System.out.println(result.getData());
+		} catch (ClientProtocolException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**  

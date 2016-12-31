@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.aido.common.httpclient.model.HttpResult;
 import com.aido.common.util.InvokeResult;
 import com.aido.manager.dto.wechat.WeChatSelectdPageVO;
 import com.aido.manager.dto.wechat.WeChatSelectdQueryVO;
@@ -51,5 +52,15 @@ public class WeChatSelectedController {
 			return InvokeResult.failure(e.getMessage());
 		}
 		return InvokeResult.success(weChatSelectdPage);
+	}
+	@RequestMapping("/detail")
+	@ResponseBody
+	public HttpResult weChatdetail(String url){
+		try {
+			return weChatSelectedService.getWeChatSelectdDetail(url);
+		} catch (Exception e) {
+			logger.error("查询微信精选详细数据失败：" + e.getMessage(),e);
+		}
+		return new HttpResult();
 	}
 }

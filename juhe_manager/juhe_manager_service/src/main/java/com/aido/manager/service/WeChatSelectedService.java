@@ -7,8 +7,8 @@
  */
 package com.aido.manager.service;
 
-import java.util.List;
 
+import com.aido.common.httpclient.model.HttpResult;
 import com.aido.manager.dto.wechat.WeChatSelectdPageVO;
 
 /**  
@@ -33,4 +33,13 @@ public interface WeChatSelectedService {
 	 */
 	WeChatSelectdPageVO getWeChatSelectdPage(String url,String key,String pno,String ps,String dtype) throws Exception ;
 	
+	/**
+	 *  getWeChatSelectdDetail:微信url 访问，服务端解决跨域的问题
+	 *  @return_type:String
+	 *  @author DOUBLE
+	 *  @param url
+	 *  @return
+	 *  @throws Exception
+	 */
+	HttpResult getWeChatSelectdDetail(String url) throws Exception ;
 }

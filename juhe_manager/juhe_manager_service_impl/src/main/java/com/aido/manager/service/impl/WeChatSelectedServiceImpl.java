@@ -7,13 +7,16 @@
  */
 package com.aido.manager.service.impl;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.http.client.ClientProtocolException;
 import org.springframework.stereotype.Service;
 
 import com.aido.common.httpclient.HttpClientComponent;
+import com.aido.common.httpclient.model.HttpResult;
 import com.aido.manager.dto.wechat.WeChatSelectdPageVO;
 import com.aido.manager.dto.wechat.WeChatSelectdVO;
 import com.aido.manager.service.WeChatSelectedService;
@@ -47,7 +50,7 @@ public class WeChatSelectedServiceImpl implements WeChatSelectedService {
 		params.put("ps",ps);
 		params.put("dtype",dtype);
 		Map<String, String> headers = new HashMap<String, String>();
-		int retryTime = 0;
+		int retryTime = 3;
 		WeChatSelectdPageVO weChatSelectdPageVO = new WeChatSelectdPageVO();
 		Map<String, Object> result = HttpClientComponent.getResultMapByGet(url, params, headers, retryTime);
 		if(result == null) {
@@ -58,5 +61,18 @@ public class WeChatSelectedServiceImpl implements WeChatSelectedService {
 		weChatSelectdPageVO.setList(weChatListRes);
 		weChatSelectdPageVO.setTotalPage(totalPageRes);
 		return weChatSelectdPageVO;
+	}
+
+	/**
+	 * @param url
+	 * @return
+	 * @throws Exception
+	 * Administrator
+	 */
+	public HttpResult getWeChatSelectdDetail(String url) throws Exception {
+		Map<String, String> headers = new HashMap<String, String>();
+		headers.put("Access-Control-Allow-Origin", "*");
+		HttpResult httpRes = HttpClientComponent.getInstance().doGet(url, headers, 3);
+		return httpRes;
 	}
 }

@@ -25,5 +25,10 @@
   		<artifactId>juhu_common_util</artifactId>
       	<version>0.0.1-SNAPSHOT</version>
     </dependency>
+    <dependency>
+	     	<groupId>com.aido.common.httpclient</groupId>
+	  		<artifactId>juhu_common_httpclient</artifactId>
+	      	<version>0.0.1-SNAPSHOT</version>
+	    </dependency>
   </dependencies>
 </project>

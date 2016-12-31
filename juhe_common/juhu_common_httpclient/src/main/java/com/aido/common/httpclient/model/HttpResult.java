@@ -1,7 +1,10 @@
 package com.aido.common.httpclient.model;
 
-public class HttpResult {
+import java.io.Serializable;
 
+public class HttpResult  implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 状态码
 	 */
