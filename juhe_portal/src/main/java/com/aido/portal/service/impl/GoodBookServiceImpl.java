@@ -5,7 +5,7 @@
  * Date:2016年12月21日下午2:22:28  
  * Copyright (c) 2016, LoveBeanTec All Rights Reserved.  
  */
-package com.aido.manager.service.impl;
+package com.aido.portal.service.impl;
 
 
 import java.util.ArrayList;
@@ -17,15 +17,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.aido.common.httpclient.HttpClientComponent;
-import com.aido.manager.dao.BaseDao;
-import com.aido.manager.dao.GoodBookDao;
-import com.aido.manager.dao.impl.BaseDaoImpl;
-import com.aido.manager.domain.GoodBookEntity;
-import com.aido.manager.domain.GoodBookOnLineEntity;
-import com.aido.manager.domain.GoodBookTypeEntity;
-import com.aido.manager.dto.GoodBookOutVO;
-import com.aido.manager.dto.GoodBookTypeOutVO;
-import com.aido.manager.service.GoodBookService;
+import com.aido.portal.dao.BaseDao;
+import com.aido.portal.dao.GoodBookDao;
+import com.aido.portal.dao.impl.BaseDaoImpl;
+import com.aido.portal.domain.GoodBookEntity;
+import com.aido.portal.domain.GoodBookOnLineEntity;
+import com.aido.portal.domain.GoodBookTypeEntity;
+import com.aido.portal.dto.GoodBookOutVO;
+import com.aido.portal.dto.GoodBookTypeOutVO;
+import com.aido.portal.service.GoodBookService;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;

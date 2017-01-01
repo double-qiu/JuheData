@@ -5,7 +5,7 @@
  * Date:2016年12月21日下午2:27:39  
  * Copyright (c) 2016, LoveBeanTec All Rights Reserved.  
  */
-package com.aido.manager.dao;
+package com.aido.portal.dao;
 
 import java.io.Serializable;
 //import java.text.MessageFormat;

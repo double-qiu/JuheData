@@ -5,7 +5,7 @@
  * Date:2016年12月24日下午12:56:52  
  * Copyright (c) 2016, LoveBeanTec All Rights Reserved.  
  */
-package com.aido.manager.domain;
+package com.aido.portal.domain;
 
 import java.io.Serializable;
 
@@ -23,18 +23,16 @@ import javax.persistence.Table;
  * @version
  */
 @Entity
-@Table(name="q_goodbook_online")
-public class GoodBookOnLineEntity implements Serializable {
+@Table(name="q_goodbook_type")
+public class GoodBookTypeEntity implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	private long id;
 	
-	private String mallName;
-
-	private String mallUrl;
+	private String  typeId;
 	
-	private String goodBookFkId;// 外键
+	private String catalog;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -46,29 +44,20 @@ public class GoodBookOnLineEntity implements Serializable {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
-	@Column(name ="mallName",nullable=true,length=300)
-	public String getMallName() {
-		return mallName;
+	@Column(name ="catalog",nullable=true,length=300)
+	public String getCatalog() {
+		return catalog;
 	}
 
-	public void setMallName(String mallName) {
-		this.mallName = mallName;
+	public void setCatalog(String catalog) {
+		this.catalog = catalog;
 	}
-	@Column(name =" mallUrl",nullable=true,length=300)
-	public String getMallUrl() {
-		return mallUrl;
-	}
-
-	public void setMallUrl(String mallUrl) {
-		this.mallUrl = mallUrl;
-	}
-	@Column(name =" goodBookFkId",nullable=true,length=300)
-	public String getGoodBookFkId() {
-		return goodBookFkId;
+	@Column(name ="typeId",nullable=true,length=300)
+	public String getTypeId() {
+		return typeId;
 	}
 
-	public void setGoodBookFkId(String goodBookFkId) {
-		this.goodBookFkId = goodBookFkId;
+	public void setTypeId(String typeId) {
+		this.typeId = typeId;
 	}
 }

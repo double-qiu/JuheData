@@ -5,7 +5,7 @@
  * Date:2016年12月21日下午2:28:29  
  * Copyright (c) 2016, LoveBeanTec All Rights Reserved.  
  */
-package com.aido.manager.dao.impl;
+package com.aido.portal.dao.impl;
 
 
 
@@ -13,9 +13,9 @@ package com.aido.manager.dao.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.aido.manager.dao.BaseDao;
-import com.aido.manager.dao.GoodBookDao;
-import com.aido.manager.domain.GoodBookEntity;
+import com.aido.portal.dao.BaseDao;
+import com.aido.portal.dao.GoodBookDao;
+import com.aido.portal.domain.GoodBookEntity;
 
 
 /**  

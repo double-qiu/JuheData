@@ -53,7 +53,7 @@
 		<property name="packagesToScan">
 			<list>
 				<!-- 可以加多个包 -->
-				<value>com.aido.manager.domain</value>
+				<value>com.aido.portal.domain</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">
@@ -103,7 +103,7 @@
 	<aop:config expose-proxy="true" >
 		<!-- 只对业务逻辑层实施事务 -->
 		<aop:pointcut id="txPointcut"
-			expression="execution(* com.aido.manager.service..*.*(..))" />
+			expression="execution(* com.aido.portal.service..*.*(..))" />
 		<!-- Advisor定义，切入点和通知分别为txPointcut、txAdvice -->
 		<aop:advisor pointcut-ref="txPointcut" advice-ref="txAdvice" />
 	</aop:config>

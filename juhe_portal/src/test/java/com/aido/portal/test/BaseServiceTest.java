@@ -6,7 +6,7 @@
  * Date:2016年12月21日下午3:02:09  
  * Copyright (c) 2016, LoveBeanTec All Rights Reserved.  
  */
-package com.aido.manager.dao;
+package com.aido.portal.test;
 
 import java.util.List;
 
@@ -17,9 +17,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.aido.manager.domain.GoodBookEntity;
-import com.aido.manager.domain.GoodBookTypeEntity;
-import com.aido.manager.service.GoodBookService;
+import com.aido.portal.domain.GoodBookEntity;
+import com.aido.portal.domain.GoodBookTypeEntity;
+import com.aido.portal.service.GoodBookService;
 
 
 

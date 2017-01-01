@@ -5,7 +5,7 @@
  * Date:2016年12月24日下午12:56:52  
  * Copyright (c) 2016, LoveBeanTec All Rights Reserved.  
  */
-package com.aido.manager.domain;
+package com.aido.portal.domain;
 
 import java.io.Serializable;
 import java.util.List;

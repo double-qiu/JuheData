@@ -5,13 +5,13 @@
  * Date:2016年12月21日下午2:18:34  
  * Copyright (c) 2016, LoveBeanTec All Rights Reserved.  
  */
-package com.aido.manager.service;
+package com.aido.portal.service;
 
 
 import java.util.List;
 
-import com.aido.manager.domain.GoodBookEntity;
-import com.aido.manager.domain.GoodBookTypeEntity;
+import com.aido.portal.domain.GoodBookEntity;
+import com.aido.portal.domain.GoodBookTypeEntity;
 
 
 /**  
