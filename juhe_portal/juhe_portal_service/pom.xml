@@ -3,20 +3,15 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.aido</groupId>
-    <artifactId>JuheData</artifactId>
+    <groupId>com.aido.portal</groupId>
+    <artifactId>juhe_portal</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>com.aido.portal</groupId>
-  <artifactId>juhe_portal</artifactId>
-  <name>juhe_portal</name>
-  <packaging>pom</packaging>
+  <groupId>com.aido.portal.service</groupId>
+  <artifactId>juhe_portal_service</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>juhe_portal_service</name>
   <url>http://maven.apache.org</url>
-   <modules>
-  	<module>juhe_portal_service</module>
-  	<module>juhe_portal_service_impl</module>
-  	<module>juhe_portal_domain</module>
- </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
