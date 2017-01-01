@@ -10,9 +10,7 @@
   <modules>
   	<module>juhe_manager_service</module>
   	<module>juhe_manager_service_impl</module>
-  	<module>juhe_manager_pojo</module>
   	<module>juhe_manager_dao</module>
-  	<module>juhe_manager_dao_impl</module>
   	<module>juhe_manager_dto</module>
   	<module>juhe_manager_web</module>
   </modules>
