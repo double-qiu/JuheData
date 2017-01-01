@@ -1,0 +1,185 @@
+/*!
+ * Main v1.0 (http://qeyser.net)
+ * Copyright 2016 Qeyser.Net, Inc.
+ * Licensed under MIT (http://git.oschina.net/qeyser)
+ */
+
+body {
+    background: #dddddd;
+}
+a {
+    color: #000;
+    text-decoration: none;
+}
+a:hover {
+    color: #999;
+    text-decoration: none;
+    transition: all .5s;
+}
+.layui-right {
+    float: right;
+}
+.layui-left {
+    float: left;
+}
+.layui-mt {
+    margin-top: 10px;
+}
+.layui-mb {
+    margin-bottom: 10px;
+}
+.layui-ct{
+    text-align: center;
+}
+/* 头部 */
+.layui-body-gbook .layui-header {
+    border-bottom: 5px solid #4E5465;
+    background-color: #393D49;
+}
+.layui-body-gbook .logo {
+    position: absolute;
+    left: 0;
+    top: 1px;
+    background: #393D49;
+    display: inline-block;
+    height: 60px;
+    width: 160px;
+    padding: 0 20px;
+    font-size: 35px;
+    line-height: 60px;
+    text-align: center;
+    color: #ffffff;
+}
+
+/* 侧栏 */
+.layui-body-gbook .layui-nav {
+    position: absolute;
+    left: 260px;
+    top: 2px;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+    min-height: 100%;
+}
+.layui-body-gbook .layui-search {
+    position: absolute;
+    right: 0;
+    top: 15px;
+    margin-left: 15px;
+    line-height: 60px;
+    display: inline-block;
+    vertical-align: top;
+}
+.layui-body-gbook .layui-search .icon-sousuo {
+    position: absolute;
+    right: 10px;
+    top: -10px;
+    color: #999;
+    cursor: pointer;
+}
+
+/* 主体 */
+.layui-body-gbook .wrap {
+    float: left;
+    width: 100%;
+    min-height: 300px;
+}
+.layui-body-gbook .edge {
+    position: relative;
+    float: left;
+    top: 0;
+    width: 336px;
+    margin-left: -336px;
+}
+.layui-content {
+    margin-right: 357px;
+}
+
+/* layui-panel*/
+.layui-panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05)
+}
+.layui-panel-heading {
+    padding: 10px 15px;
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px
+}
+.layui-panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: inherit
+}
+.layui-panel-body {
+    border-top-color: #ddd;
+    color: #aaa;
+    padding: 15px 15px 0px;
+}
+.layui-panel-body .detail-thumb {
+    display: block;
+    max-height: 120px;
+    overflow: hidden;
+}
+.layui-panel-body .detail-thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.layui-panel-body p.detail-des {
+    display: block;
+    max-height: 220px;
+    width: 96%;
+    margin: 2%;
+    text-indent: 18px;
+    line-height: 25px;
+    overflow: hidden;
+}
+
+/* ol li */
+.layui-panel-body .fly-list-one {
+    margin: 10px 0;
+}
+.layui-panel-body .fly-list-one li {
+    line-height: 26px;
+    white-space: nowrap;
+    overflow: hidden;
+    list-style: decimal-leading-zero inside;
+    color: #009E94;
+    font-style: oblique;
+}
+.layui-panel-body .fly-list-one li a, .fly-list-one li span {
+    display: inline-block;
+    vertical-align: top;
+    font-style: normal;
+}
+.layui-panel-body .fly-list-one li a {
+    max-width: 80%;
+    margin-right: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+}
+.layui-panel-body .fly-list-one li span {
+    font-size: 12px;
+    color: #ccc;
+}
+
+/* footer */
+.layui-body-gbook .footer-index {
+    padding: 30px 0 0px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #dddddd;
+    color: #666;
+    font-weight: 300;
+}

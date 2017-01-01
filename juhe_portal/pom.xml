@@ -3,16 +3,18 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.aido.manager</groupId>
-    <artifactId>juhe_manager</artifactId>
+    <groupId>com.aido</groupId>
+    <artifactId>JuheData</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>com.aido.manager.dao</groupId>
-  <artifactId>juhe_manager_dao</artifactId>
-  <name>juhe_manager_dao</name>
+  <groupId>com.aido.portal</groupId>
+  <artifactId>juhe_portal</artifactId>
+  <name>juhe_portal</name>
+  <packaging>war</packaging>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <spring.version>4.2.7.RELEASE</spring.version>
   </properties>
   <dependencies>
   		<dependency>
@@ -44,12 +46,6 @@
             <artifactId>mysql-connector-java</artifactId>  
             <version>5.1.30</version>  
         </dependency>  
-        <!-- mchange C3P0 数据源-->  
-        <dependency>  
-            <groupId>com.mchange</groupId>  
-            <artifactId>c3p0</artifactId>  
-            <version>0.9.5-pre2</version>  
-        </dependency>  
         <!-- fastjson -->  
     <dependency>  
         <groupId>com.alibaba</groupId>  
@@ -59,54 +55,54 @@
         <dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>4.0.4.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-web</artifactId>
-			<version>4.0.4.RELEASE</version>
+			<version>${spring.version}</version>
 		</dependency>
         <!-- spring -->  
         <dependency>  
             <groupId>org.springframework</groupId>  
             <artifactId>spring-core</artifactId>  
-            <version>4.0.4.RELEASE</version>  
+            <version>${spring.version}</version>  
         </dependency>  
         <dependency>   
 		   <groupId>org.springframework</groupId>   
 		   <artifactId>spring-context-support</artifactId>
-		   <version>4.0.4.RELEASE</version>
+		   <version>${spring.version}</version>
   		</dependency>
         <dependency>  
             <groupId>org.springframework</groupId>  
             <artifactId>spring-context</artifactId>  
-            <version>4.0.4.RELEASE</version>  
+            <version>${spring.version}</version>  
         </dependency>  
         <dependency>  
             <groupId>org.springframework</groupId>  
             <artifactId>spring-jdbc</artifactId>  
-            <version>4.0.4.RELEASE</version>  
+            <version>${spring.version}</version>  
         </dependency>  
         <dependency>  
             <groupId>org.springframework</groupId>  
             <artifactId>spring-beans</artifactId>  
-            <version>4.0.4.RELEASE</version>  
+            <version>${spring.version}</version>  
         </dependency>  
         <dependency>  
             <groupId>org.springframework</groupId>  
             <artifactId>spring-test</artifactId>  
-            <version>4.0.4.RELEASE</version>  
+            <version>${spring.version}</version>  
         </dependency>  
      
         <dependency>  
             <groupId>org.springframework</groupId>  
             <artifactId>spring-expression</artifactId>  
-            <version>4.0.4.RELEASE</version>  
+            <version>${spring.version}</version>  
         </dependency>  
         <dependency>  
             <groupId>org.springframework</groupId>  
             <artifactId>spring-orm</artifactId>  
-            <version>4.0.4.RELEASE</version>  
+            <version>${spring.version}</version>  
         </dependency>  
         <!-- aspectjweaver -->  
         <dependency>  

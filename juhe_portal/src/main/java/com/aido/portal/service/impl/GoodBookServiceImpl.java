@@ -192,13 +192,12 @@ public class GoodBookServiceImpl extends BaseDaoImpl  implements  GoodBookServic
 	 * @return
 	 * Administrator
 	 */
-	@SuppressWarnings("deprecation")
 	@Override
 	public boolean checkGoodBook(String title) {
 		StringBuffer sql = new StringBuffer();
 		sql.append("select COUNT(gb.id)  from q_goodbook gb where 1 = 1  ");
 		sql.append(" and gb.title = ?");
-		int gdNum = jdbcTemplate.queryForInt(sql.toString(),new Object[] { String.valueOf(title) });
+		int gdNum = jdbcTemplate.queryForObject(sql.toString(),new Object[] { String.valueOf(title) },Integer.class);
 		return gdNum == 0 ? Boolean.TRUE:Boolean.FALSE;
 	}
 }
