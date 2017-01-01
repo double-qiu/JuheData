@@ -7,7 +7,9 @@
  */
 package com.aido.portal.service;
 
+import java.util.List;
 
+import com.aido.portal.domain.GoodBookTypeEntity;
 
 /**  
  * ClassName: GoodBookService  
@@ -15,10 +17,9 @@ package com.aido.portal.service;
  * @author DOUBLE
  * @version   
  */
-public interface GoodBookService {
+public interface GoodBookPortalService {
 	
-	//List<> getGoodBookTypeList();
-	
+	List<GoodBookTypeEntity> getGoodBookTypeListPortal();
 	
 
 }

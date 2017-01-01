@@ -10,6 +10,7 @@
    <modules>
   	<module>juhu_common_httpclient</module>
   	 <module>juhu_common_util</module>
+  	 <module>juhu_common_jpa</module>
   </modules>
   <groupId>com.aido.common</groupId>
   <artifactId>juhe_common</artifactId>

@@ -9,17 +9,74 @@
   </parent>
   <groupId>com.aido.portal.service.impl</groupId>
   <artifactId>juhe_portal_service_impl</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <name>juhe_portal_service_impl</name>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+     <springboot.version>1.3.6.RELEASE</springboot.version>
   </properties>
   <dependencies>
+   		<dependency>
+	     	<groupId>com.aido.portal.domain</groupId>
+	  		<artifactId>juhe_portal_domain</artifactId>
+	      	<version>0.0.1-SNAPSHOT</version>
+	    </dependency>
+	    <dependency>
+	     	<groupId>com.aido.portal.service</groupId>
+	  		<artifactId>juhe_portal_service</artifactId>
+	      	<version>0.0.1-SNAPSHOT</version>
+	    </dependency>
+	     <dependency>
+	     	<groupId>com.aido.common.jpa</groupId>
+	  		<artifactId>juhu_common_jpa</artifactId>
+	      	<version>0.0.1-SNAPSHOT</version>
+	    </dependency>
+       <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+			<version>${springboot.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<version>${springboot.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jersey</artifactId>
+			<version>${springboot.version}</version>
+		</dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>dubbo</artifactId>
+            <version>2.5.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework</groupId>
+                    <artifactId>spring</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        	<dependency>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+			<version>3.4.6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.github.sgroschupf</groupId>
+			<artifactId>zkclient</artifactId>
+			<version>0.1</version>
+		</dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
