@@ -11,6 +11,7 @@
  <modules>
   	<module>juhe_common</module>
   	<module>juhe_manager</module>
+  	<module>juhe_portal</module>
  </modules>
    <properties>
 		<!-- 主要依赖库的版本定义 -->
