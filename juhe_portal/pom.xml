@@ -3,29 +3,156 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.aido</groupId>
-    <artifactId>JuheData</artifactId>
+    <groupId>com.aido.manager</groupId>
+    <artifactId>juhe_manager</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>com.aido.portal</groupId>
-  <artifactId>juhe_portal</artifactId>
-  <name>juhe_portal</name>
-  <packaging>pom</packaging>
+  <groupId>com.aido.manager.dao</groupId>
+  <artifactId>juhe_manager_dao</artifactId>
+  <name>juhe_manager_dao</name>
   <url>http://maven.apache.org</url>
-   <modules>
-  	<module>juhe_portal_service</module>
-  	<module>juhe_portal_service_impl</module>
-  	<module>juhe_portal_domain</module>
- </modules>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencies>
+  		<dependency>
+	     	<groupId>com.aido.common.httpclient</groupId>
+	  		<artifactId>juhu_common_httpclient</artifactId>
+	      	<version>0.0.1-SNAPSHOT</version>
+	    </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
+   <dependency>  
+            <groupId>log4j</groupId>  
+            <artifactId>log4j</artifactId>  
+            <version>1.2.16</version>  
+        </dependency>  
+        <!-- servlet API -->  
+        <dependency>  
+            <groupId>javax.servlet</groupId>  
+            <artifactId>javax.servlet-api</artifactId>  
+            <version>3.1-b09</version>  
+            <scope>provided</scope>  
+        </dependency>  
+        <!-- MySQL驱动 -->  
+        <dependency>  
+            <groupId>mysql</groupId>  
+            <artifactId>mysql-connector-java</artifactId>  
+            <version>5.1.30</version>  
+        </dependency>  
+        <!-- mchange C3P0 数据源-->  
+        <dependency>  
+            <groupId>com.mchange</groupId>  
+            <artifactId>c3p0</artifactId>  
+            <version>0.9.5-pre2</version>  
+        </dependency>  
+        <!-- fastjson -->  
+    <dependency>  
+        <groupId>com.alibaba</groupId>  
+        <artifactId>fastjson</artifactId>  
+        <version>1.1.29</version>  
+    </dependency>  
+        <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>4.0.4.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>4.0.4.RELEASE</version>
+		</dependency>
+        <!-- spring -->  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-core</artifactId>  
+            <version>4.0.4.RELEASE</version>  
+        </dependency>  
+        <dependency>   
+		   <groupId>org.springframework</groupId>   
+		   <artifactId>spring-context-support</artifactId>
+		   <version>4.0.4.RELEASE</version>
+  		</dependency>
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-context</artifactId>  
+            <version>4.0.4.RELEASE</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-jdbc</artifactId>  
+            <version>4.0.4.RELEASE</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-beans</artifactId>  
+            <version>4.0.4.RELEASE</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-test</artifactId>  
+            <version>4.0.4.RELEASE</version>  
+        </dependency>  
+     
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-expression</artifactId>  
+            <version>4.0.4.RELEASE</version>  
+        </dependency>  
+        <dependency>  
+            <groupId>org.springframework</groupId>  
+            <artifactId>spring-orm</artifactId>  
+            <version>4.0.4.RELEASE</version>  
+        </dependency>  
+        <!-- aspectjweaver -->  
+        <dependency>  
+            <groupId>org.aspectj</groupId>  
+            <artifactId>aspectjweaver</artifactId>  
+            <version>1.7.2</version>  
+        </dependency>  
+		<dependency>
+	      <groupId>org.slf4j</groupId>
+	      <artifactId>slf4j-api</artifactId>
+	      <version>1.7.7</version>
+    	</dependency>
+    	<dependency>  
+		    <groupId>org.slf4j</groupId>  
+		    <artifactId>slf4j-log4j12</artifactId>  
+		    <version>1.7.7</version>  
+		</dependency> 
+		<dependency>
+		    <groupId>commons-fileupload</groupId>
+		    <artifactId>commons-fileupload</artifactId>
+		    <version>1.3.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		    <version>2.2</version>
+		</dependency>
+		<dependency>
+		    <groupId>commons-logging</groupId>
+		    <artifactId>commons-logging</artifactId>
+		    <version>1.1.3</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>4.1.6.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid</artifactId>
+			<version>1.0.16</version>
+		</dependency>
   </dependencies>
 </project>
