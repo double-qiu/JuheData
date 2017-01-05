@@ -1,7 +1,7 @@
 /**  
  * Project Name:juhe_portal  
  * File Name:OnLineEntity.java  
- * Package Name:com.aido.portal.domain  
+ * Package Name:com.aido.portal.domain
  * Date:2016年12月24日下午12:56:52  
  * Copyright (c) 2016, LoveBeanTec All Rights Reserved.  
  */
@@ -30,11 +30,11 @@ public class GoodBookOnLineEntity implements Serializable {
 
 	private long id;
 	
-	private String mallName;
-
+	private String  mallName;
+	
 	private String mallUrl;
 	
-	private String goodBookFkId;// 外键
+	private String book;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -46,7 +46,6 @@ public class GoodBookOnLineEntity implements Serializable {
 	public void setId(long id) {
 		this.id = id;
 	}
-	
 	@Column(name ="mallName",nullable=true,length=300)
 	public String getMallName() {
 		return mallName;
@@ -55,7 +54,7 @@ public class GoodBookOnLineEntity implements Serializable {
 	public void setMallName(String mallName) {
 		this.mallName = mallName;
 	}
-	@Column(name =" mallUrl",nullable=true,length=300)
+	@Column(name ="mallUrl",nullable=true,length=5000)
 	public String getMallUrl() {
 		return mallUrl;
 	}
@@ -63,12 +62,12 @@ public class GoodBookOnLineEntity implements Serializable {
 	public void setMallUrl(String mallUrl) {
 		this.mallUrl = mallUrl;
 	}
-	@Column(name =" goodBookFkId",nullable=true,length=300)
-	public String getGoodBookFkId() {
-		return goodBookFkId;
+	@Column(name ="book",nullable=true,length=300)
+	public String getBook() {
+		return book;
 	}
 
-	public void setGoodBookFkId(String goodBookFkId) {
-		this.goodBookFkId = goodBookFkId;
+	public void setBook(String book) {
+		this.book = book;
 	}
 }

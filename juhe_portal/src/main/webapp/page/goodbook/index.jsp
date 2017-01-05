@@ -19,7 +19,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 a, a:hover {
    text-decoration: none;
 }
-
 </style>
 <div  id="goodbook">
 <div class="layui-header header header-index">
@@ -28,21 +27,13 @@ a, a:hover {
 	      <img src="images/logo.png" alt="layui">
 	    </a>
 		<ul class="layui-nav">
-		   <li class="layui-nav-item"><a href="">最新推荐</a></li>
+		   <li class="layui-nav-item"><a href ="javascript:void(0);"  v-on:click="getBookById()">最新推荐</a></li>
 		  <li class="layui-nav-item "  v-for="sl in sortList">
-		    <a :href="<%=request.getContextPath()%>/">{{sl.name}}</a>
+		    <a >{{sl.name}}</a>
 		     <dl class="layui-nav-child">
-		    	<dd v-for="tl in sl.typeList"><a  :href ="<%=request.getContextPath()%>/" >{{tl.catalog}}</a></dd>
+		    	<dd v-for="tl in sl.typeList"><a  href ="javascript:void(0);"   v-on:click="getBookById(tl.typeId)">{{tl.catalog}}</a></dd>
 		    </dl>
 		  </li>
-		  <!-- <li class="layui-nav-item">
-		    <a href="javascript:;">解决方案</a>
-		    <dl class="layui-nav-child">
-		      <dd><a href="" >移动模块</a></dd>
-		      <dd><a href="" >后台模版</a></dd>
-		      <dd><a href="" >电商平台</a></dd>
-		    </dl>
-		  </li> -->
 		</ul>
 		<form action="#search" class="layui-search">
 			<i class="layui-icon icon-sousuo" style="font-size: 24px; color: #1E9FFF;">&#xe615;</i>
@@ -69,119 +60,21 @@ a, a:hover {
 <div class="layui-main">
 	<!-- 文章开始 -->
 	<div class="row ">
-                  
-                        <div class=" col-md-4 col-sm-6  ">
+			 		<div class=" col-md-4 col-sm-6 "   v-for="bl in bookList">
                             <div class="text-center">
-                                <img src="images/1.jpeg" alt="">
+                                <img :src="bl.img" alt=""   style="width: 200px; height: 280px;" >
                                 <div>
-                                    <h4><a href="#">梦里花落知多少</a></h4>
+                                    <h4><a href="#">{{bl.title}}</a></h4>
                                 </div>
                                 <div class="text-center">
                                     <div class="inside">
-                                        <h4><a href="#">中国文学 散文</a></h4>
-                                        <p>三毛散文集：《梦里花落知多少》</p>
+                                        <h4><a href="#">{{bl.catalog}}</a></h4>
+                                        <p>{{bl.sub1}}</p>
                                     </div>
                                 </div>
                             </div>
                         </div> 
-                        <div class="col-md-4 col-sm-6 ">
-                            <div class="text-center">
-                                <img src="images/2.jpeg" alt="">
-                                <div>
-                                    <h4><a href="#">明朝那些事儿</a></h4>
-                                </div>
-                                <div>
-                                        <h4><a href="#">中国文学 历史 小说</a></h4>
-                                        <p>当时明月经典著作：《明朝那些事儿》</p>                                    
-                                </div>
-                            </div>
-                        </div> 
-                        <div class=" col-md-4 col-sm-6">
-                            <div class="text-center">
-                                <img src="images/3.jpeg" alt="">
-                                <div >
-                                    <h4><a href="#">于丹：重温最美古诗词</a></h4>
-                                </div>
-                                <div >                     
-                                        <h4><a href="#">中国文学 散文</a></h4>
-                                        <p>《于丹：重温最美古诗词》</p>
-                                </div>
-                            </div>
-                        </div> 
-                        <div class="col-md-4 col-sm-6">
-                            <div class="text-center">
-                                <img src="images/4.jpeg" alt="">
-                                <div>
-                                    <h4><a href="#">许三观卖血记</a></h4>
-                                </div>
-                                <div>                                
-                                     <h4><a href="#">中国文学 小说</a></h4>
-                                     <p>余华巨著：《许三观卖血记》</p>  
-                                </div>
-                            </div>
-                        </div> 
-                        <div class="col-md-4 col-sm-6">
-                            <div class="text-center">
-                                <img src="images/5.jpeg" alt="">
-                                <div>
-                                    <h4><a href="#">世间所有相遇都是久别重逢</a></h4>
-                                </div>
-                                <div>    
-                                        <h4><a href="#">中国文学 散文</a></h4>
-                                        <p>《世间所有相遇都是久别重逢》</p>
-                                </div>
-                            </div>
-                        </div> 
-                        <div class=" col-md-4 col-sm-6">
-                            <div class="text-center">
-                                <img src="images/6.jpeg" alt="">
-                                <div>
-                                    <h4><a href="#">京华烟云</a></h4>
-                                </div>
-                                <div>     
-                                        <h4><a href="#">中国文学 小说 经典名著</a></h4>
-                                        <p>现代版“红楼梦”：《京华烟云》</p>
-                                   
-                                </div>
-                            </div>
-                        </div> 
-                        <div class="col-md-4 col-sm-6">
-                            <div class="text-center">
-                                <img src="images/7.jpeg" alt="">
-                                <div>
-                                    <h4><a href="#">倾城之恋</a></h4>
-                                </div>
-                                <div >       
-                                        <h4><a href="#">中国文学 小说</a></h4>
-                                        <p>张爱玲著名小说：《倾城之恋》</p>
-                                </div>
-                            </div>
-                        </div> 
-                        <div class="col-md-4 col-sm-6">
-                            <div class="text-center">
-                                <img src="images/8.jpeg" alt="">
-                                <div>
-                                    <h4><a href="#">人生"</a></h4>
-                                </div>
-                                 <div>
-                                        <h4><a href="#">中国文学 小说 经典名著</a></h4>
-                                        <p>路遥经典著作：《人生》</p>
-                                 </div>
-                            </div>
-                        </div> 
-                        <div class="col-md-4 col-sm-6">
-                            <div class="text-center">
-                                <img src="images/9.jpeg" alt="">
-                                <div>
-                                    <h4><a href="#">青铜葵花</a></h4>
-                                </div>
-                                <div>
-										<h4><a href="#">中国文学 儿童文学 小说</a></h4>
-                                        <p>美丽的痛苦，诗意的苦难：《青铜葵花》</p>
-                                   
-                                </div>
-                            </div>
-                        </div> 
+	
                 </div>
 		<div id="page" class="text-center"></div>
 	</div>
@@ -189,7 +82,7 @@ a, a:hover {
 
 <div class="layui-footer footer-index">
   <div class="layui-main">
-    <p>2016 © <a href="/">layui.com</a> LGPL license</p>
+    <p>2017 © <a href="/">layui.com</a> LGPL license</p>
     <p>
       <a href="http://fly.layui.com/jie/3147.html" target="_blank">捐赠作者</a>
       <a href="mailto:xianxin@layui.com">广告联系</a>
@@ -199,11 +92,70 @@ a, a:hover {
     </p>
   </div>
 </div>
-
 <script type="text/javascript" src="<%=request.getContextPath()%>/plugins/layui/layui.js"></script>
 <script  type="text/javascript"  src="<%=request.getContextPath()%>/js/vue.min.js" charset="utf-8"></script>
 <script  type="text/javascript"  src="<%=request.getContextPath()%>/js/jquery-2.1.3.js" charset="utf-8"></script>
 <script>
+layui.config({
+	base: 'plugins/layui/modules/'
+});
+layui.use([ 'element','laypage', 'layer','form'], function(){
+	  var element = layui.element(); //导航的hover效果、二级菜单等功能，需要依赖element模块
+	  var laypage = layui.laypage
+	  ,layer = layui.layer;
+	  
+	  layer.ready(function(){
+		  $.ajax({
+	          type: 'GET',
+	          data: {},
+	          url: '<%=request.getContextPath()%>/goodbook/typeList',
+	          success:function(result) {
+	          	if(result.success) {
+	              	vue.sortList =result.data;
+	          	} else {
+	          		parent.layer.alert("数据加载失败");
+	          	}
+	          }
+	      });
+		  $.ajax({
+              type: 'GET',
+              data: {},
+              url: '<%=request.getContextPath()%>/goodbook/total',
+              success:function(result) {
+              	if(result.success) {
+              		var pages = result.data;
+              		if(pages <= 10) {
+              			var groups = pages;
+              		}else {
+              			var groups = 10;
+              		}
+              		 laypage({
+         				cont: 'page',
+         				pages: pages, //总页数
+         				groups: groups, //连续显示分页数
+         				jump: function(obj, first) {
+         					 var curr = obj.curr;
+         					 $.ajax({
+         	                      type: 'GET',
+         	                      data: {"current":curr,"rowCount":"9"},
+         	                      url: '<%=request.getContextPath()%>/goodbook/bookList',
+         	                      success:function(result) {
+         	                      	if(result.success) {
+         	                      		vue.bookList = result.data;
+         	                      	} else {
+         	                      		parent.layer.alert("数据加载失败");
+         	                      	}
+         	                      }
+         	               });
+         				}
+         			}); 
+              	} else {
+              		parent.layer.alert("数据加载失败");
+              	}
+              }
+       });
+	  });    
+	});
 
 var vue = new Vue({
     el: '#goodbook',
@@ -233,40 +185,56 @@ var vue = new Vue({
 						id:'5',
 						name:'励志成功馆'
 					}
-    	            ]
+    	            ],
+    	       bookList:[]     
     },
     methods: {
-        search: function () {
-           
+    	getBookById: function (id) {
+    		 var _self = this;
+    		 var laypage = layui.laypage;
+    		 $.ajax({
+                 type: 'GET',
+                 data: {'catalogId':id},
+                 url: '<%=request.getContextPath()%>/goodbook/total',
+                 success:function(result) {
+                 	if(result.success) {
+                 		var pages = result.data;
+                 		if(pages <= 10) {
+                  			var groups = pages;
+                  		}else {
+                  			var groups = 10;
+                  		}
+                 		 laypage({
+            				cont: 'page',
+            				pages:pages, //总页数
+            				groups: groups, //连续显示分页数
+            				jump: function(obj, first) {
+            					 var curr = obj.curr;
+            					 $.ajax({
+            	                      type: 'GET',
+            	                      data: {"current":curr,"rowCount":"9","catalogId":id},
+            	                      url: '<%=request.getContextPath()%>/goodbook/bookList',
+            	                      success:function(result) {
+            	                      	if(result.success) {
+            	                      		_self.bookList = result.data;
+            	                      	} else {
+            	                      		parent.layer.alert("数据加载失败");
+            	                      	}
+            	                      }
+            	               });
+            				}
+            			}); 
+                 	} else {
+                 		parent.layer.alert("数据加载失败");
+                 	}
+                 }
+          });
         }
     }
 })
-layui.use([ 'element','laypage', 'layer','form'], function(){
-  var element = layui.element(); //导航的hover效果、二级菜单等功能，需要依赖element模块
-  var laypage = layui.laypage
-  ,layer = layui.layer;
-  
-  layer.ready(function(){
-	  $.ajax({
-          type: 'GET',
-          data: {},
-          url: '<%=request.getContextPath()%>/goodbook/typeList',
-          success:function(result) {
-          	if(result.success) {
-              	vue.sortList =result.data;
-          	} else {
-          		parent.layer.alert("数据加载失败");
-          	}
-          }
-      });
-  });    
-  
-  laypage({
-    cont: 'page'
-    ,pages: 50 //总页数
-    ,groups: 10 //连续显示分页数
-  });
-});
+
+
+
 </script>
 </body>
 </html>

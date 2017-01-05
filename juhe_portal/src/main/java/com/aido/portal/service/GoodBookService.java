@@ -11,13 +11,14 @@ package com.aido.portal.service;
 import java.util.List;
 
 import com.aido.portal.domain.GoodBookEntity;
+import com.aido.portal.domain.GoodBookOnLineEntity;
 import com.aido.portal.domain.GoodBookSortEntity;
 import com.aido.portal.domain.GoodBookTypeEntity;
 
 
 /**  
- * ClassName: BlogService  
- * csdn博客查询业务接口
+ * ClassName: GoodBookService  
+ * 图书商城查询业务接口
  * @author DOUBLE
  * @version   
  */
@@ -103,4 +104,33 @@ public interface GoodBookService {
 	 *  @return  
 	 */
 	List<GoodBookSortEntity> getAllGoodBookSortList();
+	
+	/**
+	 *  getGoodBookEntityPage:查询图书分类
+	 *  @return_type:List<GoodBookEntity>
+	 *  @author DOUBLE
+	 *  @param current
+	 *  @param rowCount
+	 *  @param catalog_id
+	 *  @return
+	 */
+	 List<GoodBookEntity> getGoodBookPages(int current,int rowCount,String catalogId);
+	
+	 /**
+	  *  getGoodBookTotalByCatalogId:活动条数
+	  *  @return_type:int
+	  *  @author DOUBLE
+	  *  @param catalogId
+	  *  @return
+	  */
+	 int getGoodBookTotal(String catalogId);
+	 
+	 /**
+	  *  getGoodBookOnLineById:查询图书关联的购买信息
+	  *  @return_type:List<GoodBookOnLineEntity>
+	  *  @author DOUBLE
+	  *  @param goodBookId
+	  *  @return
+	  */
+	 List<GoodBookOnLineEntity> getGoodBookOnLineById(String goodBookId);
 }

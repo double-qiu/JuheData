@@ -18,10 +18,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.aido.common.util.InvokeResult;
+import com.aido.portal.domain.GoodBookEntity;
 import com.aido.portal.domain.GoodBookSortEntity;
 import com.aido.portal.domain.GoodBookTypeEntity;
+import com.aido.portal.dto.GoodBookOutVO;
+import com.aido.portal.dto.GoodBookQueryVO;
 import com.aido.portal.dto.GoodBookSortOutVO;
 import com.aido.portal.service.GoodBookService;
+import com.aido.portal.utils.Copy;
 
 /**  
  * ClassName: GoodBookController  
@@ -48,7 +52,6 @@ public class GoodBookController {
 	@RequestMapping("/typeList")
 	@ResponseBody
 	public InvokeResult goodBookTypeList(){
-		
 		List<GoodBookSortOutVO>  outVOList = new ArrayList<GoodBookSortOutVO>();
 		try {
 			List<GoodBookSortEntity> sortList = goodBookSerivce.getAllGoodBookSortList();
@@ -67,5 +70,38 @@ public class GoodBookController {
 		}
 		return InvokeResult.success(outVOList);
 	}
-	
+	/**
+	 *  goodBookList:分页图书
+	 *  @return_type:InvokeResult
+	 *  @author DOUBLE
+	 *  @param query
+	 *  @return
+	 */
+	@RequestMapping("/bookList")
+	@ResponseBody
+	public InvokeResult goodBookList(GoodBookQueryVO query){
+		List<GoodBookOutVO>  outVOList = new ArrayList<GoodBookOutVO>();
+		List<GoodBookEntity> bookList = goodBookSerivce.getGoodBookPages(query.getCurrent(), query.getRowCount(), query.getCatalogId());
+		for (GoodBookEntity goodBookEntity : bookList) {
+			GoodBookOutVO outVO = new GoodBookOutVO();
+			Copy.simpleCopyExcludeNull(goodBookEntity, outVO);
+			outVOList.add(outVO);
+		}
+		return InvokeResult.success(outVOList);
+	}
+	/**
+	 *  goodBookTotal:获取总条数
+	 *  @return_type:InvokeResult
+	 *  @author DOUBLE
+	 *  @param catalogId
+	 *  @return
+	 */
+	@RequestMapping("/total")
+	@ResponseBody
+	public InvokeResult goodBookTotal(String catalogId){
+		
+		int total = goodBookSerivce.getGoodBookTotal(catalogId);
+		int pages = total/9+1;
+		return InvokeResult.success(pages);
+	}
 }

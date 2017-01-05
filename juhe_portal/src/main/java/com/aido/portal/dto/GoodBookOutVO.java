@@ -8,6 +8,9 @@
 package com.aido.portal.dto;
 
 import java.io.Serializable;
+import java.util.List;
+
+import com.aido.portal.domain.GoodBookOnLineEntity;
 
 /**
  * ClassName: GoodBookEntity  
@@ -38,6 +41,17 @@ public class GoodBookOutVO   implements Serializable {
 	
 	private String  online;
 	
+	
+	private List<GoodBookOnLineEntity> onlineList;
+	
+
+	public List<GoodBookOnLineEntity> getOnlineList() {
+		return onlineList;
+	}
+
+	public void setOnlineList(List<GoodBookOnLineEntity> onlineList) {
+		this.onlineList = onlineList;
+	}
 
 	public String getOnline() {
 		return online;

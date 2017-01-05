@@ -19,7 +19,6 @@ import org.springframework.stereotype.Service;
 import com.aido.common.httpclient.HttpClientComponent;
 import com.aido.portal.dao.BaseDao;
 import com.aido.portal.dao.GoodBookDao;
-import com.aido.portal.dao.impl.BaseDaoImpl;
 import com.aido.portal.domain.GoodBookEntity;
 import com.aido.portal.domain.GoodBookOnLineEntity;
 import com.aido.portal.domain.GoodBookSortEntity;
@@ -39,7 +38,7 @@ import com.alibaba.fastjson.JSONObject;
  */
 
 @Service("goodBookService")
-public class GoodBookServiceImpl extends BaseDaoImpl  implements  GoodBookService {
+public class GoodBookServiceImpl  implements  GoodBookService {
 
 	@Autowired
 	private GoodBookDao goodBookDao;
@@ -83,10 +82,9 @@ public class GoodBookServiceImpl extends BaseDaoImpl  implements  GoodBookServic
 	 * @return
 	 * Administrator
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<GoodBookTypeEntity> getAllGoodBookTypeList() {
-		return baseDao.findListbySql("select * from q_goodbook_type", GoodBookTypeEntity.class);
+		return goodBookDao.getAllGoodBookTypeList();
 	}
 
 	/**  
@@ -195,21 +193,16 @@ public class GoodBookServiceImpl extends BaseDaoImpl  implements  GoodBookServic
 	 */
 	@Override
 	public boolean checkGoodBook(String title) {
-		StringBuffer sql = new StringBuffer();
-		sql.append("select COUNT(gb.id)  from q_goodbook gb where 1 = 1  ");
-		sql.append(" and gb.title = ?");
-		int gdNum = jdbcTemplate.queryForObject(sql.toString(),new Object[] { String.valueOf(title) },Integer.class);
-		return gdNum == 0 ? Boolean.TRUE:Boolean.FALSE;
+		return goodBookDao.checkGoodBook(title);
 	}
 
 	/**  
 	 * @return
 	 * Administrator
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<GoodBookSortEntity> getAllGoodBookSortList() {
-		return baseDao.findListbySql("select * from q_goodbook_sort", GoodBookSortEntity.class);
+		return goodBookDao.getAllGoodBookSortList();
 	}
 
 	/**  
@@ -217,9 +210,40 @@ public class GoodBookServiceImpl extends BaseDaoImpl  implements  GoodBookServic
 	 * @return
 	 * Administrator
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<GoodBookTypeEntity> getGoodBookTypeListBySort(String sortId) {
-		return baseDao.findListbySql("select * from q_goodbook_type where sort =  '"+sortId+"'", GoodBookTypeEntity.class);
+		return goodBookDao.getGoodBookTypeListBySort(sortId);
+	}
+
+	/**  
+	 * @param current
+	 * @param rowCount
+	 * @param catalogId
+	 * @return
+	 * Administrator
+	 */
+	@Override
+	public List<GoodBookEntity> getGoodBookPages(int current, int rowCount, String catalogId) {
+		return goodBookDao.getGoodBookPage(current, rowCount, catalogId);
+	}
+
+	/**  
+	 * @param goodBookId
+	 * @return
+	 * Administrator
+	 */
+	@Override
+	public List<GoodBookOnLineEntity> getGoodBookOnLineById(String book) {
+		return goodBookDao.getGoodBookOnLineById(book);
+	}
+
+	/**  
+	 * @param catalogId
+	 * @return
+	 * Administrator
+	 */
+	@Override
+	public int getGoodBookTotal(String catalogId) {
+		return goodBookDao.getGoodBookTotal(catalogId);
 	}
 }

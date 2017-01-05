@@ -18,6 +18,7 @@ import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.aido.portal.domain.GoodBookEntity;
+import com.aido.portal.domain.GoodBookOnLineEntity;
 import com.aido.portal.domain.GoodBookSortEntity;
 import com.aido.portal.domain.GoodBookTypeEntity;
 import com.aido.portal.service.GoodBookService;
@@ -101,5 +102,23 @@ public class BaseServiceTest extends AbstractJUnit4SpringContextTests {
 	 @Test
 	 public void checkGoodBookTest() throws Exception {
 		System.out.println(goodBookService.checkGoodBook("檀香刑"));
+	 }
+	 
+	 @Test
+	 public void getGoodBookPageTest() throws Exception {
+		List<GoodBookEntity> pageList = goodBookService.getGoodBookPages(1, 9, "");
+		System.out.println(pageList);
+	 }
+	 
+	 @Test
+	 public void getGoodBookOnlineTest() throws Exception {
+		List<GoodBookOnLineEntity> pageList = goodBookService.getGoodBookOnLineById("3679");
+		System.out.println(pageList);
+	 }
+	 
+	 @Test
+	 public void getGoodBookTotalTest() throws Exception {
+		int total = goodBookService.getGoodBookTotal("242");
+		System.out.println(total);
 	 }
 }
