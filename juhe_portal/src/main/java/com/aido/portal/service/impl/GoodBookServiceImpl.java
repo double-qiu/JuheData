@@ -22,6 +22,7 @@ import com.aido.portal.dao.GoodBookDao;
 import com.aido.portal.dao.impl.BaseDaoImpl;
 import com.aido.portal.domain.GoodBookEntity;
 import com.aido.portal.domain.GoodBookOnLineEntity;
+import com.aido.portal.domain.GoodBookSortEntity;
 import com.aido.portal.domain.GoodBookTypeEntity;
 import com.aido.portal.dto.GoodBookOutVO;
 import com.aido.portal.dto.GoodBookTypeOutVO;
@@ -199,5 +200,26 @@ public class GoodBookServiceImpl extends BaseDaoImpl  implements  GoodBookServic
 		sql.append(" and gb.title = ?");
 		int gdNum = jdbcTemplate.queryForObject(sql.toString(),new Object[] { String.valueOf(title) },Integer.class);
 		return gdNum == 0 ? Boolean.TRUE:Boolean.FALSE;
+	}
+
+	/**  
+	 * @return
+	 * Administrator
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<GoodBookSortEntity> getAllGoodBookSortList() {
+		return baseDao.findListbySql("select * from q_goodbook_sort", GoodBookSortEntity.class);
+	}
+
+	/**  
+	 * @param sortId
+	 * @return
+	 * Administrator
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<GoodBookTypeEntity> getGoodBookTypeListBySort(String sortId) {
+		return baseDao.findListbySql("select * from q_goodbook_type where sort =  '"+sortId+"'", GoodBookTypeEntity.class);
 	}
 }

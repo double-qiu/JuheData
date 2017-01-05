@@ -18,6 +18,7 @@ import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.aido.portal.domain.GoodBookEntity;
+import com.aido.portal.domain.GoodBookSortEntity;
 import com.aido.portal.domain.GoodBookTypeEntity;
 import com.aido.portal.service.GoodBookService;
 
@@ -60,6 +61,16 @@ public class BaseServiceTest extends AbstractJUnit4SpringContextTests {
 		System.out.println("goodbooktype size  is "+goodBookTypeList.size());
 	 }
 	 
+	 @Test
+	 public void findAllGoodBookSortTest() throws Exception {
+		List<GoodBookSortEntity> goodBookTypeList  =  goodBookService.getAllGoodBookSortList();
+		System.out.println("goodbooktype size  is "+goodBookTypeList.size());
+	 }
+	 @Test
+	 public void findGoodBookTypeSortTest() throws Exception {
+		List<GoodBookTypeEntity> goodBookTypeList  =  goodBookService.getGoodBookTypeListBySort("1");
+		System.out.println("goodbooktype size  is "+goodBookTypeList.size());
+	 }
 	 @Test
 	 public void saveGoodBookDataTest() throws Exception {
 		 String url = "http://apis.juhe.cn/goodbook/query";

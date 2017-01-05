@@ -1,7 +1,7 @@
 /**  
- * Project Name:juhe_manager_pojo  
+ * Project Name:juhe_portal  
  * File Name:GoodBookEntity.java  
- * Package Name:com.aido.manager.pojo  
+ * Package Name:com.aido.portal.domain
  * Date:2016年12月24日下午12:56:52  
  * Copyright (c) 2016, LoveBeanTec All Rights Reserved.  
  */
@@ -52,6 +52,8 @@ public class GoodBookEntity   implements Serializable {
 	
 	private String catalog_id;
 	
+	private List<GoodBookOnLineEntity> onLines;
+	
 	@Column(name ="catalog_id",nullable=true,length=30)
 	public String getCatalog_id() {
 		return catalog_id;
@@ -61,7 +63,6 @@ public class GoodBookEntity   implements Serializable {
 		this.catalog_id = catalog_id;
 	}
 
-	private List<GoodBookOnLineEntity> onLines;
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "goodBookFkId")	

@@ -1,7 +1,7 @@
 /**  
- * Project Name:juhe_manager_pojo  
+ * Project Name:juhe_portal  
  * File Name:OnLineEntity.java  
- * Package Name:com.aido.manager.pojo  
+ * Package Name:com.aido.portal.domain  
  * Date:2016年12月24日下午12:56:52  
  * Copyright (c) 2016, LoveBeanTec All Rights Reserved.  
  */

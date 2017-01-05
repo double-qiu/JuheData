@@ -1,0 +1,70 @@
+@charset "utf-8";
+/* 代码整理：懒人之家 www.lanrenzhijia.com */
+*{ margin:0; padding:0; list-style:none;}
+.lanren {
+	width: 188px;
+	padding: 10px;
+	position: relative;
+	float: left;
+}
+.lanren > img {
+	display: block;
+	position: relative;
+	cursor:pointer;
+}
+.lanren:hover .lanren-hover, .lanren:active .lanren-hover {
+	opacity: 1;
+}
+.lanren-hover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0;
+	-webkit-transition: opacity 0.3s ease;
+	-moz-transition: opacity 0.3s ease;
+	transition: opacity 0.3s ease;
+	background-size: 30px 30px;
+	background-image: -webkit-linear-gradient(45deg, rgba(234, 176, 176, 1) 25%, transparent 25%, transparent 50%, rgba(234, 176, 176, 1) 50%, rgba(234, 176, 176, 1) 75%, transparent 75%, transparent);
+	background-image: -moz-linear-gradient(45deg, rgba(234, 176, 176, 1) 25%, transparent 25%, transparent 50%, rgba(234, 176, 176, 1) 50%, rgba(234, 176, 176, 1) 75%, transparent 75%, transparent);
+	background-image: linear-gradient(45deg, rgba(234, 176, 176, 1) 25%, transparent 25%, transparent 50%, rgba(234, 176, 176, 1) 50%, rgba(234, 176, 176, 1) 75%, transparent 75%, transparent);
+	-webkit-animation: barberpole 0.5s linear infinite;
+	-moz-animation: barberpole 0.5s linear infinite;
+	animation: barberpole 0.5s linear infinite;
+}
+ @-webkit-keyframes barberpole {
+ from {
+ background-position: 0 0;
+}
+to {
+	background-position: 60px 30px;
+}
+}
+@-moz-keyframes barberpole {
+ from {
+ background-position: 0 0;
+}
+to {
+	background-position: 60px 30px;
+}
+}
+@keyframes barberpole {
+ from {
+ background-position: 0 0;
+}
+to {
+	background-position: 60px 30px;
+}
+}
+h1 {
+	text-align:center;
+}
+.main {
+	margin:10px auto;
+	text-align:center;
+	width:420px;
+	height:auto;
+	overflow:hidden;
+}
+/* 代码整理：懒人之家 www.lanrenzhijia.com */

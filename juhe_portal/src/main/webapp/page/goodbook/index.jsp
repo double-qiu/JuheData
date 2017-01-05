@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>图书商城-首页</title>
-<link href="<%=request.getContextPath()%>/layui/css/layui.css" rel="stylesheet" />
+		<link rel="stylesheet" href="<%=request.getContextPath()%>/plugins/layui/css/layui.css" media="all" />
 <link href="<%=request.getContextPath()%>/layui/css/main.css" rel="stylesheet" />
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css"/>
 </head>
@@ -21,31 +21,28 @@ a, a:hover {
 }
 
 </style>
+<div  id="goodbook">
 <div class="layui-header header header-index">
 	<div class="layui-main">
 		<a class="logo" href="/">
 	      <img src="images/logo.png" alt="layui">
 	    </a>
 		<ul class="layui-nav">
-		  <li class="layui-nav-item"><a href="">最新活动</a></li>
-		  <li class="layui-nav-item layui-this">
-		    <a href="">产品</a>
-		    <dl class="layui-nav-child">
-		      <dd><a href="" style="height:30px;padding-top: 5px;">选项1</a></dd>
-		      <dd><a href="" style="height:30px;padding-top: 5px;">选项2</a></dd>
-		      <dd><a href="" style="height:30px;padding-top: 5px;">选项3</a></dd>
+		   <li class="layui-nav-item"><a href="">最新推荐</a></li>
+		  <li class="layui-nav-item "  v-for="sl in sortList">
+		    <a :href="<%=request.getContextPath()%>/">{{sl.name}}</a>
+		     <dl class="layui-nav-child">
+		    	<dd v-for="tl in sl.typeList"><a  :href ="<%=request.getContextPath()%>/" >{{tl.catalog}}</a></dd>
 		    </dl>
 		  </li>
-		  <li class="layui-nav-item"><a href="">大数据</a></li>
-		  <li class="layui-nav-item">
+		  <!-- <li class="layui-nav-item">
 		    <a href="javascript:;">解决方案</a>
 		    <dl class="layui-nav-child">
-		      <dd><a href="" style="height:30px;padding-top: 5px;">移动模块</a></dd>
-		      <dd><a href="" style="height:30px;padding-top: 5px;">后台模版</a></dd>
-		      <dd><a href="" style="height:30px;padding-top: 5px;">电商平台</a></dd>
+		      <dd><a href="" >移动模块</a></dd>
+		      <dd><a href="" >后台模版</a></dd>
+		      <dd><a href="" >电商平台</a></dd>
 		    </dl>
-		  </li>
-		  <li class="layui-nav-item"><a href="">社区</a></li>
+		  </li> -->
 		</ul>
 		<form action="#search" class="layui-search">
 			<i class="layui-icon icon-sousuo" style="font-size: 24px; color: #1E9FFF;">&#xe615;</i>
@@ -73,7 +70,7 @@ a, a:hover {
 	<!-- 文章开始 -->
 	<div class="row ">
                   
-                        <div class=" col-md-4 col-sm-6">
+                        <div class=" col-md-4 col-sm-6  ">
                             <div class="text-center">
                                 <img src="images/1.jpeg" alt="">
                                 <div>
@@ -87,7 +84,7 @@ a, a:hover {
                                 </div>
                             </div>
                         </div> 
-                        <div class="col-md-4 col-sm-6">
+                        <div class="col-md-4 col-sm-6 ">
                             <div class="text-center">
                                 <img src="images/2.jpeg" alt="">
                                 <div>
@@ -166,12 +163,9 @@ a, a:hover {
                                 <div>
                                     <h4><a href="#">人生"</a></h4>
                                 </div>
-                               
                                  <div>
-                                         
                                         <h4><a href="#">中国文学 小说 经典名著</a></h4>
                                         <p>路遥经典著作：《人生》</p>
-                                   
                                  </div>
                             </div>
                         </div> 
@@ -188,11 +182,9 @@ a, a:hover {
                                 </div>
                             </div>
                         </div> 
-                   
                 </div>
-	
-	<div id="page" class="text-center"></div>
-
+		<div id="page" class="text-center"></div>
+	</div>
 </div>
 
 <div class="layui-footer footer-index">
@@ -208,12 +200,66 @@ a, a:hover {
   </div>
 </div>
 
-<script src="<%=request.getContextPath()%>/layui/layui.js" charset="utf-8"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/plugins/layui/layui.js"></script>
+<script  type="text/javascript"  src="<%=request.getContextPath()%>/js/vue.min.js" charset="utf-8"></script>
+<script  type="text/javascript"  src="<%=request.getContextPath()%>/js/jquery-2.1.3.js" charset="utf-8"></script>
 <script>
-layui.use(['element','laypage', 'layer'], function(){
+
+var vue = new Vue({
+    el: '#goodbook',
+    data: {
+    	sortList : [{
+							typeList:[{catalog:''}],
+							id:'1',
+							name:'文学馆'
+    				},
+    				{
+						typeList:[{catalog:''}],
+						id:'2',
+						name:'经管馆'
+					},
+					{
+						typeList:[{catalog:''}],
+						id:'3',
+						name:'计算机馆'
+					},
+					{
+						typeList:[{catalog:''}],
+						id:'4',
+						name:'生活馆'
+					},
+					{
+						typeList:[{catalog:''}],
+						id:'5',
+						name:'励志成功馆'
+					}
+    	            ]
+    },
+    methods: {
+        search: function () {
+           
+        }
+    }
+})
+layui.use([ 'element','laypage', 'layer','form'], function(){
   var element = layui.element(); //导航的hover效果、二级菜单等功能，需要依赖element模块
   var laypage = layui.laypage
   ,layer = layui.layer;
+  
+  layer.ready(function(){
+	  $.ajax({
+          type: 'GET',
+          data: {},
+          url: '<%=request.getContextPath()%>/goodbook/typeList',
+          success:function(result) {
+          	if(result.success) {
+              	vue.sortList =result.data;
+          	} else {
+          		parent.layer.alert("数据加载失败");
+          	}
+          }
+      });
+  });    
   
   laypage({
     cont: 'page'

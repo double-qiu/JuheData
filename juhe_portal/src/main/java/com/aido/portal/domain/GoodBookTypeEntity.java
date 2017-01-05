@@ -1,7 +1,7 @@
 /**  
- * Project Name:juhe_manager_pojo  
+ * Project Name:juhe_portal  
  * File Name:OnLineEntity.java  
- * Package Name:com.aido.manager.pojo  
+ * Package Name:com.aido.portal.domain
  * Date:2016年12月24日下午12:56:52  
  * Copyright (c) 2016, LoveBeanTec All Rights Reserved.  
  */
@@ -33,6 +33,8 @@ public class GoodBookTypeEntity implements Serializable {
 	private String  typeId;
 	
 	private String catalog;
+	
+	private String sort;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -59,5 +61,14 @@ public class GoodBookTypeEntity implements Serializable {
 
 	public void setTypeId(String typeId) {
 		this.typeId = typeId;
+	}
+
+	@Column(name ="sort",nullable=true,length=300)
+	public String getSort() {
+		return sort;
+	}
+
+	public void setSort(String sort) {
+		this.sort = sort;
 	}
 }
