@@ -57,9 +57,10 @@ public class GoodBookDaoImpl  extends BaseDaoImpl implements GoodBookDao {
 		StringBuffer sql = new StringBuffer();
 		int index = (current-1)*rowCount;
 		sql.append("select *  from q_goodbook a  where 1 = 1");
-		if(StringUtils.isNotBlank(catalogId)){
+		if(!"null".equals(catalogId)&&StringUtils.isNotBlank(catalogId)){
 			sql.append(" and a.catalog_id = '"+catalogId+"'");
 		}
+		sql.append("  order by CONVERT(reading,SIGNED)   desc ");
 		sql.append("  limit "+index+","+rowCount);
 		return baseDao.findListbySql(sql.toString(), GoodBookEntity.class);
 	}
@@ -138,5 +139,15 @@ public class GoodBookDaoImpl  extends BaseDaoImpl implements GoodBookDao {
 			 gdNum = jdbcTemplate.queryForObject(sql.toString(),Integer.class);
 		}
 		return gdNum;
+	}
+
+	/**  
+	 * @param id
+	 * @return
+	 * Administrator
+	 */
+	@Override
+	public GoodBookEntity getGoodBookById(long id) {
+		return (GoodBookEntity) baseDao.getEntity(GoodBookEntity.class, id);
 	}
 }

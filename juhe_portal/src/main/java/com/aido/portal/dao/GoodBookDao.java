@@ -87,4 +87,13 @@ public interface GoodBookDao {
 	 *  @return  
 	 */
 	int getGoodBookTotal(String catalogId);
+
+	/**  
+	 *  getGoodBookById:获取详细信息
+	 *  @return_type:GoodBookEntity
+	 *  @author DOUBLE
+	 *  @param id
+	 *  @return  
+	 */
+	GoodBookEntity getGoodBookById(long id);
 }

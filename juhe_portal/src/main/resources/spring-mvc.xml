@@ -38,6 +38,8 @@
 <mvc:resources location="/images/"  mapping="/images/**" />
 <mvc:resources location="/layui/"  mapping="/layui/**" />
 <mvc:resources location="/plugins/"  mapping="/plugins/**" />
+<mvc:resources location="/assets/"  mapping="/assets/**" />
+
 <!-- 页面转向解析 -->
 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 	<property name="prefix" value="/WEB-INF/content/" />

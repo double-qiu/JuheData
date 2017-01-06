@@ -121,4 +121,9 @@ public class BaseServiceTest extends AbstractJUnit4SpringContextTests {
 		int total = goodBookService.getGoodBookTotal("242");
 		System.out.println(total);
 	 }
+	 @Test
+	 public void getGoodBookByIdTest() throws Exception {
+		GoodBookEntity book = goodBookService.getGoodBookById(3680L);
+		System.out.println(book.getTitle());
+	 }
 }

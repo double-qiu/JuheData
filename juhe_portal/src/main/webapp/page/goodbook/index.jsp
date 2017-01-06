@@ -2,6 +2,7 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+String catalogId = request.getParameter("id");
 %>
 <!DOCTYPE html>
 <html>
@@ -9,10 +10,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>图书商城-首页</title>
+<title>好书商城</title>
 		<link rel="stylesheet" href="<%=request.getContextPath()%>/plugins/layui/css/layui.css" media="all" />
-<link href="<%=request.getContextPath()%>/layui/css/main.css" rel="stylesheet" />
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css"/>
+		<link href="<%=request.getContextPath()%>/layui/css/main.css" rel="stylesheet" />
+		<link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.min.css"/>
 </head>
 <body class="layui-body-gbook">
 <style>
@@ -23,15 +24,16 @@ a, a:hover {
 <div  id="goodbook">
 <div class="layui-header header header-index">
 	<div class="layui-main">
-		<a class="logo" href="/">
-	      <img src="images/logo.png" alt="layui">
+		<input type="hidden" id="catalogId" name="catalogId" value="<%=catalogId%>"/>
+		<a class="logo" href="javascript:void(0);">
+	      <img src="<%=request.getContextPath()%>/images/logo.png" alt="layui">
 	    </a>
 		<ul class="layui-nav">
-		   <li class="layui-nav-item"><a href ="javascript:void(0);"  v-on:click="getBookById()">最新推荐</a></li>
+		   <li class="layui-nav-item"><a href ="javascript:void(0);"  v-on:click="getBookByListId('')">最新推荐</a></li>
 		  <li class="layui-nav-item "  v-for="sl in sortList">
 		    <a >{{sl.name}}</a>
 		     <dl class="layui-nav-child">
-		    	<dd v-for="tl in sl.typeList"><a  href ="javascript:void(0);"   v-on:click="getBookById(tl.typeId)">{{tl.catalog}}</a></dd>
+		    	<dd v-for="tl in sl.typeList"><a  href ="javascript:void(0);"   v-on:click="getBookByListId(tl.typeId)">{{tl.catalog}}</a></dd>
 		    </dl>
 		  </li>
 		</ul>
@@ -58,24 +60,23 @@ a, a:hover {
 </div>
 
 <div class="layui-main">
-	<!-- 文章开始 -->
+	<!-- 导航栏 -->
 	<div class="row ">
 			 		<div class=" col-md-4 col-sm-6 "   v-for="bl in bookList">
                             <div class="text-center">
-                                <img :src="bl.img" alt=""   style="width: 200px; height: 280px;" >
+                                <img :src="bl.img" alt=""  v-on:click="detail(bl.id)" style="width: 200px; height: 280px;" >
                                 <div>
-                                    <h4><a href="#">{{bl.title}}</a></h4>
+                                    <h4><a href="javascript:void(0);"  v-on:click="detail(bl.id)">{{bl.title}}</a></h4>
                                 </div>
                                 <div class="text-center">
                                     <div class="inside">
-                                        <h4><a href="#">{{bl.catalog}}</a></h4>
+                                        <h4><a href="javascript:void(0);"  v-on:click="detail(bl.id)">{{bl.catalog}}</a></h4>
                                         <p>{{bl.sub1}}</p>
                                     </div>
                                 </div>
                             </div>
                         </div> 
-	
-                </div>
+           </div>
 		<div id="page" class="text-center"></div>
 	</div>
 </div>
@@ -103,7 +104,6 @@ layui.use([ 'element','laypage', 'layer','form'], function(){
 	  var element = layui.element(); //导航的hover效果、二级菜单等功能，需要依赖element模块
 	  var laypage = layui.laypage
 	  ,layer = layui.layer;
-	  
 	  layer.ready(function(){
 		  $.ajax({
 	          type: 'GET',
@@ -117,6 +117,10 @@ layui.use([ 'element','laypage', 'layer','form'], function(){
 	          	}
 	          }
 	      });
+		  var catalogId = $("#catalogId").val();
+		  if (typeof(catalogId) == "undefined"||catalogId=="undefined") { 
+			  catalogId = "";
+			} 
 		  $.ajax({
               type: 'GET',
               data: {},
@@ -137,7 +141,7 @@ layui.use([ 'element','laypage', 'layer','form'], function(){
          					 var curr = obj.curr;
          					 $.ajax({
          	                      type: 'GET',
-         	                      data: {"current":curr,"rowCount":"9"},
+         	                     data: {"current":curr,"rowCount":"9","catalogId":catalogId},
          	                      url: '<%=request.getContextPath()%>/goodbook/bookList',
          	                      success:function(result) {
          	                      	if(result.success) {
@@ -186,10 +190,11 @@ var vue = new Vue({
 						name:'励志成功馆'
 					}
     	            ],
-    	       bookList:[]     
+    	       bookList:[],
+    	       bookVO:''
     },
     methods: {
-    	getBookById: function (id) {
+    	getBookByListId: function (id) {
     		 var _self = this;
     		 var laypage = layui.laypage;
     		 $.ajax({
@@ -229,6 +234,9 @@ var vue = new Vue({
                  	}
                  }
           });
+        },
+        detail: function (id) {
+         	window.location.href="<%=request.getContextPath()%>/page/goodbook/detail.jsp?id="+id ;
         }
     }
 })

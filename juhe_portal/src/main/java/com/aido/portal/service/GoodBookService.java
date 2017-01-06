@@ -133,4 +133,13 @@ public interface GoodBookService {
 	  *  @return
 	  */
 	 List<GoodBookOnLineEntity> getGoodBookOnLineById(String goodBookId);
+	 
+	 /**
+	  *  getGoodBookById:获取图书详细信息
+	  *  @return_type:GoodBookEntity
+	  *  @author DOUBLE
+	  *  @param id
+	  *  @return
+	  */
+	 GoodBookEntity getGoodBookById(long id);
 }

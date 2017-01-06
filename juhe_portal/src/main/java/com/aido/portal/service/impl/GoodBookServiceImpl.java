@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -127,7 +128,10 @@ public class GoodBookServiceImpl  implements  GoodBookService {
 					goodBookEntity.setSub1(goodBookOutVO.getSub1());
 					goodBookEntity.setSub2(goodBookOutVO.getSub2());
 					goodBookEntity.setImg(goodBookOutVO.getImg());
-					goodBookEntity.setReading(goodBookOutVO.getReading());
+					String reading = goodBookOutVO.getReading();
+					if(StringUtils.isNotBlank(reading)) {
+						goodBookEntity.setReading(reading.substring(0,reading.length()-3));
+					}
 					goodBookEntity.setBytime(goodBookOutVO.getBytime());
 					baseDao.save(goodBookEntity);
 				}
@@ -137,7 +141,6 @@ public class GoodBookServiceImpl  implements  GoodBookService {
 			}
 		}
 	}
-
 	/**  
 	 *  getOnLines:(这里用一句话描述这个方法的作用). 
 	 *  @return_type:List<GoodBookOnLineEntity>
@@ -245,5 +248,15 @@ public class GoodBookServiceImpl  implements  GoodBookService {
 	@Override
 	public int getGoodBookTotal(String catalogId) {
 		return goodBookDao.getGoodBookTotal(catalogId);
+	}
+
+	/**  
+	 * @param id
+	 * @return
+	 * Administrator
+	 */
+	@Override
+	public GoodBookEntity getGoodBookById(long id) {
+		return goodBookDao.getGoodBookById(id);
 	}
 }

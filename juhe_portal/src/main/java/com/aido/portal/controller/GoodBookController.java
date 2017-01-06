@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.aido.common.util.InvokeResult;
 import com.aido.portal.domain.GoodBookEntity;
+import com.aido.portal.domain.GoodBookOnLineEntity;
 import com.aido.portal.domain.GoodBookSortEntity;
 import com.aido.portal.domain.GoodBookTypeEntity;
 import com.aido.portal.dto.GoodBookOutVO;
@@ -103,5 +104,27 @@ public class GoodBookController {
 		int total = goodBookSerivce.getGoodBookTotal(catalogId);
 		int pages = total/9+1;
 		return InvokeResult.success(pages);
+	}
+	/**
+	 *  goodBookDetail:图书详细
+	 *  @return_type:InvokeResult
+	 *  @author DOUBLE
+	 *  @param id
+	 *  @return
+	 */
+	@RequestMapping("/detail")
+	@ResponseBody
+	public InvokeResult goodBookDetail(String id){
+		 GoodBookOutVO outVO = new GoodBookOutVO();
+		 GoodBookEntity book = goodBookSerivce.getGoodBookById(Long.parseLong(id));
+		 List<GoodBookOnLineEntity> onLines = goodBookSerivce.getGoodBookOnLineById(String.valueOf(book.getId()));
+		 Copy.simpleCopyExcludeNull(book, outVO);
+		 String content = outVO.getSub2();
+		 if(content.length()>400) {
+			 content = content.substring(0,400)+"...";
+		 }
+		 outVO.setSub2Short(content);
+		 outVO.setOnlineList(onLines);
+		 return InvokeResult.success(outVO);
 	}
 }

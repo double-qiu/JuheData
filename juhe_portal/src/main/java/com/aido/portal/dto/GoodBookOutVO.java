@@ -22,6 +22,7 @@ public class GoodBookOutVO   implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	private long id;
 	
 	private String title;
 
@@ -32,6 +33,8 @@ public class GoodBookOutVO   implements Serializable {
 	private String sub1;
 
 	private String sub2;
+	
+	private String sub2Short;
 
 	private String img;
 	
@@ -41,9 +44,24 @@ public class GoodBookOutVO   implements Serializable {
 	
 	private String  online;
 	
-	
 	private List<GoodBookOnLineEntity> onlineList;
 	
+	
+	public String getSub2Short() {
+		return sub2Short;
+	}
+
+	public void setSub2Short(String sub2Short) {
+		this.sub2Short = sub2Short;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
 
 	public List<GoodBookOnLineEntity> getOnlineList() {
 		return onlineList;
