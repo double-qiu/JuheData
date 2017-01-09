@@ -82,7 +82,7 @@ public class GoodBookController {
 	@ResponseBody
 	public InvokeResult goodBookList(GoodBookQueryVO query){
 		List<GoodBookOutVO>  outVOList = new ArrayList<GoodBookOutVO>();
-		List<GoodBookEntity> bookList = goodBookSerivce.getGoodBookPages(query.getCurrent(), query.getRowCount(), query.getCatalogId());
+		List<GoodBookEntity> bookList = goodBookSerivce.getGoodBookPages(query.getCurrent(), query.getRowCount(), query.getCatalogId(),query.getSearch());
 		for (GoodBookEntity goodBookEntity : bookList) {
 			GoodBookOutVO outVO = new GoodBookOutVO();
 			Copy.simpleCopyExcludeNull(goodBookEntity, outVO);
@@ -91,7 +91,7 @@ public class GoodBookController {
 		return InvokeResult.success(outVOList);
 	}
 	/**
-	 *  goodBookTotal:获取总条数
+	 *  goodBookTotal:获取总页数
 	 *  @return_type:InvokeResult
 	 *  @author DOUBLE
 	 *  @param catalogId
@@ -99,9 +99,9 @@ public class GoodBookController {
 	 */
 	@RequestMapping("/total")
 	@ResponseBody
-	public InvokeResult goodBookTotal(String catalogId){
+	public InvokeResult goodBookTotal(GoodBookQueryVO query){
 		
-		int total = goodBookSerivce.getGoodBookTotal(catalogId);
+		int total = goodBookSerivce.getGoodBookTotal(query.getCatalogId(),query.getSearch());
 		int pages = total/9+1;
 		return InvokeResult.success(pages);
 	}

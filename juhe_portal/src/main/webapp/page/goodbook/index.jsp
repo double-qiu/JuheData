@@ -20,6 +20,8 @@ String catalogId = request.getParameter("id");
 a, a:hover {
    text-decoration: none;
 }
+.over{border:1px solid #F00}
+.bookDiv:hover {background:#f2f2f2;}
 </style>
 <div  id="goodbook">
 <div class="layui-header header header-index">
@@ -37,10 +39,10 @@ a, a:hover {
 		    </dl>
 		  </li>
 		</ul>
-		<form action="#search" class="layui-search">
+		<div class="layui-search">
 			<i class="layui-icon icon-sousuo" style="font-size: 24px; color: #1E9FFF;">&#xe615;</i>
-			<input class="layui-input" autocomplete="off" placeholder="搜索内容，回车跳转" type="text" name="q">
-		</form>
+			<input class="layui-input" autocomplete="off" placeholder="搜索内容，回车跳转" type="text" name="q" id = "search">
+		</div>
 	</div>
 </div>
 
@@ -62,7 +64,7 @@ a, a:hover {
 <div class="layui-main">
 	<!-- 导航栏 -->
 	<div class="row ">
-			 		<div class=" col-md-4 col-sm-6 "   v-for="bl in bookList">
+			 		<div class=" col-md-4 col-sm-6 bookDiv"  v-for="bl in bookList">
                             <div class="text-center">
                                 <img :src="bl.img" alt=""  v-on:click="detail(bl.id)" style="width: 200px; height: 280px;" >
                                 <div>
@@ -105,6 +107,50 @@ layui.use([ 'element','laypage', 'layer','form'], function(){
 	  var laypage = layui.laypage
 	  ,layer = layui.layer;
 	  layer.ready(function(){
+		  
+		  $('#search').keydown(function(e){
+			  var search = $('#search').val();
+			  if(e.keyCode==13){
+				  $.ajax({
+		              type: 'GET',
+		              data: {'search':search},
+		              url: '<%=request.getContextPath()%>/goodbook/total',
+		              success:function(result) {
+		              	if(result.success) {
+		              		var pages = result.data;
+		              		if(pages <= 10) {
+		              			var groups = pages;
+		              		}else {
+		              			var groups = 10;
+		              		}
+		              		 laypage({
+		         				cont: 'page',
+		         				pages: pages, //总页数
+		         				groups: groups, //连续显示分页数
+		         				jump: function(obj, first) {
+		         					 var curr = obj.curr;
+		         					 $.ajax({
+		         	                      type: 'GET',
+		         	                     data: {"current":curr,"rowCount":"9","search":search},
+		         	                      url: '<%=request.getContextPath()%>/goodbook/bookList',
+		         	                      success:function(result) {
+		         	                      	if(result.success) {
+		         	                      		vue.bookList = result.data;
+		         	                      	} else {
+		         	                      		parent.layer.alert("数据加载失败");
+		         	                      	}
+		         	                      }
+		         	               });
+		         				}
+		         			}); 
+		              	} else {
+		              		parent.layer.alert("数据加载失败");
+		              	}
+		              }
+		       });
+			  }
+		 });
+		  
 		  $.ajax({
 	          type: 'GET',
 	          data: {},
@@ -120,7 +166,7 @@ layui.use([ 'element','laypage', 'layer','form'], function(){
 		  var catalogId = $("#catalogId").val();
 		  if (typeof(catalogId) == "undefined"||catalogId=="undefined") { 
 			  catalogId = "";
-			} 
+		  }
 		  $.ajax({
               type: 'GET',
               data: {},
@@ -190,8 +236,7 @@ var vue = new Vue({
 						name:'励志成功馆'
 					}
     	            ],
-    	       bookList:[],
-    	       bookVO:''
+    	       bookList:[]
     },
     methods: {
     	getBookByListId: function (id) {

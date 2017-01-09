@@ -226,8 +226,8 @@ public class GoodBookServiceImpl  implements  GoodBookService {
 	 * Administrator
 	 */
 	@Override
-	public List<GoodBookEntity> getGoodBookPages(int current, int rowCount, String catalogId) {
-		return goodBookDao.getGoodBookPage(current, rowCount, catalogId);
+	public List<GoodBookEntity> getGoodBookPages(int current, int rowCount, String catalogId,String search) {
+		return goodBookDao.getGoodBookPage(current, rowCount, catalogId,search);
 	}
 
 	/**  
@@ -246,8 +246,8 @@ public class GoodBookServiceImpl  implements  GoodBookService {
 	 * Administrator
 	 */
 	@Override
-	public int getGoodBookTotal(String catalogId) {
-		return goodBookDao.getGoodBookTotal(catalogId);
+	public int getGoodBookTotal(String catalogId,String search) {
+		return goodBookDao.getGoodBookTotal(catalogId,search);
 	}
 
 	/**  

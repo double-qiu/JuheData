@@ -106,7 +106,7 @@ public class BaseServiceTest extends AbstractJUnit4SpringContextTests {
 	 
 	 @Test
 	 public void getGoodBookPageTest() throws Exception {
-		List<GoodBookEntity> pageList = goodBookService.getGoodBookPages(1, 9, "");
+		List<GoodBookEntity> pageList = goodBookService.getGoodBookPages(1, 9, "","");
 		System.out.println(pageList);
 	 }
 	 
@@ -118,7 +118,7 @@ public class BaseServiceTest extends AbstractJUnit4SpringContextTests {
 	 
 	 @Test
 	 public void getGoodBookTotalTest() throws Exception {
-		int total = goodBookService.getGoodBookTotal("242");
+		int total = goodBookService.getGoodBookTotal("242","");
 		System.out.println(total);
 	 }
 	 @Test

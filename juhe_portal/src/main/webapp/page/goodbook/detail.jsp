@@ -31,7 +31,6 @@ width: 100%;
 padding-left: 10px;
 height: 38px;
 line-height: 38px;
-/* line-height: 36px; */
 border: 1px solid #e6e6e6;
 background-color: #fff;
 border-radius: 2px; 
@@ -53,10 +52,10 @@ border-radius: 2px;
 		    </dl>
 		  </li>
 		</ul>
-		<form action="#search" class="layui-search">
+		<!-- <form action="#search" class="layui-search">
 			<i class="layui-icon icon-sousuo searchIco" style="font-size: 24px; color: #1E9FFF;top: 5px;">&#xe615;</i>
 			<input class="layui-input search" autocomplete="off" placeholder="搜索内容，回车跳转" type="text" name="q">
-		</form>
+		</form> -->
 	</div>
 </div>
         <!-- Product Showcase -->
@@ -141,7 +140,11 @@ var vue = new Vue({
     	            ],
     	       bookList:[],
     	       bookVO:{
-    	    	   reading:''
+    	    	   reading:'',
+    	    	   title:'',
+    	    	   catalog:'',
+    	    	   tags:'',
+    	    	   sub2Short:''
     	       }
     },
     methods: {

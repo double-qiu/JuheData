@@ -114,16 +114,16 @@ public interface GoodBookService {
 	 *  @param catalog_id
 	 *  @return
 	 */
-	 List<GoodBookEntity> getGoodBookPages(int current,int rowCount,String catalogId);
+	 List<GoodBookEntity> getGoodBookPages(int current,int rowCount,String catalogId,String search);
 	
 	 /**
-	  *  getGoodBookTotalByCatalogId:活动条数
+	  *  getGoodBookTotalByCatalogId:图书总计
 	  *  @return_type:int
 	  *  @author DOUBLE
 	  *  @param catalogId
 	  *  @return
 	  */
-	 int getGoodBookTotal(String catalogId);
+	 int getGoodBookTotal(String catalogId,String search);
 	 
 	 /**
 	  *  getGoodBookOnLineById:查询图书关联的购买信息

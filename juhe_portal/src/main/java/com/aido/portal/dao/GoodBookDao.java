@@ -35,7 +35,7 @@ public interface GoodBookDao {
 	 *  @param catalogId
 	 *  @return  
 	 */
-	List<GoodBookEntity> getGoodBookPage(int current, int rowCount, String catalogId);
+	List<GoodBookEntity> getGoodBookPage(int current, int rowCount, String catalogId,String search);
 
 	/**  
 	 *  checkGoodBook:检验是否有已经在库中的图书
@@ -86,7 +86,7 @@ public interface GoodBookDao {
 	 *  @param catalogId
 	 *  @return  
 	 */
-	int getGoodBookTotal(String catalogId);
+	int getGoodBookTotal(String catalogId,String search);
 
 	/**  
 	 *  getGoodBookById:获取详细信息

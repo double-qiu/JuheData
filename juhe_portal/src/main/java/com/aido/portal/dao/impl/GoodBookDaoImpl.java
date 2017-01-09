@@ -53,12 +53,14 @@ public class GoodBookDaoImpl  extends BaseDaoImpl implements GoodBookDao {
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<GoodBookEntity> getGoodBookPage(int current, int rowCount, String catalogId) {
+	public List<GoodBookEntity> getGoodBookPage(int current, int rowCount, String catalogId,String search) {
 		StringBuffer sql = new StringBuffer();
 		int index = (current-1)*rowCount;
 		sql.append("select *  from q_goodbook a  where 1 = 1");
 		if(!"null".equals(catalogId)&&StringUtils.isNotBlank(catalogId)){
 			sql.append(" and a.catalog_id = '"+catalogId+"'");
+		}else if(StringUtils.isNotBlank(search)){
+			sql.append("  and MATCH (a.title,a.catalog,a.tags,a.sub1,a.sub2) AGAINST ('"+search+"')");
 		}
 		sql.append("  order by CONVERT(reading,SIGNED)   desc ");
 		sql.append("  limit "+index+","+rowCount);
@@ -127,15 +129,19 @@ public class GoodBookDaoImpl  extends BaseDaoImpl implements GoodBookDao {
 	 * Administrator
 	 */
 	@Override
-	public int getGoodBookTotal(String catalogId) {
+	public int getGoodBookTotal(String catalogId,String search) {
 		StringBuffer sql = new StringBuffer();
 		sql.append("select COUNT(gb.id)  from q_goodbook gb where 1 = 1  ");
 		int gdNum = 0;
 		if(StringUtils.isNotBlank(catalogId)) {
 			sql.append(" and gb.catalog_id = ?");
 			Object[] obj =new Object[] { String.valueOf(catalogId) };
-			 gdNum = jdbcTemplate.queryForObject(sql.toString(),obj,Integer.class);
-		}else {
+			gdNum = jdbcTemplate.queryForObject(sql.toString(),obj,Integer.class);
+		} else if(StringUtils.isNotBlank(search)) {
+			sql.append(" and MATCH (gb.title,gb.catalog,gb.tags,gb.sub1,gb.sub2) AGAINST  ('"+search+"')");
+			gdNum = jdbcTemplate.queryForObject(sql.toString(),Integer.class);
+		}
+		else {
 			 gdNum = jdbcTemplate.queryForObject(sql.toString(),Integer.class);
 		}
 		return gdNum;

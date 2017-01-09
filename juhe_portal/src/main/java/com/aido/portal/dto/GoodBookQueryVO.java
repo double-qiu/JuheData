@@ -26,6 +26,17 @@ public class GoodBookQueryVO   implements Serializable {
 	private int rowCount; //页数
 
 	private String catalogId;//类型
+	
+	private String search;//搜索条件
+	
+
+	public String getSearch() {
+		return search;
+	}
+
+	public void setSearch(String search) {
+		this.search = search;
+	}
 
 	public int getCurrent() {
 		return current;
