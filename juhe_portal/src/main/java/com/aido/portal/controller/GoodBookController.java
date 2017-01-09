@@ -15,6 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.aido.common.util.InvokeResult;
@@ -27,6 +28,10 @@ import com.aido.portal.dto.GoodBookQueryVO;
 import com.aido.portal.dto.GoodBookSortOutVO;
 import com.aido.portal.service.GoodBookService;
 import com.aido.portal.utils.Copy;
+
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 
 /**  
  * ClassName: GoodBookController  
@@ -50,7 +55,8 @@ public class GoodBookController {
 	 *  @param query
 	 *  @return
 	 */
-	@RequestMapping("/typeList")
+	@ApiOperation(value = "获取图书类型列表", notes = "获取图书类型列表")  
+	@RequestMapping(value = { "/typeList" }, method = RequestMethod.GET)
 	@ResponseBody
 	public InvokeResult goodBookTypeList(){
 		List<GoodBookSortOutVO>  outVOList = new ArrayList<GoodBookSortOutVO>();
@@ -78,7 +84,9 @@ public class GoodBookController {
 	 *  @param query
 	 *  @return
 	 */
-	@RequestMapping("/bookList")
+	@ApiOperation(value = "获取图书分页列表", notes = "根据图书类型或者查询关键字获取分页图书列表")  
+	@ApiImplicitParams({  @ApiImplicitParam(name = "query", value = "图书查询vo", required = true, dataType = "GoodBookQueryVO") }) 
+	@RequestMapping(value = { "/bookList" }, method = RequestMethod.GET)
 	@ResponseBody
 	public InvokeResult goodBookList(GoodBookQueryVO query){
 		List<GoodBookOutVO>  outVOList = new ArrayList<GoodBookOutVO>();
@@ -97,7 +105,9 @@ public class GoodBookController {
 	 *  @param catalogId
 	 *  @return
 	 */
-	@RequestMapping("/total")
+	@ApiOperation(value = "获取图书页数", notes = "根据图书类型或者查询关键字获取图书页数")  
+	@ApiImplicitParams({  @ApiImplicitParam(name = "query", value = "图书查询vo", required = true, dataType = "GoodBookQueryVO") }) 
+	@RequestMapping(value = { "/total" }, method = RequestMethod.GET)
 	@ResponseBody
 	public InvokeResult goodBookTotal(GoodBookQueryVO query){
 		
@@ -112,7 +122,9 @@ public class GoodBookController {
 	 *  @param id
 	 *  @return
 	 */
-	@RequestMapping("/detail")
+	@ApiOperation(value = "获取图书页数", notes = "根据图书类型或者查询关键字获取图书页数")  
+	@ApiImplicitParams({ @ApiImplicitParam(name = "id", value = "图书id", required = true, dataType = "String") }) 
+	@RequestMapping(value = { "/detail" }, method = RequestMethod.GET)
 	@ResponseBody
 	public InvokeResult goodBookDetail(String id){
 		 GoodBookOutVO outVO = new GoodBookOutVO();

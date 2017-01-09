@@ -19,6 +19,7 @@
 	
 <mvc:annotation-driven />
 <context:component-scan base-package="com.aido.portal.controller" />
+<mvc:default-servlet-handler />  
 <!-- 处理请求时返回json字符串的中文乱码问题 -->
     <mvc:annotation-driven>
         <mvc:message-converters>
