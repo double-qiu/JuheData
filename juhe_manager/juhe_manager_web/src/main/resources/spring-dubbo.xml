@@ -18,8 +18,11 @@
     <!-- 历史的今天远程服务代理-->
     <dubbo:reference id="historyTodayService" interface="com.aido.manager.service.HistoryTodayService" />
     
-        <!-- 微信精选服务接口 -->
+    <!-- 微信精选服务接口 -->
     <dubbo:reference id="weChatSelectedService"  interface=" com.aido.manager.service.WeChatSelectedService" />
+    
+      <!-- 新闻头条服务接口 -->
+    <dubbo:reference id="newsHeadLinesService"  interface=" com.aido.manager.service.NewsHeadLinesService" />
     
      <!-- 公共远程服务代理-->
     <dubbo:reference id="commonService" interface="com.aido.manager.service.CommonService" />

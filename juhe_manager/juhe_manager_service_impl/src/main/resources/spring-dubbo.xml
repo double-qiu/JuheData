@@ -26,6 +26,9 @@
     <!-- 微信精选服务接口 -->
     <dubbo:service interface=" com.aido.manager.service.WeChatSelectedService" ref="weChatSelectedService" />
     
+      <!-- 新闻头条服务接口 -->
+    <dubbo:service interface=" com.aido.manager.service.NewsHeadLinesService" ref="newsHeadLinesService" />
+    
     <!-- 公共服务接口 -->
     <dubbo:service interface=" com.aido.manager.service.CommonService" ref="commonService" />
 </beans>

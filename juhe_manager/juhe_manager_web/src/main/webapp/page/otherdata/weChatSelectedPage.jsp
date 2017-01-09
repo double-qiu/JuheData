@@ -67,8 +67,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								<td>{{wechats.source}}</td>
 								<td>{{wechats.url}}</td>
 								<td>
-									<!-- <a  class="layui-btn layui-btn-normal layui-btn-mini"  v-on:click="detail(wechats.url)">详情</a> -->
-									<a  v-bind:href ="wechats.url" class="layui-btn layui-btn-normal layui-btn-mini"  >详情</a>
+									 <a  class="layui-btn layui-btn-normal layui-btn-mini"  v-on:click="detail(wechats.url)">详情</a>
+									<!-- <a  v-bind:href ="wechats.url" class="layui-btn layui-btn-normal layui-btn-mini"  >详情</a> -->
 								</td>
 							</tr>
 						</tbody>
@@ -92,18 +92,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             },
             methods: {
                 detail: function (url) {
-                	<%-- $.get('<%=request.getContextPath()%>/weChatSelected/detail',{"url":url},function(response){
-                			 console.log("> ", response); 
-                	 	     var html = response.data;
-                	 	     alert(html);
-                		     html=html.replace("/data-src/g", "src"); 
-                		     $(".layui-tab-content").html(html);
-                		     //$("body").attr("layui-tab-content", html); 
-                	}); --%>
+                	window.open(url);
                 }
             }
          })
-			
 			layui.config({
 				base: 'plugins/layui/modules/'
 			});

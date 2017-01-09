@@ -306,7 +306,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					});
 				});
 				$('#selected-all').on('ifChanged', function(event) {
-					alert(222);
 					var $input = $('.site-table tbody tr td').find('input');
 					$input.iCheck(event.currentTarget.checked ? 'check' : 'uncheck');
 				});

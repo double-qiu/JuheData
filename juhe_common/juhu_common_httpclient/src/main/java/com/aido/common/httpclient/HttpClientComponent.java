@@ -33,6 +33,7 @@ import org.apache.http.util.EntityUtils;
 import com.aido.common.httpclient.model.HttpResult;
 import com.aido.common.util.ResultJSON;
 import com.aido.common.util.ResultListJSON;
+import com.aido.manager.dto.NewsHeadLines.NewsHeadLinesVO;
 import com.aido.manager.dto.historyToday.HistoryTodayEventDetailVO;
 import com.aido.manager.dto.historyToday.HistoryTodayEventListVO;
 import com.alibaba.fastjson.JSON;
@@ -96,15 +97,26 @@ public class HttpClientComponent {
 	public static void main(String[] args) {
 		//testHistoryDayEventList();
 //		testHistoryDayEventDetail();
-		
+//		testNewHeadLines();
+	}
+
+	/**  
+	 *  testNewHeadLines:(这里用一句话描述这个方法的作用). 
+	 *  @return_type:void
+	 *  @author DOUBLE  
+	 */
+	private static void testNewHeadLines() {
 		try {
-			int retryTime = 3;
+			Map<String, String> params = new HashMap<String, String>();
+			params.put("key","e00cbd2c7d450071186e3a5b0e2a3983");
+			params.put("type","top");
 			Map<String, String> headers = new HashMap<String, String>();
-			HttpResult result = HttpClientComponent.getInstance().doGet("http://v.juhe.cn//weixin//redirect?wid=wechat_20161229032457", headers, retryTime);
-			System.out.println(result.getData());
-		} catch (ClientProtocolException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
+			int retryTime = 3;
+			 Map<String, Object> result = HttpClientComponent.getResultMapByGet("http://v.juhe.cn/toutiao/index", params, headers, retryTime);
+			List<NewsHeadLinesVO> newsListRes = (List<NewsHeadLinesVO>) result.get("data");
+			System.out.println(newsListRes.size());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

@@ -18,4 +18,8 @@ public interface CommonsConstant {
 	
 	String DEFAULT_DTYPE = "json";
 	
+	/***新闻头条***/
+	String NEWS_HEADLINES_KEY = "e00cbd2c7d450071186e3a5b0e2a3983";
+	
+	String NEWS_HEADLINES_PAGE_URL = "http://v.juhe.cn/toutiao/index";
 }

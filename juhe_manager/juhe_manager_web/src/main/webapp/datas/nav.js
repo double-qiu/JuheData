@@ -9,7 +9,7 @@ var navs = [{
 	}, {
 		"title": "新闻头条",
 		"icon": "&#xe63c;",
-		"href": "form.html"
+		"href": "/juhe_manager_web/page/otherdata/newsList.jsp"
 	}, {
 		"title": "万年历",
 		"icon": "&#xe63c;",

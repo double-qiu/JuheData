@@ -87,11 +87,10 @@ a, a:hover {
   <div class="layui-main">
     <p>2017 © <a href="/">layui.com</a> LGPL license</p>
     <p>
-      <a href="http://fly.layui.com/jie/3147.html" target="_blank">捐赠作者</a>
-      <a href="mailto:xianxin@layui.com">广告联系</a>
-      <a href="https://github.com/sentsin/layui/" target="_blank">Git仓库</a>
-      <a href="http://weibo.com/SentsinXu" target="_blank" rel="nofollow">微博</a>
-      <a href="http://fly.layui.com/jie/2461.html" target="_blank">微信公众号</a>
+      	 <a href="http://www.ufdouble.com" target="_blank">作者博客</a>
+	      <a href="mailto:934590736@qq.com">广告联系</a>
+	      <a href="https://github.com/double-qiu/JuheData" target="_blank">Git仓库</a>
+	      <a href="http://weibo.com/ufdouble" target="_blank" rel="nofollow">微博</a>
     </p>
   </div>
 </div>

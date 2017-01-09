@@ -7,12 +7,10 @@
  */
 package com.aido.manager.service.impl;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.http.client.ClientProtocolException;
 import org.springframework.stereotype.Service;
 
 import com.aido.common.httpclient.HttpClientComponent;
