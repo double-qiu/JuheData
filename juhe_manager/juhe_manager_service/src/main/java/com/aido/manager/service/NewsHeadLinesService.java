@@ -9,7 +9,7 @@ package com.aido.manager.service;
 
 import java.util.List;
 
-import com.aido.manager.dto.NewsHeadLines.NewsHeadLinesVO;
+import com.aido.manager.dto.newsHeadLines.NewsHeadLinesVO;
 
 /**  
  * ClassName: NewsHeadLinesService  

@@ -14,7 +14,7 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 
 import com.aido.common.httpclient.HttpClientComponent;
-import com.aido.manager.dto.NewsHeadLines.NewsHeadLinesVO;
+import com.aido.manager.dto.newsHeadLines.NewsHeadLinesVO;
 import com.aido.manager.service.NewsHeadLinesService;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;

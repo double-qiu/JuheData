@@ -5,7 +5,7 @@
  * Date:2017年1月9日下午2:41:02  
  * Copyright (c) 2017, LoveBeanTec All Rights Reserved.  
  */
-package com.aido.manager.dto.NewsHeadLines;
+package com.aido.manager.dto.newsHeadLines;
 
 import java.io.Serializable;
 

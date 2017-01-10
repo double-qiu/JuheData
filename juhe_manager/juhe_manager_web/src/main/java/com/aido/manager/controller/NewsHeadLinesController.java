@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.aido.common.util.InvokeResult;
-import com.aido.manager.dto.NewsHeadLines.NewsHeadLinesQueryVO;
-import com.aido.manager.dto.NewsHeadLines.NewsHeadLinesVO;
+import com.aido.manager.dto.newsHeadLines.NewsHeadLinesQueryVO;
+import com.aido.manager.dto.newsHeadLines.NewsHeadLinesVO;
 import com.aido.manager.service.NewsHeadLinesService;
 
 /**  
