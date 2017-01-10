@@ -22,4 +22,10 @@ public interface CommonsConstant {
 	String NEWS_HEADLINES_KEY = "e00cbd2c7d450071186e3a5b0e2a3983";
 	
 	String NEWS_HEADLINES_PAGE_URL = "http://v.juhe.cn/toutiao/index";
+	
+	/***影视搜索***/
+	String MOVIE_SEARCH_KEY = "9cc897a7a81f13fbe4aaee2b8b05a6fa";
+	
+	String MOVIE_SEARCH_PAGE_URL = "http://op.juhe.cn/onebox/movie/video";
+	
 }

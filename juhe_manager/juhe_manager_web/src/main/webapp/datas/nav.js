@@ -23,6 +23,28 @@ var navs = [{
 		"icon": "&#xe609;",
 		"href": "nav.html"
 	}]
+},
+{
+	"title": "影视娱乐",
+	"icon": "fa-cubes",
+	"spread": false,
+	"children": [{
+		"title": "影视影讯检索",
+		"icon": "&#xe641;",
+		"href": "/juhe_manager_web/page/otherdata/movieSearch.jsp"
+	}, {
+		"title": "电影票房",
+		"icon": "&#xe63c;",
+		"href": "form.html"
+	}, {
+		"title": "电视节目时间表",
+		"icon": "&#xe63c;",
+		"href": "/juhe_manager_web/page/table.jsp"
+	}, {
+		"title": "星座运势",
+		"icon": "&#xe609;",
+		"href": "nav.html"
+	}]
 },{
 	"title": "其他数据",
 	"icon": "fa-cubes",

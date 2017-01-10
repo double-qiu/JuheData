@@ -35,6 +35,7 @@ import com.aido.common.util.ResultJSON;
 import com.aido.common.util.ResultListJSON;
 import com.aido.manager.dto.historyToday.HistoryTodayEventDetailVO;
 import com.aido.manager.dto.historyToday.HistoryTodayEventListVO;
+import com.aido.manager.dto.movieSearch.MovieSearchVO;
 import com.aido.manager.dto.newsHeadLines.NewsHeadLinesVO;
 import com.alibaba.fastjson.JSON;
 
@@ -98,6 +99,7 @@ public class HttpClientComponent {
 		//testHistoryDayEventList();
 //		testHistoryDayEventDetail();
 //		testNewHeadLines();
+		testMovieSearch();
 	}
 
 	/**  
@@ -116,7 +118,23 @@ public class HttpClientComponent {
 			List<NewsHeadLinesVO> newsListRes = (List<NewsHeadLinesVO>) result.get("data");
 			System.out.println(newsListRes.size());
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	private static void testMovieSearch() {
+		try {
+		
+			Map<String, String> params = new HashMap<String, String>();
+			params.put("key","9cc897a7a81f13fbe4aaee2b8b05a6fa");
+			params.put("dtype","json");
+			params.put("q","锦绣未央");
+			Map<String, String> headers = new HashMap<String, String>();
+			int retryTime = 3;
+			Map<String, Object> result = HttpClientComponent.getResultMapByGet("http://op.juhe.cn/onebox/movie/video", params, headers, retryTime);
+			MovieSearchVO outVO = JSON.parseObject(JSON.toJSONString(result), MovieSearchVO.class);  
+			System.out.println(outVO.getTitle());
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

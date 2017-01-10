@@ -29,6 +29,9 @@
       <!-- 新闻头条服务接口 -->
     <dubbo:service interface=" com.aido.manager.service.NewsHeadLinesService" ref="newsHeadLinesService" />
     
+     <!--影视搜索服务接口 -->
+    <dubbo:service interface=" com.aido.manager.service.MovieSearchService" ref="movieSearchService" />
+    
     <!-- 公共服务接口 -->
     <dubbo:service interface=" com.aido.manager.service.CommonService" ref="commonService" />
 </beans>
