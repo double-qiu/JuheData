@@ -6,7 +6,7 @@
  * Date:2016年12月31日下午3:02:09  
  * Copyright (c) 2016, LoveBeanTec All Rights Reserved.  
  */
-package com.aido.portal.test;
+package com.aido.manager.jpa;
 
 import java.util.List;
 
@@ -16,13 +16,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
 
-import com.aido.portal.domain.GoodBookEntity;
-import com.aido.portal.domain.GoodBookOnLineEntity;
-import com.aido.portal.domain.GoodBookSortEntity;
-import com.aido.portal.domain.GoodBookTypeEntity;
-import com.aido.portal.service.GoodBookService;
+import com.aido.manager.jpa.domain.GoodBookEntity;
+import com.aido.manager.jpa.domain.GoodBookOnLineEntity;
+import com.aido.manager.jpa.domain.GoodBookSortEntity;
+import com.aido.manager.jpa.domain.GoodBookTypeEntity;
+import com.aido.manager.jpa.service.GoodBookService;
 
 
 
@@ -33,7 +32,6 @@ import com.aido.portal.service.GoodBookService;
  * @version   
  */
 @RunWith(SpringJUnit4ClassRunner.class)  
-@WebAppConfiguration
 @ContextConfiguration(locations = "classpath*:spring.xml")
 public class GoodBookServiceTest extends AbstractJUnit4SpringContextTests {
 	@Autowired

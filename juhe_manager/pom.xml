@@ -13,6 +13,7 @@
   	<module>juhe_manager_dao</module>
   	<module>juhe_manager_dto</module>
   	<module>juhe_manager_web</module>
+  	<module>juhe_manager_jpa</module>
   </modules>
   <groupId>com.aido.manager</groupId>
   <artifactId>juhe_manager</artifactId>
