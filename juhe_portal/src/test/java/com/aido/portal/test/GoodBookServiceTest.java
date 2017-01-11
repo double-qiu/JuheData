@@ -1,9 +1,9 @@
 
 /**  
- * Project Name:blogSearch  
- * File Name:BlogServiceTest.java  
- * Package Name:BlogService  
- * Date:2016年12月21日下午3:02:09  
+ * Project Name:juhe_portal
+ * File Name:GoodBookServiceTest.java  
+ * Package Name:com.aido.portal.test
+ * Date:2016年12月31日下午3:02:09  
  * Copyright (c) 2016, LoveBeanTec All Rights Reserved.  
  */
 package com.aido.portal.test;
@@ -26,19 +26,19 @@ import com.aido.portal.service.GoodBookService;
 
 
 /**  
- * ClassName: BlogServiceTest  
+ * ClassName: GoodBookServiceTest  
  * 业务单元测试
  * @author DOUBLE
  * @version   
  */
 @RunWith(SpringJUnit4ClassRunner.class)  
 @ContextConfiguration(locations = "classpath*:spring.xml")
-public class BaseServiceTest extends AbstractJUnit4SpringContextTests {
+public class GoodBookServiceTest extends AbstractJUnit4SpringContextTests {
 	@Autowired
 	private GoodBookService goodBookService;
 	
 	
-	 //@Test
+	 @Test
 	 public void getGoodBookSaveTest() {
 		 GoodBookEntity goodBookEntity = new GoodBookEntity();
 		 goodBookEntity.setTitle("梦里花落知多少");
