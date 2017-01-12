@@ -21,8 +21,8 @@ import com.aido.manager.dto.movieSearch.MovieSearchVO;
 import com.aido.manager.service.MovieSearchService;
 
 /**  
- * ClassName: HistoryTodayController  
- * 新闻头条
+ * ClassName: MovieSearchController  
+ * 影视搜索
  * @author DOUBLE
  * @version   
  */

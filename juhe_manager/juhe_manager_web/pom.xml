@@ -17,7 +17,7 @@
     	 <springboot.version>1.3.6.RELEASE</springboot.version>
   	</properties>
   <dependencies>
-      <dependency>
+      	<dependency>
 	     	<groupId>com.aido.manager.service</groupId>
 	  		<artifactId>juhe_manager_service</artifactId>
 	      	<version>0.0.1-SNAPSHOT</version>

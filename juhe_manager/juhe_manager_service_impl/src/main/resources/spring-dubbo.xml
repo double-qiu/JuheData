@@ -20,6 +20,10 @@
    <dubbo:provider delay="-1" timeout="6000" retries="0"/>  
 
     <!-- 声明需要暴露的服务接口 -->
+    
+    <!-- 公共服务接口 -->
+    <dubbo:service interface=" com.aido.manager.service.CommonService" ref="commonService" />
+    
     <!-- 历史的今天服务接口 -->
     <dubbo:service interface=" com.aido.manager.service.HistoryTodayService" ref="historyTodayService" />
     
@@ -32,6 +36,7 @@
      <!--影视搜索服务接口 -->
     <dubbo:service interface=" com.aido.manager.service.MovieSearchService" ref="movieSearchService" />
     
-    <!-- 公共服务接口 -->
-    <dubbo:service interface=" com.aido.manager.service.CommonService" ref="commonService" />
+    <!--驾考题库服务接口 -->
+    <dubbo:service interface=" com.aido.manager.service.DrivingTestManagerService" ref="drivingTestManagerService" />
+    
 </beans>

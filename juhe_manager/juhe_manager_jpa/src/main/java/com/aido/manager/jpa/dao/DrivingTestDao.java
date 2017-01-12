@@ -7,6 +7,9 @@
  */
 package com.aido.manager.jpa.dao;
 
+import java.util.List;
+
+import com.aido.manager.dto.drivingTest.DrivingTestOutVO;
 import com.aido.manager.jpa.domain.DrivingTestEntity;
 
 /**  
@@ -24,4 +27,28 @@ public interface DrivingTestDao {
 	 *  @param drivingTestEntity
 	 */
 	void save(DrivingTestEntity drivingTestEntity);
+	
+	/**
+	 *  getDrivingTestPage:驾考题库分页数据
+	 *  @return_type:List<DrivingTestOutVO>
+	 *  @author DOUBLE
+	 *  @param current
+	 *  @param rowCount
+	 *  @param subject
+	 *  @param model
+	 *  @return
+	 *  @throws Exception
+	 */
+	List<DrivingTestOutVO> getDrivingTestPage(int current, int rowCount, String subject, String model) throws Exception;
+	
+	/**
+	 *  getDrivingTesTotal:驾考题库总数
+	 *  @return_type:int
+	 *  @author DOUBLE
+	 *  @param subject
+	 *  @param model
+	 *  @return
+	 *  @throws Exception
+	 */
+	int getDrivingTestTotal(String subject, String model) throws Exception;
 }

@@ -28,4 +28,9 @@ public interface CommonsConstant {
 	
 	String MOVIE_SEARCH_PAGE_URL = "http://op.juhe.cn/onebox/movie/video";
 	
+	/***驾考题库搜索***/
+	String DRIVING_TEST_KEY = "a4823a8d04568d4a1ad0ed43f1ffb4c5";
+	
+	String DRIVING_TEST_PAGE_URL = "http://v.juhe.cn/jztk/query";
+	
 }

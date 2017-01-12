@@ -10,6 +10,7 @@
   <groupId>com.aido.manager.jpa</groupId>
   <artifactId>juhe_manager_jpa</artifactId>
   <name>juhe_manager_jpa</name>
+  <packaging>war</packaging>
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -148,7 +149,6 @@
 			<artifactId>druid</artifactId>
 			<version>1.0.16</version>
 		</dependency>
-		
   </dependencies>
   <build>
     <plugins>

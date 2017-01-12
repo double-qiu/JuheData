@@ -27,8 +27,8 @@ public class BaseDao<T, ID extends Serializable> {
 	public static final String ORACLE_SQL = "select * from (select row_.*,rownum rownum_ from ({0}) row_ where rownum <= {1}) where rownum_>{2}"; //oracle
 
 	@Autowired
-	private SessionFactory sessionFactory;
-	private static final Logger logger = Logger
+	public SessionFactory sessionFactory;
+	public static final Logger logger = Logger
 			.getLogger(BaseDao.class);
 	/**
 	 *  getSession:(获取session). 

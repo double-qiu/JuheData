@@ -11,6 +11,10 @@ var navs = [{
 		"icon": "&#xe63c;",
 		"href": "/juhe_manager_web/page/otherdata/newsList.jsp"
 	}, {
+		"title": "驾考题库",
+		"icon": "&#xe63c;",
+		"href": "/juhe_manager_web/page/otherdata/drivingTest.jsp"
+	}, {
 		"title": "万年历",
 		"icon": "&#xe63c;",
 		"href": "/juhe_manager_web/page/table.jsp"

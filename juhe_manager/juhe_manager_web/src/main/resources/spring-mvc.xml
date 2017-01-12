@@ -40,6 +40,8 @@
 	<mvc:resources location="/plugins/"  mapping="/plugins/**" />  
 	<mvc:resources location="/temp/"  mapping="/temp/**" />  
 	<mvc:resources location="/yishiStatic/"  mapping="/yishiStatic/**" />  
+	<mvc:resources location="/drivingTest/"  mapping="/drivingTest/**" />  
+	
 	<!-- 页面转向解析 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/page/" />
