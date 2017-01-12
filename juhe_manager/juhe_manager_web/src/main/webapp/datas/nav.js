@@ -27,8 +27,28 @@ var navs = [{
 		"icon": "&#xe609;",
 		"href": "nav.html"
 	}]
-},
-{
+},{
+	"title": "问答知识",
+	"icon": "fa-cubes",
+	"spread": false,
+	"children": [{
+		"title": "聊天机器人",
+		"icon": "&#xe641;",
+		"href": "/juhe_manager_web/page/otherdata/chatRobot.jsp"
+	}, {
+		"title": "成语词典",
+		"icon": "&#xe63c;",
+		"href": "form.html"
+	}, {
+		"title": "新华字典",
+		"icon": "&#xe63c;",
+		"href": "form.htmlp"
+	}, {
+		"title": "数字阅读信息",
+		"icon": "&#xe609;",
+		"href": "form.html"
+	}]
+},{
 	"title": "影视娱乐",
 	"icon": "fa-cubes",
 	"spread": false,

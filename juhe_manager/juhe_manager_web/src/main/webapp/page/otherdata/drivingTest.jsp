@@ -149,7 +149,6 @@ String rootPath =  request.getScheme()+"://"+request.getServerName()+":"+request
 	                        url: '<%=rootPath%>/juhe_manager_jpa/drivingTest/total',
 	                        success:function(result) {
 	                        	if(result.success) {
-	                        		$("#wrap").show();
 	                        		totalPage = result.data;
 	                        		 laypage({
 	             						cont: 'page',

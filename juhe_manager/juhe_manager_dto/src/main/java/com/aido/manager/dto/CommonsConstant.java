@@ -33,4 +33,8 @@ public interface CommonsConstant {
 	
 	String DRIVING_TEST_PAGE_URL = "http://v.juhe.cn/jztk/query";
 	
+	/***聊天机器人***/
+	String CHAT_ROBOT_KEY = "8df7eb0ddafabeca11431f9f9eed21a1";
+	
+	String CHAT_ROBOT_PAGE_URL = "http://op.juhe.cn/robot/index";
 }

@@ -33,6 +33,7 @@ import org.apache.http.util.EntityUtils;
 import com.aido.common.httpclient.model.HttpResult;
 import com.aido.common.util.ResultJSON;
 import com.aido.common.util.ResultListJSON;
+import com.aido.manager.dto.chatRobot.ChatRobotOutVO;
 import com.aido.manager.dto.historyToday.HistoryTodayEventDetailVO;
 import com.aido.manager.dto.historyToday.HistoryTodayEventListVO;
 import com.aido.manager.dto.movieSearch.MovieSearchVO;
@@ -99,7 +100,29 @@ public class HttpClientComponent {
 		//testHistoryDayEventList();
 //		testHistoryDayEventDetail();
 //		testNewHeadLines();
-		testMovieSearch();
+//		testMovieSearch();
+		testChatRobot();
+	}
+
+	/**  
+	 *  testChatRobot:(这里用一句话描述这个方法的作用). 
+	 *  @return_type:void
+	 *  @author DOUBLE  
+	 */
+	private static void testChatRobot() {
+		try {
+			Map<String, String> params = new HashMap<String, String>();
+			params.put("key","8df7eb0ddafabeca11431f9f9eed21a1");
+			params.put("info","苏州天气");
+			Map<String, String> headers = new HashMap<String, String>();
+			int retryTime = 3;
+			Map<String, Object> result;
+			result = HttpClientComponent.getResultMapByGet("http://op.juhe.cn/robot/index", params, headers, retryTime);
+			ChatRobotOutVO outVO = JSON.parseObject(JSON.toJSONString(result), ChatRobotOutVO.class);  
+			System.out.println(outVO);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**  

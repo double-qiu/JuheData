@@ -41,6 +41,7 @@
 	<mvc:resources location="/temp/"  mapping="/temp/**" />  
 	<mvc:resources location="/yishiStatic/"  mapping="/yishiStatic/**" />  
 	<mvc:resources location="/drivingTest/"  mapping="/drivingTest/**" />  
+	<mvc:resources location="/robot/"  mapping="/robot/**" />  
 	
 	<!-- 页面转向解析 -->
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

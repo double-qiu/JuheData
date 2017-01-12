@@ -39,4 +39,7 @@
     <!--驾考题库服务接口 -->
     <dubbo:service interface=" com.aido.manager.service.DrivingTestManagerService" ref="drivingTestManagerService" />
     
+    <!--聊天机器人服务接口 -->
+    <dubbo:service interface=" com.aido.manager.service.ChatRobotService" ref="chatRobotService" />
+    
 </beans>
