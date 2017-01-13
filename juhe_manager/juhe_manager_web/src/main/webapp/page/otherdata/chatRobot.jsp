@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <tr>
       <td class="vtdl"><!--=======================================-->
         
-        <div class="vtddcontent scroll_content" id="con_div" style="height: 751px;">
+        <div class="vtddcontent scroll_content" id="con_div" >
           <div id="scroll-div" class="nano has-scrollbar">
             <div class="content" tabindex="0">
               <p class="spacing"></p>
@@ -43,7 +43,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					  </div>
 					  <p class="spacing"></p></div>
 				</div>
-			<p class="spacing15"></p>  
+				<p class="spacing15"></p>  
+			 </div>
+			 <div id = "robotMsg">
 			 </div>
             </div>
           <div class="pane" style="height: 100%; display: none; opacity: 1; visibility: visible;"><div class="slider" style="height: 751px;"></div></div>
@@ -53,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
         <div class="vooinputforms" id= "robot">
           <p class="showWaring" id="showErrorId"><span></span></p>
-          <p class="spacing7"> <!-- <a href="javascript:;" id="clearScreen">清空聊天记录</a>&nbsp;&nbsp;&nbsp;&nbsp;  --><span>您还可以输入<span id="wordremain">{{wordremain}}</span>个字</span> </p>
+          <p class="spacing7"> <a href="javascript:;" id="clearScreen">清空聊天记录</a>&nbsp;&nbsp;&nbsp;&nbsp; <span>您还可以输入<span id="wordremain">{{wordremain}}</span>个字</span> </p>
           <table class="vamtable" width="100%" border="0" cellpadding="0" cellspacing="0">
             <tbody>
               <tr>
@@ -61,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <td class="xtdx2"><div class="">
                     <input id="text-in" class="vaxtxtear ac_input" maxlength="100" autocomplete="off" oldvalue="请输入您要咨询的内容" style="color: rgb(153, 153, 153);">
                   </div>
-                  <p class="spacing5" style=" height:20px; margin-top:7px; font-size:11px; text-align:center;" id="devP">对机器人感兴趣请百度&nbsp;&nbsp;<a href="http://www.ufdouble.com">AidoRobot智能问答机器人</a></p></td>
+                  <p class="spacing5" style=" height:20px; margin-top:7px; font-size:11px; text-align:center;" id="devP">对机器人感兴趣请百度&nbsp;&nbsp;AidoRobot智能问答机器人</p></td>
                 <td class="xtdx3"></td>
                 <td class="xtdx4"><input id="inputPR" name="" value="" class="dosubmitss" type="button"></td>
               </tr>
@@ -84,13 +86,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 var vue = new Vue({
     el: '#robot',
     data: {
-    	wordremain : '30'
+    	wordremain : '30',
+    	i:1
     },
     methods: {
       
     }
 })
 $(function(){
+	
 	$('body').keydown(function(e){
 		  if(e.keyCode==13){
 			Answer();
@@ -110,6 +114,7 @@ $(function(){
 	    }
 	 });
 });
+
 function Answer() {
 	var info = $("#text-in").val();
 	if(info != '') {
@@ -120,8 +125,8 @@ function Answer() {
 	         success:function(result) {
 	         	if(result.success) {
 	         		var info = 
-	         			'<div class="msgright"><p class="ri">\
-	         			<img width="55" src="<%=request.getContextPath()%>/robot/fi2.jpg" style="margin-left:5px;"></p>\
+	         			'<div class="msgright" id = "m'+vue.i+'"><p class="ri">\
+	         			<img width="55" src="<%=request.getContextPath()%>/robot/fi2.jpg" style="margin-left:5px;width:52px; height:52px; border-radius:50%; overflow:hidden;"></p>\
 	         			<div class="rmsgcontent">\
 	         			<p class="spacing15"></p>\
 	         			<div class="metext">\
@@ -145,10 +150,23 @@ function Answer() {
 	         		  </div>\
 	         		</div>\
 	         		<p class="spacing15"></p>'; 
-					$("#left_content").after(info);
+					$("#robotMsg").append(info);
 					$("#text-in").val('');
+					vue.wordremain = 30;
+					
+					var container = $('div'),
+					scrollTo = $("#m"+vue.i+"");
+					container.scrollTop(
+						scrollTo.offset().top - container.offset().top + container.scrollTop()
+					);
+
+					container.animate({
+						scrollTop: scrollTo.offset().top - container.offset().top + container.scrollTop()
+					}); 
+					vue.i = vue.i+1;
+					
 	         	} else {
-	         		alert("未搜索出答案");
+	         		parent.layer.alert("未搜索出答案");
 	         	}
 	         }
 	  });
@@ -158,6 +176,14 @@ function Answer() {
 $("#inputPR").click(function(){
 	Answer();
 });
+
+$("#clearScreen").click(function(){
+  $("#robotMsg").remove();
+  $("#left_content").after("<div id = 'robotMsg'></div>");
+});
+
+
+
 layui.config({
 	base: 'plugins/layui/modules/'
 });
