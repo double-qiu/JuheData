@@ -32,7 +32,7 @@ public class DrivingTestServiceTest  extends AbstractJUnit4SpringContextTests {
 	@Autowired
 	private	DrivingTestService drivingTestService;
 	
-	 @Test
+	 //@Test
 	 public void saveDrivingTestDataTest() throws Exception {
 		 String url = "http://v.juhe.cn/jztk/query";
 		 String key = "a4823a8d04568d4a1ad0ed43f1ffb4c5";
@@ -42,7 +42,7 @@ public class DrivingTestServiceTest  extends AbstractJUnit4SpringContextTests {
 		}
 		 drivingTestService.saveData(url, key, "4", "");
 	 }
-	 @Test
+	 //@Test
 	 public void getDrivingTestPageTest() throws Exception {
 		 String subject = "1";
 		 String model = "a1";
@@ -51,7 +51,7 @@ public class DrivingTestServiceTest  extends AbstractJUnit4SpringContextTests {
 		 List<DrivingTestOutVO> outList = drivingTestService.getDrivingTestPage(current, rowCount, subject, model);
 		 System.out.println(outList.size());
 	 }
-	 @Test
+	 //@Test
 	 public void getDrivingTesTotalTest() throws Exception {
 		 String subject = "1";
 		 String model = "a1";

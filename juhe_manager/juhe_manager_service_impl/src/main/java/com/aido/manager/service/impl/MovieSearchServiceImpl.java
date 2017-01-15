@@ -10,7 +10,7 @@ package com.aido.manager.service.impl;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 
 import com.aido.common.httpclient.HttpClientComponent;
