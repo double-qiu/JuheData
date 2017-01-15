@@ -1,4 +1,4 @@
-package com.aido.manager.domain;
+package com.aido.manager.repo.domain;
 
 import java.io.Serializable;
 
@@ -18,19 +18,19 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@Column(nullable = false, unique = true)
+	@Column(nullable = true, unique = true)
 	private String userName;
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private String passWord;
-	@Column(nullable = false, unique = true)
+	@Column(nullable = true, unique = true)
 	private String email;	
 	@Column(nullable = true)
 	private String profilePicture;
 	@Column(nullable = true,length = 65535,columnDefinition="Text")
 	private String introduction;
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private Long createTime;
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private Long lastModifyTime;
 	@Column(nullable = true)
 	private String outDate;
