@@ -16,7 +16,6 @@
    <properties>
 		<!-- 主要依赖库的版本定义 -->
 		<spring.version>4.2.7.RELEASE</spring.version>
-		<tomcat.version>7.0.55</tomcat.version>
 		<junit.version>4.12</junit.version>
 		<mysql.version>5.1.9</mysql.version>
 		<fastjson.version>1.2.7</fastjson.version>
@@ -83,12 +82,7 @@
 			<artifactId>fastjson</artifactId>
 			<version>${fastjson.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.tomcat.embed</groupId>
-			<artifactId>tomcat-embed-core</artifactId>
-			<version>${tomcat.version}</version>
-			<scope>provided</scope>
-		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>

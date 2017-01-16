@@ -24,6 +24,9 @@
     <!-- 公共服务接口 -->
     <dubbo:service interface=" com.aido.manager.service.CommonService" ref="commonService" />
     
+   <!-- 用户服务接口 -->
+    <dubbo:service interface=" com.aido.manager.service.UserService" ref="userService" />
+    
     <!-- 历史的今天服务接口 -->
     <dubbo:service interface=" com.aido.manager.service.HistoryTodayService" ref="historyTodayService" />
     

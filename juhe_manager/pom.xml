@@ -15,6 +15,7 @@
   	<module>juhe_manager_web</module>
   	<module>juhe_manager_jpa</module>
   	<module>juhe_manager_repo</module>
+  	<module>juhe_manager_controller</module>
   </modules>
   <groupId>com.aido.manager</groupId>
   <artifactId>juhe_manager</artifactId>
