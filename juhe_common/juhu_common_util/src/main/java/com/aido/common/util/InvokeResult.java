@@ -15,7 +15,12 @@ public class InvokeResult implements JModel {
 
     private boolean success=true;
     
-
+    public static InvokeResult success(String errorMessage ,Object data) {
+        InvokeResult result = new InvokeResult();
+        result.data = data;
+        result.errorMessage = errorMessage;
+        return result;
+    }
     public static InvokeResult success(Object data) {
         InvokeResult result = new InvokeResult();
         result.data = data;
