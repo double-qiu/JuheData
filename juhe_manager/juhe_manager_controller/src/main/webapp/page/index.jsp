@@ -4,142 +4,278 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 <!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-<html>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="聚合数据">
+    <meta name="author" content="">
 
-	<head>
-		<base href="<%=basePath%>">
-		<meta charset="utf-8">
-		<title>后台管理</title>
-		<meta name="renderer" content="webkit">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="format-detection" content="telephone=no">
+    <title>聚合数据平台</title>
 
-		<link rel="stylesheet" href="<%=request.getContextPath()%>/plugins/layui/css/layui.css" media="all" />
-		<link rel="stylesheet" href="<%=request.getContextPath()%>/css/global.css" media="all">
-		<link rel="stylesheet" href="<%=request.getContextPath()%>/plugins/font-awesome/css/font-awesome.min.css">
+    <!-- Bootstrap Core CSS -->
+    <link href="<%=request.getContextPath()%>/index/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-	</head>
+    <!-- Theme CSS -->
+    <link href="<%=request.getContextPath()%>/index/css/freelancer.min.css" rel="stylesheet">  
+	<style>
+		#portfolio .portfolio-item .portfolio-link .caption .caption-content{ top:36%;}
+		#portfolio .portfolio-item .portfolio-link .caption .caption-content p{ font-size:16px; line-height:24px; margin:24px 16px 0;}
+	</style>
 
-	<body>
-		<div class="layui-layout layui-layout-admin">
-			<div class="layui-header header header-demo">
-				<div class="layui-main">
-					<div class="admin-login-box">
-						<a class="logo" style="left: 0;" href="http://beginner.zhengjinfan.cn/demo/beginner_admin/">
-							<span style="font-size: 22px;">聚合数据平台</span>
-						</a>
-						<div class="admin-side-toggle">
-							<i class="fa fa-bars" aria-hidden="true"></i>
-						</div>
-					</div>
-					<ul class="layui-nav admin-header-item">
-						<li class="layui-nav-item">
-							<a href="javascript:;">清除缓存</a>
-						</li>
-						<li class="layui-nav-item">
-							<a href="javascript:;">浏览网站</a>
-						</li>
-						<li class="layui-nav-item" id="video1">
-							<a href="javascript:;">视频</a>
-						</li>
-						<li class="layui-nav-item">
-							<a href="javascript:;" class="admin-header-user">
-								<img src="images/0.jpg" />
-								<span>DOUBLE</span>
-							</a>
-							<dl class="layui-nav-child">
-								<dd>
-									<a href="javascript:;"><i class="fa fa-user-circle" aria-hidden="true"></i> 个人信息</a>
-								</dd>
-								<dd>
-									<a href="javascript:;"><i class="fa fa-gear" aria-hidden="true"></i> 设置</a>
-								</dd>
-								<dd id="lock">
-									<a href="javascript:;">
-										<i class="fa fa-lock" aria-hidden="true" style="padding-right: 3px;padding-left: 1px;"></i> 锁屏 (Alt+L)
-									</a>
-								</dd>
-								<dd>
-									<a href="login.html"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
-								</dd>
-							</dl>
-						</li>
-					</ul>
-					<ul class="layui-nav admin-header-item-mobile">
-						<li class="layui-nav-item">
-							<a href="login.html"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="layui-side layui-bg-black" id="admin-side">
-				<div class="layui-side-scroll" id="admin-navbar-side" lay-filter="side"></div>
-			</div>
-			<div class="layui-body" style="bottom: 0;border-left: solid 2px #1AA094;" id="admin-body">
-				<div class="layui-tab admin-nav-card layui-tab-brief" lay-filter="admin-tab">
-					<ul class="layui-tab-title">
-						<li class="layui-this">
-							<i class="fa fa-dashboard" aria-hidden="true"></i>
-							<cite>控制面板</cite>
-						</li>
-					</ul>
-					<div class="layui-tab-content" style="min-height: 150px; padding: 5px 0 0 0;">
-						<div class="layui-tab-item layui-show">
-							<iframe src="<%=request.getContextPath()%>/page/main.jsp"></iframe>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="layui-footer footer footer-demo" id="admin-footer">
-				<div class="layui-main">
-					<p>2016 &copy;
-						<a href="http://beginner.zhengjinfan.cn/demo/beginner_admin/">ufdouble.com</a> LGPL license
-					</p>
-				</div>
-			</div>
-			<div class="site-tree-mobile layui-hide">
-				<i class="layui-icon">&#xe602;</i>
-			</div>
-			<div class="site-mobile-shade"></div>
-			
-			<!--锁屏模板 start-->
-			<script type="text/template" id="lock-temp">
-				<div class="admin-header-lock" id="lock-box">
-					<div class="admin-header-lock-img">
-						<img src="images/0.jpg"/>
-					</div>
-					<div class="admin-header-lock-name" id="lockUserName">beginner</div>
-					<input type="text" class="admin-header-lock-input" value="输入密码解锁.." name="lockPwd" id="lockPwd" />
-					<button class="layui-btn layui-btn-small" id="unlock">解锁</button>
-				</div>
-			</script>
-			<!--锁屏模板 end -->
-			
-			<script type="text/javascript" src="<%=request.getContextPath()%>/plugins/layui/layui.js"></script>
-			<script type="text/javascript" src="<%=request.getContextPath()%>/datas/nav.js"></script>
-			<script src="<%=request.getContextPath()%>/js/index.js"></script>
-			<script>
-				layui.use('layer', function() {
-					var $ = layui.jquery,
-						layer = layui.layer;
+</head>
 
-					$('#video1').on('click', function() {
-						layer.open({
-							title: 'YouTube',
-							maxmin: true,
-							type: 2,
-							content: 'video.html',
-							area: ['800px', '500px']
-						});
-					});
+<body id="page-top" class="index">
 
-				});
-			</script>
-		</div>
-	</body>
+    <!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom affix-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="<%=request.getContextPath()%>/index#page-top">聚合数据</a>
+            </div>
 
-</html>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden active">
+                        <a href="<%=request.getContextPath()%>/index#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">关于</a>
+                    </li>
+                     <li class="page-scroll">
+                        <a href="<%=request.getContextPath()%>/login">登录</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <img class="img-responsive" src="<%=request.getContextPath()%>/index/img/portfolio/profile.png" alt="">
+                    <div class="intro-text">
+                        <span class="name">聚合数据</span>
+                        <hr class="star-light">
+                        <span class="skills">随时随地 - 方便快捷 - 智慧应用</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>应用数据的专家</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 portfolio-item">
+                    <a href="http://127.0.0.1:8080/login" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                                <p>我是一个风骚的程序员</p>
+                            </div>
+                        </div>
+                        <img src="<%=request.getContextPath()%>/index/img/portfolio/cabin.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="http://127.0.0.1:8080/login" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                                <p>我是一个有逼格的设计师</p>
+                            </div>
+                        </div>
+                        <img src="<%=request.getContextPath()%>/index/img/portfolio/cake.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="http://127.0.0.1:8080/login" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                                <p>我是一个有风格的建筑师</p>
+                            </div>
+                        </div>
+                        <img src="<%=request.getContextPath()%>/index/img/portfolio/circus.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="http://127.0.0.1:8080/login" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                                  <p>我是一个游戏狂，看看我的收藏吧！</p>
+                            </div>
+                        </div>
+                        <img src="<%=request.getContextPath()%>/index/img/portfolio/game.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="http://127.0.0.1:8080/login" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                                 <p>我是一个保险柜..</p>
+                            </div>
+                        </div>
+                        <img src="<%=request.getContextPath()%>/index/img/portfolio/safe.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+                <div class="col-sm-4 portfolio-item">
+                    <a href="http://127.0.0.1:8080/login" class="portfolio-link" data-toggle="modal">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <i class="fa fa-search-plus fa-3x"></i>
+                                 <p>我是宅男，我喜欢潜水..</p>
+                            </div>
+                        </div>
+                        <img src="<%=request.getContextPath()%>/index/img/portfolio/submarine.png" class="img-responsive" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="success" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>关于我们</h2>
+                    <hr class="star-light">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-2">
+                    <p>我做了一个可以在线随时随地简单收藏的一个网站 
+                    <br>可以在这个网站上分类整理收藏的网站或者文章，也可以查看别人都收藏了些什么。
+                    <br>可以从浏览器收藏夹导入到我们的网站，也可以从我们的网站导出去做备份。
+                    <br>根据共同的收藏可以找出我们相互兴趣的人。
+                    </p>
+                </div>
+                <div class="col-lg-4">
+                    <p>我们是一群热爱生活，热爱开源，热爱分享的IT人！
+                     <br>开放、自由、分享、开源是我们的主题！
+                     <br>当您的浏览器收藏夹收藏的网站或者文章大于1000份的时候，找东西绝对是个体力活。
+                     <br>那就让聚合数据帮您解决吧，方便分类、整理、查询、搜索。
+                     </p>
+                </div>
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <a href="https://github.com/double-qiu" class="btn btn-lg btn-outline">
+                        <i class="fa fa-download"></i> GITHUB--关注我们
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>联系我们</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <br><br><br>
+                    <p>请发邮件到这里
+                         <a href="mailto:934590736@qq.com">
+                            934590736@qq.com
+                        </a>
+                     </p>
+                     <br>
+                     <p>或者在github上面
+                        <a href="https://github.com/double-qiu">
+                                                           关注我们
+                        </a>
+                     </p>
+         
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4">
+                        <h3>位置</h3>
+                        <p>银河系
+                            <br.></br.>地球, 中国</p>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>联系我们</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="https://github.com/double-qiu" class="btn-social btn-outline"><i class="fa fa-fw fa-github"></i></a>
+                            </li>
+                           
+                        </ul>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>关于网站</h3>
+                        <p>专注于收藏、分享、开源</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-below">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        Copyright © DOUBLE 2017
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+        <a class="btn btn-primary" href="<%=request.getContextPath()%>/index#page-top">
+            <i class="fa fa-chevron-up"></i>
+        </a>
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="<%=request.getContextPath()%>/index/vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="<%=request.getContextPath()%>/index/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="<%=request.getContextPath()%>/index/vendor/jquery/jquery.easing.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="<%=request.getContextPath()%>/index/js/jqBootstrapValidation.js"></script>
+    <script src="<%=request.getContextPath()%>/index/js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="<%=request.getContextPath()%>/index/js/freelancer.min.js"></script>
+  
+
+
+
+</body></html>
