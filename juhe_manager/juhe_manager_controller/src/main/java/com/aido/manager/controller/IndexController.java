@@ -10,7 +10,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.aido.manager.constant.Const;
 
-
+/**
+ * ClassName: IndexController  
+ * 权限控制
+ * @author DOUBLE
+ * @version
+ */
 @Controller
 public class IndexController extends BaseController {
 

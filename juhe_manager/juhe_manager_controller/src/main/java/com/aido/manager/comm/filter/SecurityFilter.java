@@ -18,6 +18,12 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * ClassName: SecurityFilter  
+ * url拦截
+ * @author DOUBLE
+ * @version
+ */
 public class SecurityFilter implements Filter {
 
   protected Logger logger = Logger.getLogger(this.getClass());
@@ -26,6 +32,11 @@ public class SecurityFilter implements Filter {
 	@Autowired
 	private UserRepository userRepository;
 
+	/**
+	 * @param arg0
+	 * @throws ServletException
+	 * @author DOUBLE
+	 */
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
 		GreenUrlSet.add(Const.BASE_PATH + "/");
@@ -35,7 +46,14 @@ public class SecurityFilter implements Filter {
 		GreenUrlSet.add(Const.BASE_PATH + "/forgotPassword");
 		GreenUrlSet.add(Const.BASE_PATH + "/newPassword");
 	}
-	
+	/**
+	 * @param srequest
+	 * @param sresponse
+	 * @param filterChain
+	 * @throws IOException
+	 * @throws ServletException
+	 * @author DOUBLE
+	 */
 	@Override
 	public void doFilter(ServletRequest srequest, ServletResponse sresponse, FilterChain filterChain)
 			throws IOException, ServletException {
@@ -119,10 +137,11 @@ public class SecurityFilter implements Filter {
 	
 	
     /**
-     * @param url
-     * @return
-     * @author neo
-     * @date 2016-5-4
+     *  containsSuffix:
+     *  @return_type:boolean
+     *  @author DOUBLE
+     *  @param url
+     *  @return
      */
     private boolean containsSuffix(String url) {
         if (url.endsWith(".js")
@@ -144,10 +163,11 @@ public class SecurityFilter implements Filter {
     }
     
     /**
-     * @param url
-     * @return
-     * @author neo
-     * @date 2016-5-4
+     *  containsKey:
+     *  @return_type:boolean
+     *  @author DOUBLE
+     *  @param url
+     *  @return
      */
     private boolean containsKey(String url) {
         if (url.contains("/media/")
@@ -162,11 +182,21 @@ public class SecurityFilter implements Filter {
     }
 
 
-	
+	/**
+	 * 
+	 * @author DOUBLE
+	 */
 	@Override
 	public void destroy() {
 	}
 	
+	/**
+	 *  codeToString:
+	 *  @return_type:String
+	 *  @author DOUBLE
+	 *  @param str
+	 *  @return
+	 */
 	public  String codeToString(String str) {
         String strString = str;
         try {
@@ -178,6 +208,13 @@ public class SecurityFilter implements Filter {
         }
     }
 
+	/**
+	 *  getRef:
+	 *  @return_type:String
+	 *  @author DOUBLE
+	 *  @param request
+	 *  @return
+	 */
     public String getRef(HttpServletRequest request){
 		String referer = "";
 		String param = this.codeToString(request.getQueryString());
@@ -194,6 +231,13 @@ public class SecurityFilter implements Filter {
 		return referer;
 	}
 
+    /**
+     *  getUserId:
+     *  @return_type:String
+     *  @author DOUBLE
+     *  @param value
+     *  @return
+     */
     public String getUserId(String value){
 		try {
 			String userId = Des3EncryptionUtil.decode(Const.DES3_KEY,value);
