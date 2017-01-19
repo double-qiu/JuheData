@@ -125,6 +125,4 @@ public class UserServiceImpl implements UserService {
 	public int setProfilePicture(String profilePicture, Long id) {
 		return userRepository.setProfilePicture(profilePicture, id);
 	}
-	
-
 }

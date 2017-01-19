@@ -7,6 +7,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportResource;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -21,6 +22,7 @@ import java.util.concurrent.CountDownLatch;
 @SpringBootApplication
 @ImportResource({"classpath:spring-dubbo.xml"})
 @EnableTransactionManagement
+@EnableJpaRepositories(basePackages = "com.aido.manager.repo.repository")  
 public class App {
 
     private static final Logger logger = LoggerFactory.getLogger(App.class);

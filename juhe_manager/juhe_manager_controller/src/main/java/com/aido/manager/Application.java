@@ -8,10 +8,8 @@ import org.springframework.boot.context.embedded.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @ImportResource({"classpath:spring-dubbo.xml"})
-@EnableTransactionManagement
 public class Application implements EmbeddedServletContainerCustomizer  {
 
 	public static void main(String[] args) throws Exception {

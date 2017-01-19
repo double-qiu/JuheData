@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div class="block-center mt-xl wd-xl">
          <div class="panel panel-dark panel-flat">
             <div class="panel-heading text-center">
-               <a href="http://127.0.0.1:8080/index">
+               <a href="<%=request.getContextPath()%>/index">
                   <img src="<%=request.getContextPath()%>/index/img/logo.png" alt="Image" class="block-center img-rounded">
                </a>
             </div>
@@ -32,11 +32,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                <p class="text-center pv">请登录</p>
                <form id="form" data-parsley-validate="true" onsubmit="return false" novalidate="">
                   <div class="form-group has-feedback">
-                     <input type="text" placeholder="邮箱地址或登录名称" class="form-control" data-parsley-error-message="请输入邮箱地址或登录名称" required="required" data-parsley-id="4">
+                     <input type="text" placeholder="邮箱地址或登录名称" v-model="username" class="form-control" data-parsley-error-message="请输入邮箱地址或登录名称" required="required" data-parsley-id="4">
                      <span class="fa fa-envelope form-control-feedback text-muted"></span>
                   </div>
                   <div class="form-group has-feedback">
-                     <input type="password" placeholder="密码" class="form-control" data-parsley-error-message="请输入密码" required="required" data-parsley-id="6">
+                     <input type="password" placeholder="密码"  v-model="password" class="form-control" data-parsley-error-message="请输入密码" required="required" data-parsley-id="6">
                      <span class="fa fa-lock form-control-feedback text-muted"></span>
                   </div>
                   <div class="clearfix">
@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <a href="<%=request.getContextPath()%>/forgotPassword" class="text-muted">忘记密码？</a>
                      </div>
                   </div>
-                  <button class="btn btn-block btn-primary mt-lg">登录</button>
+                  <button v-on:click="login"  class="btn btn-block btn-primary mt-lg">登录</button>
                </form>
               
                <p></p>
@@ -63,6 +63,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          </div>
       </div>
    </div>
-  
+   <script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery-2.1.3.js"></script>
+	<script type="text/javascript" src="<%=request.getContextPath()%>/js/vue.min.js"></script>
+	 <script type="text/javascript" src="<%=request.getContextPath()%>/index/vendor/parsleyjs/dist/parsley.min.js"></script> 
+  <script type='text/javascript'>
+        var loginPage = new Vue({
+            el: '#loginPage',
+            data: {
+                'username': '',
+                'password': ''
+            },
+            methods: {
+            	login: function(event){
+            		var ok = $('#form').parsley().isValid({force: true});
+            		if(!ok){
+            			return;
+            		}
+            		var datas={
+            				 userName: this.username,
+            				 passWord: this.password
+	            	};
+                     $.ajax({
+                         type: 'POST',
+                         data: datas,
+                         url: '<%=request.getContextPath()%>/user/login',
+                         success:function(result) {
+                         	if(result.success) {
+                         		window.location.href = "<%=request.getContextPath()%>/home";
+                         	} else {
+                         		 $("#errorMsg").html(result.errorMessage);
+              	    		  	 $("#errorMsg").show();
+                         	}
+                         }
+                   });
+                     
+                }
+            }
+        })
+    </script>
 
 </body></html>
