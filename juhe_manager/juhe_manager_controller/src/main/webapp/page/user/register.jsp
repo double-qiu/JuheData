@@ -91,7 +91,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                          url: '<%=request.getContextPath()%>/user/register',
                          success:function(result) {
                          	if(result.success) {
-                         		window.open('<%=request.getContextPath()%>/login');
+                         		window.location.href = "<%=request.getContextPath()%>/login";
                          	} else {
                          		 $("#errorMsg").html(result.errorMessage);
               	    		  	 $("#errorMsg").show();

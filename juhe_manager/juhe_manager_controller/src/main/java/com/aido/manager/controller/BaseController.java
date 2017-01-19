@@ -11,7 +11,7 @@ import com.aido.common.util.ExceptionMsg;
 import com.aido.common.util.MD5Util;
 import com.aido.common.util.Response;
 import com.aido.manager.constant.Const;
-import com.aido.manager.domain.User;
+import com.aido.manager.repo.domain.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -50,7 +50,7 @@ public class BaseController {
     }
     
     protected String getUserName() {
-    	String userName="云收藏";
+    	String userName="聚合数据";
     	User user=getUser();
     	if(user!=null){
     		userName=user.getUserName();

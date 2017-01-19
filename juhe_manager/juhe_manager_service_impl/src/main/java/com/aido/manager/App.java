@@ -7,6 +7,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportResource;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -18,6 +20,7 @@ import java.util.concurrent.CountDownLatch;
  */
 @SpringBootApplication
 @ImportResource({"classpath:spring-dubbo.xml"})
+@EnableTransactionManagement
 public class App {
 
     private static final Logger logger = LoggerFactory.getLogger(App.class);
@@ -30,5 +33,10 @@ public class App {
         logger.info("项目启动!");
         CountDownLatch closeLatch = ctx.getBean(CountDownLatch.class);
         closeLatch.await();
+    }
+    @Bean
+    public Object testBean(PlatformTransactionManager platformTransactionManager){
+        System.out.println(">>>>>>>>>>" + platformTransactionManager.getClass().getName());
+        return new Object();
     }
 }

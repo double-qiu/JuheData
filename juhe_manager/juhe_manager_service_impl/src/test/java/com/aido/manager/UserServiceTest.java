@@ -1,4 +1,4 @@
-package com.aido.manager.repo;
+package com.aido.manager;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -11,8 +11,8 @@ import com.aido.manager.repo.repository.UserRepository;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = DataJpaApplication.class) 
-public class UserRepositoryTest {
+@SpringApplicationConfiguration(classes = App.class) 
+public class UserServiceTest {
 
 	@Autowired
 	private UserRepository userRepository;

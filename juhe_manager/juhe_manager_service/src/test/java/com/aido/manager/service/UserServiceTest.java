@@ -1,4 +1,4 @@
-package com.aido.manager;
+package com.aido.manager.service;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -7,12 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.aido.manager.Application;
 import com.aido.manager.repo.repository.UserRepository;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = App.class) 
-public class UserRepositoryTest {
+@SpringApplicationConfiguration(classes = Application.class) 
+public class UserServiceTest {
 
 	@Autowired
 	private UserRepository userRepository;
@@ -24,7 +25,7 @@ public class UserRepositoryTest {
 //		userRepository.save(new User("bb", "bb@126.com", "bb", "bb123456"));
 //		userRepository.save(new User("cc", "cc@126.com", "cc", "cc123456"));
 
-		Assert.assertEquals(3, userRepository.findAll().size());
+		Assert.assertEquals(null, userRepository.findByEmail("934590736@qq.com"));
 
 		//Assert.assertEquals("aa", userRepository.findByUserName("aa").getUserName());
 

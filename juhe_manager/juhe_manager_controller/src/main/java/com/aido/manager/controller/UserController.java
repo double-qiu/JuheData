@@ -21,8 +21,8 @@ import com.aido.common.util.Copy;
 import com.aido.common.util.DateUtils;
 import com.aido.common.util.ExceptionMsg;
 import com.aido.common.util.InvokeResult;
-import com.aido.manager.domain.User;
 import com.aido.manager.dto.User.UserVO;
+import com.aido.manager.repo.domain.User;
 import com.aido.manager.service.UserService;
 
 /**  
@@ -51,16 +51,16 @@ public class UserController extends BaseController {
 	public InvokeResult registerUser(UserVO userVO){
 		User user = new User();
 		try {
-			User registUser = userService.findByEmail(user.getEmail());
+			User registUser = userService.findByEmail(userVO.getEmail());
 			if (null != registUser) {
 				return InvokeResult.failure(ExceptionMsg.EmailUsed.getMsg());
 			}
-			User userNameUser = userService.findByUserName(user.getUserName());
+			User userNameUser = userService.findByUserName(userVO.getUserName());
 			if (null != userNameUser) {
 				return InvokeResult.failure(ExceptionMsg.UserNameUsed.getMsg());
 			}
 			Copy.simpleCopyExcludeNull(userVO, user);
-			user.setPassWord(getPwd(user.getPassWord()));
+			user.setPassWord(getPwd(userVO.getPassWord()));
 			user.setCreateTime(DateUtils.getCurrentTime());
 			user.setLastModifyTime(DateUtils.getCurrentTime());
 			user.setProfilePicture("img/favicon.png");

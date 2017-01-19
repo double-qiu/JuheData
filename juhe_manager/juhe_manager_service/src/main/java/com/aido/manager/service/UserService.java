@@ -1,6 +1,7 @@
 package com.aido.manager.service;
 
-import com.aido.manager.domain.User;
+
+import com.aido.manager.repo.domain.User;
 
 /**
  * ClassName: UserService  
@@ -8,6 +9,7 @@ import com.aido.manager.domain.User;
  * @author DOUBLE
  * @version
  */
+
 public interface UserService {
 
     /**
