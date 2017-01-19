@@ -9,10 +9,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="聚合数据">
+    <meta name="description" content="聚合数据应用平台">
     <meta name="author" content="">
 
-    <title>聚合数据平台</title>
+    <title>聚合数据应用平台</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="<%=request.getContextPath()%>/index/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="<%=request.getContextPath()%>/index#page-top">聚合数据</a>
+                <a class="navbar-brand" href="<%=request.getContextPath()%>/index#page-top">聚合数据应用平台</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -63,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="col-lg-12">
                     <img class="img-responsive" src="<%=request.getContextPath()%>/index/img/portfolio/profile.png" alt="">
                     <div class="intro-text">
-                        <span class="name">聚合数据</span>
+                        <span class="name">聚合数据应用平台</span>
                         <hr class="star-light">
                         <span class="skills">随时随地 - 方便快捷 - 智慧应用</span>
                     </div>
@@ -83,7 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div class="row">
                 <div class="col-sm-4 portfolio-item">
-                    <a href="http://127.0.0.1:8080/login" class="portfolio-link" data-toggle="modal">
+                    <a href="/login" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-search-plus fa-3x"></i>
@@ -94,7 +94,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
-                    <a href="http://127.0.0.1:8080/login" class="portfolio-link" data-toggle="modal">
+                    <a href="/login" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-search-plus fa-3x"></i>
@@ -105,29 +105,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
-                    <a href="http://127.0.0.1:8080/login" class="portfolio-link" data-toggle="modal">
+                    <a href="/login" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-search-plus fa-3x"></i>
-                                <p>我是一个有风格的建筑师</p>
+                                <p>我是一个有梦想的建筑师</p>
                             </div>
                         </div>
                         <img src="<%=request.getContextPath()%>/index/img/portfolio/circus.png" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
-                    <a href="http://127.0.0.1:8080/login" class="portfolio-link" data-toggle="modal">
+                    <a href="/login" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-search-plus fa-3x"></i>
-                                  <p>我是一个游戏狂，看看我的收藏吧！</p>
+                                  <p>我是一个游戏狂，看看我的应用吧！</p>
                             </div>
                         </div>
                         <img src="<%=request.getContextPath()%>/index/img/portfolio/game.png" class="img-responsive" alt="">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
-                    <a href="http://127.0.0.1:8080/login" class="portfolio-link" data-toggle="modal">
+                    <a href="/login" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-search-plus fa-3x"></i>
@@ -138,7 +138,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
-                    <a href="http://127.0.0.1:8080/login" class="portfolio-link" data-toggle="modal">
+                    <a href="/login" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
                                 <i class="fa fa-search-plus fa-3x"></i>
@@ -157,28 +157,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>关于我们</h2>
+                    <h2>关于作者</h2>
                     <hr class="star-light">
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-lg-offset-2">
-                    <p>我做了一个可以在线随时随地简单收藏的一个网站 
-                    <br>可以在这个网站上分类整理收藏的网站或者文章，也可以查看别人都收藏了些什么。
-                    <br>可以从浏览器收藏夹导入到我们的网站，也可以从我们的网站导出去做备份。
-                    <br>根据共同的收藏可以找出我们相互兴趣的人。
+                    <p>我们从不生产数据，我们只是数据的搬运工。
+                    <br>信息爆炸的今天，各种数据正在呈指数级增长。
+                    <br>大数据分析，大数据挖掘，构建了这个聚合数据平台应用。
+                    <br>生活常用、影视娱乐、知识问答、车辆服务数据应用等等。
+                    <br>为用户打造一款在线应用服务的可视化数据平台。
                     </p>
                 </div>
                 <div class="col-lg-4">
-                    <p>我们是一群热爱生活，热爱开源，热爱分享的IT人！
+                    <p>热爱生活，热爱开源，热爱分享的IT人！
                      <br>开放、自由、分享、开源是我们的主题！
-                     <br>当您的浏览器收藏夹收藏的网站或者文章大于1000份的时候，找东西绝对是个体力活。
-                     <br>那就让聚合数据帮您解决吧，方便分类、整理、查询、搜索。
                      </p>
                 </div>
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <a href="https://github.com/double-qiu" class="btn btn-lg btn-outline">
-                        <i class="fa fa-download"></i> GITHUB--关注我们
+                        <i class="fa fa-download"></i> GITHUB--关注作者
                     </a>
                 </div>
             </div>
@@ -190,7 +189,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>联系我们</h2>
+                    <h2>联系作者</h2>
                     <hr class="star-primary">
                 </div>
             </div>
@@ -205,7 +204,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                      <br>
                      <p>或者在github上面
                         <a href="https://github.com/double-qiu">
-                                                           关注我们
+                                                           关注作者
                         </a>
                      </p>
          
@@ -225,17 +224,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <br.></br.>地球, 中国</p>
                     </div>
                     <div class="footer-col col-md-4">
-                        <h3>联系我们</h3>
+                        <h3>联系作者</h3>
                         <ul class="list-inline">
                             <li>
-                                <a href="https://github.com/double-qiu" class="btn-social btn-outline"><i class="fa fa-fw fa-github"></i></a>
+                                <a href="https://github.com/double-qiu" class="btn-social btn-outline"><img style="width:50px; height:47px; border-radius:50%; overflow:hidden;" class="img-responsive" src="/images/double.jpg" alt=""><i class="fa fa-fw fa-github"></i></a>
                             </li>
-                           
                         </ul>
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>关于网站</h3>
-                        <p>专注于收藏、分享、开源</p>
+                        <p>专注于分享、开源</p>
                     </div>
                 </div>
             </div>

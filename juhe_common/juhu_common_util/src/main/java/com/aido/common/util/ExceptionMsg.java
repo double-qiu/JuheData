@@ -5,8 +5,10 @@ public enum ExceptionMsg {
 	SUCCESS("000000", "操作成功"),
 	FAILED("999999","操作失败"),
     ParamError("000001", "参数错误！"),
+    LOGINFAILED("100000","登录异常，请重试"),
+    REGISTERFAILED("200000","注册异常，请重试"),
     
-    LoginNameOrPassWordError("000100", "用户名或者密码错误！"),
+    LoginNameOrPassWordError("000100", "用户名或者密码错误"),
     EmailUsed("000101","该邮箱已被注册"),
     UserNameUsed("000102","该登录名称已存在"),
     EmailNotRegister("000103","该邮箱地址未注册"), 

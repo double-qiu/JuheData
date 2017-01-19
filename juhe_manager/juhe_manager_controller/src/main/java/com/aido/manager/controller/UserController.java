@@ -67,9 +67,10 @@ public class UserController extends BaseController {
 			user.setLastModifyTime(DateUtils.getCurrentTime());
 			user.setProfilePicture("img/favicon.png");
 			userService.create(user);
+			getSession().setAttribute(Const.LOGIN_SESSION_KEY, user);
 		} catch (Exception e) {
 			logger.error("用户注册失败：" + e.getMessage(),e);
-			return InvokeResult.failure(e.getMessage());
+			return InvokeResult.failure(ExceptionMsg.REGISTERFAILED.getMsg());
 		}
 		return InvokeResult.success(user.getId());
 	}
@@ -106,7 +107,7 @@ public class UserController extends BaseController {
 			return  InvokeResult.success(ExceptionMsg.SUCCESS.getCode());
 		} catch (Exception e) {
 			logger.error("用户登陆失败：" + e.getMessage(),e);
-			return InvokeResult.failure(e.getMessage());
+			return InvokeResult.failure(ExceptionMsg.LOGINFAILED.getMsg());
 		}
 	}
 	
