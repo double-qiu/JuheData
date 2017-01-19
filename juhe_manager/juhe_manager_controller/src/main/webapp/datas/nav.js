@@ -5,19 +5,19 @@ var navs = [{
 	"children": [{
 		"title": "微信精选",
 		"icon": "&#xe641;",
-		"href": "/juhe_manager_web/page/otherdata/weChatSelectedPage.jsp"
+		"href": "/page/otherdata/weChatSelectedPage.jsp"
 	}, {
 		"title": "新闻头条",
 		"icon": "&#xe63c;",
-		"href": "/juhe_manager_web/page/otherdata/newsList.jsp"
+		"href": "/page/otherdata/newsList.jsp"
 	}, {
 		"title": "驾考题库",
 		"icon": "&#xe63c;",
-		"href": "/juhe_manager_web/page/otherdata/drivingTest.jsp"
+		"href": "/page/otherdata/drivingTest.jsp"
 	}, {
 		"title": "万年历",
 		"icon": "&#xe63c;",
-		"href": "/juhe_manager_web/page/table.jsp"
+		"href": "/page/table.jsp"
 	}, {
 		"title": "邮编查询",
 		"icon": "&#xe609;",
@@ -34,7 +34,7 @@ var navs = [{
 	"children": [{
 		"title": "聊天机器人",
 		"icon": "&#xe641;",
-		"href": "/juhe_manager_web/page/otherdata/chatRobot.jsp"
+		"href": "/page/otherdata/chatRobot.jsp"
 	}, {
 		"title": "成语词典",
 		"icon": "&#xe63c;",
@@ -55,7 +55,7 @@ var navs = [{
 	"children": [{
 		"title": "影视影讯检索",
 		"icon": "&#xe641;",
-		"href": "/juhe_manager_web/page/otherdata/movieSearch.jsp"
+		"href": "/page/otherdata/movieSearch.jsp"
 	}, {
 		"title": "电影票房",
 		"icon": "&#xe63c;",
@@ -63,7 +63,7 @@ var navs = [{
 	}, {
 		"title": "电视节目时间表",
 		"icon": "&#xe63c;",
-		"href": "/juhe_manager_web/page/table.jsp"
+		"href": "/page/table.jsp"
 	}, {
 		"title": "星座运势",
 		"icon": "&#xe609;",
@@ -76,7 +76,7 @@ var navs = [{
 	"children": [{
 		"title": "历史的今天",
 		"icon": "&#xe641;",
-		"href": "/juhe_manager_web/page/otherdata/historyTodayList.jsp"
+		"href": "/page/otherdata/historyTodayList.jsp"
 	}, {
 		"title": "图书电商数据",
 		"icon": "&#xe63c;",
@@ -84,7 +84,7 @@ var navs = [{
 	}, {
 		"title": "简/繁/火星字体转换",
 		"icon": "&#xe63c;",
-		"href": "/juhe_manager_web/page/table.jsp"
+		"href": "/page/table.jsp"
 	}, {
 		"title": "全国WIFI",
 		"icon": "&#xe609;",
@@ -105,7 +105,7 @@ var navs = [{
 	}, {
 		"title": "表格",
 		"icon": "&#xe63c;",
-		"href": "/juhe_manager_web/page/table.jsp"
+		"href": "/page/table.jsp"
 	}, {
 		"title": "导航",
 		"icon": "&#xe609;",
