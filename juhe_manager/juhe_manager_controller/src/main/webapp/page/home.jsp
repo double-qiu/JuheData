@@ -64,14 +64,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									</a>
 								</dd>
 								<dd>
-									<a href="login.html"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
+									<a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
 								</dd>
 							</dl>
 						</li>
 					</ul>
 					<ul class="layui-nav admin-header-item-mobile">
 						<li class="layui-nav-item">
-							<a href="login.html"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
+							<a href="/logout"><i class="fa fa-sign-out" aria-hidden="true"></i> 注销</a>
 						</li>
 					</ul>
 				</div>

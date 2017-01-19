@@ -22,11 +22,6 @@
 		    <artifactId>druid</artifactId>
 		    <version>1.0.26</version>
 		</dependency>
-    <!-- <dependency>
-	     	<groupId>com.aido.manager.domain</groupId>
-	  		<artifactId>juhe_manager_domain</artifactId>
-	      	<version>0.0.1-SNAPSHOT</version>
-	    </dependency> -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>

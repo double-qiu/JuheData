@@ -19,7 +19,6 @@ public class Application implements EmbeddedServletContainerCustomizer  {
 	@Override  
 	public void customize(ConfigurableEmbeddedServletContainer configurableEmbeddedServletContainer) {  
 	    configurableEmbeddedServletContainer.setPort(8090);  
-	    configurableEmbeddedServletContainer.setContextPath("/juhe_manager_web");
 	}  
    @Bean
    public FilterRegistrationBean registerOpenEntityManagerInViewFilterBean() {

@@ -89,7 +89,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                          url: '<%=request.getContextPath()%>/user/login',
                          success:function(result) {
                          	if(result.success) {
-                         		window.location.href = "<%=request.getContextPath()%>/home";
+                         		window.location.href = "<%=request.getContextPath()%>/";
                          	} else {
                          		 $("#errorMsg").html(result.errorMessage);
               	    		  	 $("#errorMsg").show();

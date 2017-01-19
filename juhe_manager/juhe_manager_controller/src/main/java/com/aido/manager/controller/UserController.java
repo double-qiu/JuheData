@@ -8,6 +8,7 @@
 package com.aido.manager.controller;
 
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
@@ -21,6 +22,7 @@ import com.aido.common.util.Copy;
 import com.aido.common.util.DateUtils;
 import com.aido.common.util.ExceptionMsg;
 import com.aido.common.util.InvokeResult;
+import com.aido.manager.constant.Const;
 import com.aido.manager.dto.User.UserVO;
 import com.aido.manager.repo.domain.User;
 import com.aido.manager.service.UserService;
@@ -88,6 +90,18 @@ public class UserController extends BaseController {
 				return InvokeResult.failure(ExceptionMsg.LoginNameNotExists.getMsg());
 			}else if(!loginUser.getPassWord().equals(getPwd(userVO.getPassWord()))){
 				return InvokeResult.failure(ExceptionMsg.LoginNameOrPassWordError.getMsg());
+			}
+			Cookie cookie = new Cookie(Const.LOGIN_SESSION_KEY, cookieSign(loginUser.getId().toString()));
+			cookie.setMaxAge(Const.COOKIE_TIMEOUT);
+			cookie.setPath("/");
+			response.addCookie(cookie);
+			getSession().setAttribute(Const.LOGIN_SESSION_KEY, loginUser);
+			String preUrl = "/";
+			if(null != getSession().getAttribute(Const.LAST_REFERER)){
+				preUrl = String.valueOf(getSession().getAttribute(Const.LAST_REFERER));
+				if(preUrl.indexOf("/collect?") < 0){
+					preUrl = "/";
+				}
 			}
 			return  InvokeResult.success(ExceptionMsg.SUCCESS.getCode());
 		} catch (Exception e) {

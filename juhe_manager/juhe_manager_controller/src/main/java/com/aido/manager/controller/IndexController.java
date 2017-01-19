@@ -1,11 +1,18 @@
 package com.aido.manager.controller;
 
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.aido.manager.constant.Const;
+
 
 @Controller
-public class WelcomeController {
+public class IndexController extends BaseController {
 
 	/**
 	 *  index:首页
@@ -18,7 +25,7 @@ public class WelcomeController {
 		return "index";
 	}
 	
-	@RequestMapping("/home")
+	@RequestMapping("/")
 	public String home() {
 		return "home";
 	}
@@ -52,5 +59,22 @@ public class WelcomeController {
 	@RequestMapping("/register")
 	public String register() {
 		return "/user/register";
+	}
+	/**
+	 *  logout:登出
+	 *  @return_type:String
+	 *  @author DOUBLE
+	 *  @param response
+	 *  @return
+	 */
+	@RequestMapping(value="/logout",method=RequestMethod.GET)
+	public String logout(HttpServletResponse response) {
+		getSession().removeAttribute(Const.LOGIN_SESSION_KEY);
+		getSession().removeAttribute(Const.LAST_REFERER);
+		Cookie cookie = new Cookie(Const.LOGIN_SESSION_KEY, "");
+		cookie.setMaxAge(0);
+		cookie.setPath("/");
+		response.addCookie(cookie);
+		return "index";
 	}
 }
