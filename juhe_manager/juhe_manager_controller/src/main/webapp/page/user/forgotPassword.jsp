@@ -9,7 +9,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
    <meta name="description" content="Bootstrap Admin App + jQuery">
    <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
-   <title>Favorites</title>
+  <title>聚合数据平台</title>
+  <link rel="shortcut icon" type="image/png" href="<%=request.getContextPath()%>/index/img/favicon.png">
   
 </head><body>
 	<link rel="stylesheet" href="<%=request.getContextPath()%>/index/vendor/fontawesome/css/font-awesome.min.css">

@@ -11,8 +11,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="聚合数据应用平台">
     <meta name="author" content="">
-
-    <title>聚合数据应用平台</title>
+    <title>聚合数据平台</title>
+    <link rel="shortcut icon" type="image/png" href="<%=request.getContextPath()%>/index/img/favicon.png">
 
     <!-- Bootstrap Core CSS -->
     <link href="<%=request.getContextPath()%>/index/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -163,8 +163,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
             <div class="row">
                 <div class="col-lg-4 col-lg-offset-2">
-                    <p>我们从不生产数据，我们只是数据的搬运工。
-                    <br>信息爆炸的今天，各种数据正在呈指数级增长。
+                    <p>信息爆炸的今天，各种数据正在呈指数级增长。
                     <br>大数据分析，大数据挖掘，构建了这个聚合数据平台应用。
                     <br>生活常用、影视娱乐、知识问答、车辆服务数据应用等等。
                     <br>为用户打造一款在线应用服务的可视化数据平台。
@@ -172,8 +171,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </div>
                 <div class="col-lg-4">
                     <p>热爱生活，热爱开源，热爱分享的IT人！
-                     <br>开放、自由、分享、开源是我们的主题！
-                     </p>
+                    <br>开放、自由、分享、开源是我们的主题！
+                    <br>我们从不生产数据，我们只是数据的搬运工。
+                    </p>
                 </div>
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <a href="https://github.com/double-qiu" class="btn btn-lg btn-outline">

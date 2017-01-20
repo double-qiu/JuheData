@@ -17,27 +17,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<body>
 		<div class="admin-main">
 			<blockquote class="layui-elem-quote">
-				<p>本模板基于LayUI实现 ,支持所有LayUI组件.</p>
-				LayUI文档地址：
-				<a href="http://www.layui.com/doc" target="_blank">http://www.layui.com/doc</a>
-				<p>项目地址：
-					<a href="http://git.oschina.net/besteasyteam/beginner_admin" target="_blank">http://git.oschina.net/besteasyteam/beginner_admin</a>
+				<p>本项目前端基于LayUI实现 ,支持所有LayUI组件.</p>
+				前端UI项目地址：
+				<a href="https://github.com/double-qiu/JUHE_UI" target="_blank"> <cite style="color: #1AA094;">https://github.com/double-qiu/JUHE_UI</cite></a>
+				<p>本项目目前后端采用springboot + spring data jpa + dubbo + zookeeper + redis + Spring Security + vue + swagger2 + mysql 实现
 				</p>
+				项目地址：
+				<a href="https://github.com/double-qiu/JuheData" target="_blank"> <cite style="color: #1AA094;">https://github.com/double-qiu/JuheData</cite></a>
 				<p>建议反馈和问题收集地址:
-					<a href="http://beginner.zhengjinfan.cn/detail-36" target="_blank">http://beginner.zhengjinfan.cn/detail-36</a>
+					<a href="http://ufdouble.com" target="_blank"><cite style="color: #1AA094;">http://ufdouble.com</cite></a>
 				</p>
-				<p>交流群：248049395</p>
+				<p>QQ：934590736</p>
+				<p>邮箱：934590736@qq.com</p>
 			</blockquote>
 			<fieldset class="layui-elem-field">
 				<legend>更新日志</legend>
 				<div class="layui-field-box">
 					<fieldset class="layui-elem-field layui-field-title">
-						<legend>版本号:# v0.0.9 2016-12-22</legend>
+						<legend>版本号:# v0.0.1-SNAPSHOT 2017-01-20</legend>
 						<div class="layui-field-box">
-							<p>1、添加锁屏界面，按Alt+L组合键也能触发哦 ~~~~</p>
+							<p>1、项目基本整体架构搭建完成，实现微信精选、新闻头条、驾考题库、聊天机器人、影视影讯检索、历史的今天、图书电商数据等模块功能！</p>
 						</div>
 					</fieldset>
-					<fieldset class="layui-elem-field layui-field-title">
+					<!-- <fieldset class="layui-elem-field layui-field-title">
 						<legend>版本号:# v0.0.8 2016-12-21</legend>
 						<div class="layui-field-box">
 							<p>1、navbar组件 添加属性 <cite style="color: #1AA094;">spreadOne </cite>"设置是否只展开一个二级菜单，默认为false"</p>
@@ -113,7 +115,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</div>
 					</fieldset>
 				</div>
-			</fieldset>
+			</fieldset> -->
 		</div>
 	</body>
 
