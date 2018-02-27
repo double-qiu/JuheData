@@ -54,7 +54,7 @@ public class WeChatSelectedServiceImpl implements WeChatSelectedService {
 		if(result == null) {
 			return weChatSelectdPageVO;
 		}
-		int totalPageRes = (int) result.get("totalPage");
+		int totalPageRes = Integer.parseInt(result.get("totalPage").toString());
 		List<WeChatSelectdVO> weChatListRes = (List<WeChatSelectdVO>) result.get("list");
 		weChatSelectdPageVO.setList(weChatListRes);
 		weChatSelectdPageVO.setTotalPage(totalPageRes);
